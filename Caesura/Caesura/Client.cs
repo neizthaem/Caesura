@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Caesura
 {
-    public class Class1
+    class Client
     {
     }
 }
