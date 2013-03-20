@@ -50,6 +50,16 @@ namespace Caesura
             newUser.setPass(null);
         }
 
+        [Test()]
+        public void testWritten()
+        {
+            User newUser = new User();
+            newUser.setName("TestName");
+            newUser.setPass("TestPass");
+            newUser.writeNP();
+        }
+
+
     }
 }
 
