@@ -21,9 +21,18 @@ namespace Caesura
         [Test()]
         public void nameAcceptTest()
         {
-
+            User newUser = new User();
+            newUser.setName("TestName");
+            Assert.AreEqual("TestName", newUser.getName());
         }
 
+        [Test()]
+        public void passAcceptTest()
+        {
+            User newUser = new User();
+            newUser.setPass("TestPass");
+            Assert.AreEqual("TestPass", newUser.getPass());
+        }
 
 
     }
