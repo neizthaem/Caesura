@@ -34,6 +34,21 @@ namespace Caesura
             Assert.AreEqual("TestPass", newUser.getPass());
         }
 
+        [Test()]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void nullNameTest()
+        {
+            User newUser = new User();
+            newUser.setName(null);
+        }
+
+        [Test()]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void nullPassTest()
+        {
+            User newUser = new User();
+            newUser.setPass(null);
+        }
 
     }
 }
