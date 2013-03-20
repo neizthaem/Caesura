@@ -56,7 +56,8 @@ namespace Caesura
             User newUser = new User();
             newUser.setName("TestName");
             newUser.setPass("TestPass");
-            newUser.writeNP();
+            Assert.IsTrue(newUser.writeNP());
+            
         }
 
 

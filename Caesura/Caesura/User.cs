@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Caesura
 {
@@ -40,6 +41,22 @@ namespace Caesura
         internal object getPass()
         {
             return this.password;
+        }
+
+        internal bool writeNP()
+        {
+            StreamWriter writer = File.AppendText("c:\\Users.txt");
+            
+            try{
+                writer.WriteLine(this.name + ' ' + this.password);
+                writer.Close();
+            return true;
+            }
+
+            catch
+            {
+                return false;
+            }
         }
     }
 }
