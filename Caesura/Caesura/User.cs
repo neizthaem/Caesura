@@ -17,5 +17,25 @@ namespace Caesura
 
 
 
+
+        internal void setName(String p)
+        {
+            this.name = p.ToString();
+        }
+
+        internal String getName()
+        {
+            return this.name;
+        }
+
+        internal void setPass(String p)
+        {
+            this.password = p.ToString();
+        }
+
+        internal object getPass()
+        {
+            return this.password;
+        }
     }
 }
