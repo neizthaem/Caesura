@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.IO;
 using Caesura;
 using NUnit.Framework;
@@ -10,71 +11,101 @@ namespace CaesuraTest
     public class SearchTest
     {
 
-        private List<String> list(params String[] arr)
-        {
+        // Test Helper Method to generate string lists easily
+        private List<String> list(params String[] arr) {
             List<String> l = new List<String>();
-            foreach (String s in arr)
-            {
-                l.Add(s);
-            }
+            foreach (String s in arr) { l.Add(s); }
             return l;
         }
 
-        [Test()]
-        public void TestFileExists()
+        [TestFixtureSetUp]
+        public void Init()
         {
-            Boolean b = Search.FileExists("SearchTestFiles/", "info.tags");
-            Assert.AreEqual(true, b);
-        }
-
-        [Test()]
-        public void TestGetTags()
-        {
-            List<String> expectedTags = list("anime", "video");
-            List<String> actualTags = Search.GetTags("SearchTestFiles/", "animeFile.txt");
-            Assert.AreEqual(expectedTags, actualTags);
-        }
-
-        [Test()]
-        public void TestGetTagsFileNotTagged()
-        {
-            List<String> expectedTags = list("untagged");
-            List<String> actualTags = Search.GetTags("SearchTestFiles/", "untagged.txt");
-            Assert.AreEqual(expectedTags, actualTags);
-        }
-
-        [Test()]
-        public void TestGetTagsFileNotFound()
-        {
-            List<String> expectedTags = list();
-            List<String> actualTags = Search.GetTags("SearchTestFiles/", "unknown.txt");
-            Assert.AreEqual(expectedTags, actualTags);
-        }
-
-        /*[Test()]
-        public void TestGetTagsNoTaggingFile()
-        {
-            List<String> expectedTags = list();
-            List<String> actualTags = Search.GetTags("", "unknown.txt");
-            Assert.AreEqual(expectedTags, actualTags);
-            if (!File.Exists("info.tags"))
+            if (!(Directory.Exists(Search.tagDir)))
             {
-                Assert.AreEqual("info.tags created", "info.tags NOT created");
+                Directory.CreateDirectory(Search.tagDir);
             }
-        }*/
+        }
+
+        [TestFixtureTearDown]
+        public void Cleanup() {
+            //Directory.Delete("C:\\Caesura", true);
+        }
 
         [Test()]
-        public void TestFilesTaggedAs()
+        [ExpectedException()]
+        public void TestBuildTagSubEmptyPath()
         {
-            List<String> expected = list("animeFile.txt");
-            List<String> actual = Search.GetFilesTaggedAs("anime");
+            String path = "";
+            String expected = "C:\\Caesura\\tags";
+            String actual = Search.buildTagSubDir(path);
             Assert.AreEqual(expected, actual);
         }
 
         [Test()]
-        public void TestFilesContainingTags()
+        public void TestBuildTagSubCRootPath()
         {
+            String path = "C:";
+            String expected = "C:\\Caesura\\tags";
+            String actual = Search.buildTagSubDir(path);
+            Assert.AreEqual(expected, actual);
+        }
 
+        [Test()]
+        [ExpectedException()]
+        public void TestBuildTagSubInvalidRecursivePath()
+        {
+            String path = "C:\\Caesura\\tags";
+            String expected = "C:\\Caesura\\tags\\Users\\Austin\\.ssh\\Caesura\\Caesura\\CaesuraTest\\bin\\Debug\\SearchTestFiles";
+            String actual = Search.buildTagSubDir(path);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test()]
+        public void TestBuildTagSubDirValidPath()
+        {
+            String path = "C:\\Users\\Austin\\.ssh\\Caesura\\Caesura\\CaesuraTest\\bin\\Debug\\SearchTestFiles";
+            String expected = "C:\\Caesura\\tags\\Users\\Austin\\.ssh\\Caesura\\Caesura\\CaesuraTest\\bin\\Debug\\SearchTestFiles";
+            String actual = Search.buildTagSubDir(path);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test()]
+        [ExpectedException()]
+        public void TestRestoreTagSubEmptyPath()
+        {
+            String path = "C:\\Caesura\\tags";
+            String expected = "";
+            String actual = Search.restoreTagSubDir(path);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test()]
+        public void TestRestoreTagSubCRootPath()
+        {
+            String path = "C:\\Caesura\\tags";
+            String expected = "C:";
+            String actual = Search.restoreTagSubDir(path);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test()]
+        [ExpectedException()]
+        public void TestRestoreTagSubInvalidRecursivePath()
+        {
+            String path = "C:\\Caesura\\tags\\Users\\Austin\\.ssh\\Caesura\\Caesura\\CaesuraTest\\bin\\Debug\\SearchTestFiles";
+            String expected = "C:\\Caesura\\tags";
+            String actual = Search.restoreTagSubDir(path);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test()]
+        public void TestRestoreTagSubDirValidPath()
+        {
+            String path = "C:\\Caesura\\tags\\Users\\Austin\\.ssh\\Caesura\\Caesura\\CaesuraTest\\bin\\Debug\\SearchTestFiles";
+            String expected = "C:\\Users\\Austin\\.ssh\\Caesura\\Caesura\\CaesuraTest\\bin\\Debug\\SearchTestFiles";
+            String actual = Search.restoreTagSubDir(path);
+            Assert.AreEqual(expected, actual);
         }
 
     }

@@ -10,60 +10,42 @@ namespace Caesura
     public class Search
     {
 
-        /**
-         * Returns true if the file exists false otherwise
-         */
-        public static Boolean FileExists(String path, String file)
+        public static String tagDir = "C:\\Caesura\\tags";
+
+        public static String buildTagSubDir(String path)
         {
-            return File.Exists(path + file);
+            if (path == "")
+            {
+                throw new Exception("Invalid Path: empty path");
+            }
+            String[] pieces = path.Split('\\');
+            StringBuilder str = new StringBuilder();
+            if (pieces[0] == "C:" && pieces.Length > 1 && pieces[1] == "Caesura")
+            {
+                throw new Exception("Invalid Path: Recursive");
+            }
+            for (int i = 1; i < pieces.Length; i++)
+            {
+                str.Append('\\' + pieces[i]);
+            }
+            return tagDir + str.ToString();
         }
 
-        /**
-         * Returns all of tags associated with the file at path
-         **/
-        public static List<String> GetTags(String path, String file)
+        public static String restoreTagSubDir(String path)
         {
-            List<String> tags = new List<String>();
+            String[] pieces = path.Split('\\');
+            StringBuilder str = new StringBuilder();
 
-            if (!File.Exists(path + file))
+            if (path == "" || pieces.Length < 2 || pieces[0] != "C:" || pieces[1] != "Caesura")
             {
-                return tags;
-            }
-            if (!File.Exists(path + "info.tags"))
-            {
-                // TODO: Create the file
+                throw new Exception("Invalid Path");
             }
 
-            String line; String found = "notfound untagged";
-            System.IO.StreamReader fh = new System.IO.StreamReader(path + "info.tags");
-            while ((line = fh.ReadLine()) != null)
+            for (int i = 3; i < pieces.Length; i++)
             {
-                if (line.Split('\t')[0] == file) { found = line; break; }
-                found = line;
+                str.Append('\\' + pieces[i]);
             }
-
-            String[] values = found.Split('\t');
-            for (int i = 1; i < values.Length; i++)
-            {
-                tags.Add(values[i]);
-            }
-            fh.Close();
-            return tags;
-        }
-
-        /**
-         * Returns a list of files at the path that contain each tag(s)
-         **/
-        public static List<String> GetFilesTaggedAs(String path, params String[] tags) {
-            return null;
-        }
-
-        /**
-         * Returns a list of files at the path that at least one of the tag(s)
-         **/
-        public static List<String> GetFilesContainingTags(String path, params String[] tags)
-        {
-            return null;
+            return "C:" + str.ToString();
         }
 
 
