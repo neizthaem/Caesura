@@ -1,0 +1,9 @@
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\nunit.framework.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\nunit.framework.xml
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Rhino.Mocks.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Rhino.Mocks.xml

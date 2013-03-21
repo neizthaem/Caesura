@@ -25,18 +25,18 @@ namespace Caesura
             s = new server();
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            mock = null;
+            mockiSocket = null;
+            s = null;
+        }
+
         [Test]
         public void testServerNoParameterConstructor()
         {
-            
             Assert.IsNotNull(s);
-        }
-
-        // This Test should fail.
-        [Test]
-        public void testAssertAreSameWithMockedElements()
-        {
-            Assert.AreSame(mockiSocket, 3);
         }
 
         [Test]
@@ -44,6 +44,19 @@ namespace Caesura
         {
             s.setSocket(mockiSocket);
             Assert.AreSame(mockiSocket, s.socket);
+        }
+
+        [Test]
+        public void testServerListen()
+        {
+            s.setSocket(mockiSocket);
+            iSocket tempMockiSocket = mock.StrictMock<iSocket>();
+
+            mockiSocket.Stub(a => a.accept()).Return(tempMockiSocket);
+
+            s.listen();
+
+            Assert.AreSame(s.socket, tempMockiSocket);
         }
     }
 }
