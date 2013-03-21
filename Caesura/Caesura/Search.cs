@@ -15,7 +15,7 @@ namespace Caesura
          */
         public static Boolean FileExists(String path, String file)
         {
-            return false;
+            return File.Exists(path + file);
         }
 
         /**
@@ -23,7 +23,22 @@ namespace Caesura
          **/
         public static List<String> GetTags(String path, String file)
         {
-            return null;
+            List<String> tags = new List<String>();
+
+            String line;
+            System.IO.StreamReader fh = new System.IO.StreamReader(path + "info.tags");
+            while ((line = fh.ReadLine()) != null)
+            {
+                if (line.Split('\t')[0] == file) { break; }
+                line = file;
+            }
+
+            String[] values = line.Split('\t');
+            for (int i = 1; i < values.Length; i++)
+            {
+                tags.Add(values[i]);
+            }
+            return tags;
         }
 
         /**

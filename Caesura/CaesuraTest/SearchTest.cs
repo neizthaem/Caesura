@@ -1,6 +1,7 @@
 ﻿using System;
 using Caesura;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace CaesuraTest
 {
@@ -8,17 +9,37 @@ namespace CaesuraTest
     public class SearchTest
     {
 
+        private List<String> list(params String[] arr)
+        {
+            List<String> l = new List<String>();
+            foreach (String s in arr)
+            {
+                l.Add(s);
+            }
+            return l;
+        }
+
         [Test()]
         public void TestFileExists()
         {
-            Boolean b = Search.FileExists("SearchTestFiles/", "test_file.txt");
-            Assert.AreEqual(true, Search.FileExists("SearchTestFiles/", "test_file.txt"));
+            Boolean b = Search.FileExists("SearchTestFiles/", "info.tags");
+            Assert.AreEqual(true, b);
         }
 
         [Test()]
         public void TestGetTags()
         {
+            List<String> expectedTags = list("anime", "video");
+            List<String> actualTags = Search.GetTags("SearchTestFiles/", "animeFile.txt");
+            Assert.AreEqual(expectedTags, actualTags);
+        }
 
+        [Test()]
+        public void TestGetTagsFileDoesntExit()
+        {
+            List<String> expectedTags = list();
+            List<String> actualTags = Search.GetTags("SearchTestFiles/", "unknown.txt");
+            Assert.AreEqual(expectedTags, actualTags);
         }
 
         [Test()]
