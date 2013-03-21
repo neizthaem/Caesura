@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Caesura;
 using NUnit.Framework;
 using System.Collections.Generic;
@@ -50,10 +51,24 @@ namespace CaesuraTest
             Assert.AreEqual(expectedTags, actualTags);
         }
 
+        /*[Test()]
+        public void TestGetTagsNoTaggingFile()
+        {
+            List<String> expectedTags = list();
+            List<String> actualTags = Search.GetTags("", "unknown.txt");
+            Assert.AreEqual(expectedTags, actualTags);
+            if (!File.Exists("info.tags"))
+            {
+                Assert.AreEqual("info.tags created", "info.tags NOT created");
+            }
+        }*/
+
         [Test()]
         public void TestFilesTaggedAs()
         {
-
+            List<String> expected = list("animeFile.txt");
+            List<String> actual = Search.GetFilesTaggedAs("anime");
+            Assert.AreEqual(expected, actual);
         }
 
         [Test()]
