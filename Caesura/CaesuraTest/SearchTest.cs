@@ -108,5 +108,61 @@ namespace CaesuraTest
             Assert.AreEqual(expected, actual);
         }
 
+        [Test()]
+        public void TestAddSearchTagAddsDirectory()
+        {
+            String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
+            String tagPath = Search.buildTagSubDir(path);
+            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Search.addSearchTagEntry(path, "animeFile.txt", "anime");
+            Boolean created = false;
+            if (Directory.Exists(tagPath))
+            {
+                created = true;
+            }
+            Assert.AreEqual(true, created);
+        }
+
+        [Test()]
+        public void TestAddSearchTagAddsInfoFile()
+        {
+            String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
+            String tagPath = Search.buildTagSubDir(path);
+            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Search.addSearchTagEntry(path, "animeFile.txt", "anime");
+            Boolean created = false;
+            if (File.Exists(tagPath + "\\taginfo"))
+            {
+                created = true;
+            }
+            Assert.AreEqual(true, created);
+        }
+
+        [Test()]
+        public void TestAddSearchTagAppendsToInfoFile()
+        {
+            String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
+            String tagPath = Search.buildTagSubDir(path);
+            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Search.addSearchTagEntry(path, "animeFile.txt", "anime", "video");
+            Search.addSearchTagEntry(path, "musicFile.txt", "audio");
+            String[] lines = File.ReadAllLines(tagPath + "\\taginfo");
+            Assert.AreEqual("animeFile.txt" + '\t' + "anime" + '\t' + "video", lines[0]);
+            Assert.AreEqual("musicFile.txt" + '\t' + "audio", lines[1]);
+        }
+
+        [Test()]
+        public void TestRemoveSearchTagEntryValid()
+        {
+            String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
+            String tagPath = Search.buildTagSubDir(path);
+            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Search.addSearchTagEntry(path, "animeFile.txt", "anime", "video");
+            Search.addSearchTagEntry(path, "musicFile.txt", "audio");
+            //Search.removeSearchTagEntry(path, "animeFile.txt");
+            String[] lines = File.ReadAllLines(tagPath + "\\taginfo");
+            Assert.AreEqual("musicFile.txt" + '\t' + "audio", lines[0]);
+        }
+
     }
 }

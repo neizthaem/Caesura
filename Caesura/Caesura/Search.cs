@@ -28,6 +28,7 @@ namespace Caesura
             {
                 str.Append('\\' + pieces[i]);
             }
+            Directory.CreateDirectory(tagDir + str.ToString());
             return tagDir + str.ToString();
         }
 
@@ -48,7 +49,66 @@ namespace Caesura
             return "C:" + str.ToString();
         }
 
+        public static void addSearchTagEntry(String dirPath, String fileName, params String[] tags)
+        {
+            String path = buildTagSubDir(dirPath);
+            if (!(Directory.Exists(path)))
+            {
+                Directory.CreateDirectory(path);
+            }
 
+            String file = path + "\\taginfo";
+            StringBuilder str = new StringBuilder();
+            str.Append(fileName);
+            foreach (String s in tags)
+            {
+                str.Append('\t' + s);
+            }
+            str.Append('\n');
+
+            if (!(File.Exists(file)))
+            {
+                using (FileStream fs = File.Create(file))
+                {
+                    Byte[] info = new UTF8Encoding(true).GetBytes(str.ToString());
+                    fs.Write(info, 0, info.Length);
+                }
+            }
+            else
+            {
+                using (StreamWriter w = File.AppendText(file))
+                {
+                    w.Write(str.ToString());
+                }
+            }
+        }
+
+        public static void removeSearchTagEntry(String dirPath, String fileName)
+        {
+            String path = buildTagSubDir(dirPath);
+
+            String file = path + "\\taginfo";
+            StringBuilder str = new StringBuilder();
+
+            if (File.Exists(file))
+            {
+                String[] lines = File.ReadAllLines(file);
+                foreach (String l in lines)
+                {
+                    if(!(l.Split('\t')).Equals(fileName))
+                    {
+                        str.Append(l + '\n');
+                    }
+                }
+                File.Create(file).Close();
+                using (StreamWriter w = File.AppendText(fileName))
+                {
+                    w.Write(str.ToString());
+                }
+
+            }
+            
+        }
 
     }
 }

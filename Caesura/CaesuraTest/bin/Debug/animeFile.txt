@@ -1,0 +1,4 @@
+animeFile.txt	anime	video
+musicFile.txt	audio
+animeFile.txt	anime	video
+musicFile.txt	audio
