@@ -1,17 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-03-21" time="11:33:13">
+<test-results name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-03-21" time="11:52:40">
   <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.6400" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="UPHUSAR" user="Austin" user-domain="UPHUSAR" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" executed="True" result="Success" success="True" time="0.075" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" executed="True" result="Failure" success="False" time="0.003" asserts="0">
     <results>
-      <test-suite type="Namespace" name="ConsoleApplication1" executed="True" result="Success" success="True" time="0.056" asserts="0">
+      <test-suite type="Namespace" name="CaesuraTest" executed="True" result="Failure" success="False" time="0.002" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="SearchTest" executed="True" result="Success" success="True" time="0.054" asserts="0">
+          <test-suite type="TestFixture" name="SearchTest" executed="True" result="Failure" success="False" time="0.002" asserts="0">
             <results>
-              <test-case name="ConsoleApplication1.SearchTest.TestFilesContainingTags" executed="True" result="Success" success="True" time="0.020" asserts="0" />
-              <test-case name="ConsoleApplication1.SearchTest.TestFilesTaggedAs" executed="True" result="Success" success="True" time="0.000" asserts="0" />
-              <test-case name="ConsoleApplication1.SearchTest.TestGetTags" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+              <test-case name="CaesuraTest.SearchTest.TestFileExists" executed="True" result="Failure" success="False" time="0.000" asserts="1">
+                <failure>
+                  <message><![CDATA[  Expected: True
+  But was:  "C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug"
+]]></message>
+                  <stack-trace><![CDATA[at CaesuraTest.SearchTest.TestFileExists() in c:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\SearchTest.cs:line 16
+]]></stack-trace>
+                </failure>
+              </test-case>
             </results>
           </test-suite>
         </results>

@@ -6,3 +6,4 @@ C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\Caesura.pdb
 C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.xml
 C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.dll
 C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.pdb
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.csprojResolveAssemblyReference.cache
