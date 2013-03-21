@@ -2,3 +2,15 @@ animeFile.txt	anime	video
 musicFile.txt	audio
 animeFile.txt	anime	video
 musicFile.txt	audio
+musicFile.txt	audio
+animeFile.txt	anime	video
+musicFile.txt	audio
+animeFile.txt	anime	video
+musicFile.txt	audio
+animeFile.txt	anime	video
+musicFile.txt	audio
+musicFile.txt	audio
+musicFile.txt	audio
+pictureFile.txt	picture
+musicFile.txt	audio
+pictureFile.txt	picture

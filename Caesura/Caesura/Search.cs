@@ -85,25 +85,27 @@ namespace Caesura
 
         public static void removeSearchTagEntry(String dirPath, String fileName)
         {
-            String path = buildTagSubDir(dirPath);
+            String tagpath = buildTagSubDir(dirPath);
 
-            String file = path + "\\taginfo";
+            String taginfo = tagpath + "\\taginfo";
             StringBuilder str = new StringBuilder();
 
-            if (File.Exists(file))
+            if (File.Exists(taginfo))
             {
-                String[] lines = File.ReadAllLines(file);
-                foreach (String l in lines)
+                String[] lines = File.ReadAllLines(taginfo);
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    if(!(l.Split('\t')).Equals(fileName))
+                    if (!(lines[i].Split('\t')[0] == fileName))
                     {
-                        str.Append(l + '\n');
+                        str.Append(lines[i] + '\n');
                     }
                 }
-                File.Create(file).Close();
-                using (StreamWriter w = File.AppendText(fileName))
+
+                File.Delete(taginfo);
+                using (FileStream fs = File.Create(taginfo))
                 {
-                    w.Write(str.ToString());
+                    Byte[] info = new UTF8Encoding(true).GetBytes(str.ToString());
+                    fs.Write(info, 0, info.Length);
                 }
 
             }

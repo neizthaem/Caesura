@@ -159,9 +159,11 @@ namespace CaesuraTest
             Directory.Delete(tagPath, true); // ensures that it didn't just already exist
             Search.addSearchTagEntry(path, "animeFile.txt", "anime", "video");
             Search.addSearchTagEntry(path, "musicFile.txt", "audio");
-            //Search.removeSearchTagEntry(path, "animeFile.txt");
+            Search.addSearchTagEntry(path, "pictureFile.txt", "picture");
+            Search.removeSearchTagEntry(path, "animeFile.txt");
             String[] lines = File.ReadAllLines(tagPath + "\\taginfo");
             Assert.AreEqual("musicFile.txt" + '\t' + "audio", lines[0]);
+            Assert.AreEqual("pictureFile.txt" + '\t' + "picture", lines[1]);
         }
 
     }
