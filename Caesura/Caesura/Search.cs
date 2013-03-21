@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Caesura
 {
-    public class Search
+    public static class Search
     {
 
         /**
@@ -25,20 +25,26 @@ namespace Caesura
         {
             List<String> tags = new List<String>();
 
-            String line;
+            String line; String found = "notfound untagged";
             System.IO.StreamReader fh = new System.IO.StreamReader(path + "info.tags");
             while ((line = fh.ReadLine()) != null)
             {
-                if (line.Split('\t')[0] == file) { break; }
-                line = file;
+                if (line.Split('\t')[0] == file) { found = line; break; }
+                found = line;
             }
 
-            String[] values = line.Split('\t');
+            String[] values = found.Split('\t');
             for (int i = 1; i < values.Length; i++)
             {
                 tags.Add(values[i]);
             }
+            fh.Close();
             return tags;
+        }
+
+        private static bool FileExists(string p)
+        {
+            throw new NotImplementedException();
         }
 
         /**

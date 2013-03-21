@@ -35,7 +35,15 @@ namespace CaesuraTest
         }
 
         [Test()]
-        public void TestGetTagsFileDoesntExit()
+        public void TestGetTagsFileNotTagged()
+        {
+            List<String> expectedTags = list("untagged");
+            List<String> actualTags = Search.GetTags("SearchTestFiles/", "untagged.txt");
+            Assert.AreEqual(expectedTags, actualTags);
+        }
+
+        [Test()]
+        public void TestGetTagsFileNotFound()
         {
             List<String> expectedTags = list();
             List<String> actualTags = Search.GetTags("SearchTestFiles/", "unknown.txt");
