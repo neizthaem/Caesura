@@ -221,7 +221,33 @@ namespace CaesuraTest
             Assert.AreEqual(expected, actual);
         }
 
+        [Test()]
+        public void TestfindContentWithTagsNoTags()
+        {
+            String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
+            String tagPath = Search.buildTagSubDir(path);
+            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Search.addSearchTagEntry(path, "animeFile.txt", "anime", "video");
+            Search.addSearchTagEntry(path, "musicFile.txt", "audio");
+            Search.addSearchTagEntry(path, "untagged.txt");
+            List<String> actual = Search.findContentWithTags();
+            List<String> expected = list(path + '\\' + "untagged.txt");
+            Assert.AreEqual(expected, actual);
+        }
 
+        [Test()]
+        public void TestfindContentWithTagsTwoTags()
+        {
+            String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
+            String tagPath = Search.buildTagSubDir(path);
+            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Search.addSearchTagEntry(path, "animeFile.txt", "anime", "video");
+            Search.addSearchTagEntry(path, "musicFile.txt", "audio", "music");
+            Search.addSearchTagEntry(path, "soundFile.txt", "audio");
+            List<String> actual = Search.findContentWithTags("audio", "music");
+            List<String> expected = list(path + '\\' + "musicFile.txt");
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 }

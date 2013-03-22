@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace Caesura
 {
+
     public class Search
     {
 
+        // Folder to store all tagging information in
+        // Note Currently changes to this mandate changes in some code below
         public static String tagDir = "C:\\Caesura\\tags";
 
+        /* Creates a the required tag sub-dir from a valid absolute path */
         public static String buildTagSubDir(String path)
         {
             if (path == "")
@@ -32,6 +36,7 @@ namespace Caesura
             return tagDir + str.ToString();
         }
 
+        /* Reverses the process of buildTagSubDir */
         public static String restoreTagSubDir(String path)
         {
             String[] pieces = path.Split('\\');
@@ -49,6 +54,7 @@ namespace Caesura
             return "C:" + str.ToString();
         }
 
+        /* Adds a a tag entry for a given file so it can be searched */
         public static void addSearchTagEntry(String dirPath, String fileName, params String[] tags)
         {
             String path = buildTagSubDir(dirPath);
@@ -83,6 +89,7 @@ namespace Caesura
             }
         }
 
+        /* Removes a tagging entry for the given file if it exists */
         public static void removeSearchTagEntry(String dirPath, String fileName)
         {
             String tagpath = buildTagSubDir(dirPath);
@@ -112,6 +119,7 @@ namespace Caesura
             
         }
 
+        /* Find content that has been tagged with any of the given tags */
         public static List<String> findContentContainingTags(params String[] tags)
         {
             List<String> file = findContentContainingRec(tagDir, tags.ToList());
@@ -141,6 +149,46 @@ namespace Caesura
             foreach (String dir in Directory.GetDirectories(path))
             {
                 files.AddRange(findContentContainingRec(dir, tags));
+            }
+            return files;
+        }
+
+        /* Find content that has been tagged with all of the given tags */
+        public static List<String> findContentWithTags(params String[] tags)
+        {
+            List<String> file = findContentWithRec(tagDir, tags.ToList());
+            return file;
+        }
+
+        public static List<String> findContentWithRec(String path, List<String> tags)
+        {
+            List<String> files = new List<String>();
+
+            if (File.Exists(path + "\\taginfo"))
+            {
+                String[] lines = File.ReadAllLines(path + "\\taginfo");
+                foreach (String s in lines)
+                {
+                    Boolean toAdd = true;
+                    List<String> pieces = s.Split('\t').ToList();
+                    String fName = pieces.First();
+                    pieces.RemoveAt(0);
+                    foreach (String tag in tags)
+                    {
+                        if (!pieces.Contains(tag))
+                        {
+                            toAdd = false;
+                        }
+                    }
+                    if (toAdd && tags.Count > 0 || pieces.Count == 0 && tags.Count == 0)
+                    {
+                        files.Add(Search.restoreTagSubDir(path + '\\' + fName));
+                    }
+                }
+            }
+            foreach (String dir in Directory.GetDirectories(path))
+            {
+                files.AddRange(findContentWithRec(dir, tags));
             }
             return files;
         }
