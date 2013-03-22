@@ -122,5 +122,80 @@ namespace Caesura
 
             Assert.AreEqual(sock.receive(new Byte[32], 32, 0), -4);
         }
+
+        [Test]
+        public void testaSocketsendNullBuffer()
+        {
+            int n = sock.send(null, 34, 0);
+
+            Assert.AreEqual(n, -2);
+        }
+
+        [Test]
+        public void testaSocketsendNegativeLengthBuffer()
+        {
+            int n = sock.send(new Byte[20], -2, 0);
+            Assert.AreEqual(n, -3);
+        }
+
+        [Test]
+        public void testaSocketsendLengthLongerThanBuffer()
+        {
+            int n = sock.send(new Byte[20], 22, 0);
+            Assert.AreEqual(n, -3);
+        }
+
+        [Test]
+        public void testaSocketsendSocketException()
+        {
+            Socket mockSocket = mock.StrictMock<Socket>(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            mockSocket.Stub(a => a.Send(new Byte[32], 32, 0)).Throw(new SocketException());
+
+            sock = new aSocket(mockSocket);
+
+            Assert.AreEqual(sock.send(new Byte[32], 32, 0), -1);
+        }
+
+        [Test]
+        public void testaSocketsendObjectDisposedException()
+        {
+            Socket mockSocket = mock.StrictMock<Socket>(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            mockSocket.Stub(a => a.Send(new Byte[32], 32, 0)).Throw(new ObjectDisposedException("Test Element"));
+
+            sock = new aSocket(mockSocket);
+
+            Assert.AreEqual(sock.send(new Byte[32], 32, 0), -4);
+        }
+
+        [Test]
+        public void testaSocketisConnectedFalse()
+        {
+            Socket mockSocket = mock.StrictMock<Socket>(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            mockSocket.Stub(a => a.Connected).Return(false);
+
+            sock = new aSocket(mockSocket);
+
+            Assert.IsFalse(sock.isConnected());
+        }
+
+        [Test]
+        public void testaSocketisConnectedTrue()
+        {
+            Socket mockSocket = mock.StrictMock<Socket>(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            mockSocket.Stub(a => a.Connected).Return(true);
+
+            sock = new aSocket(mockSocket);
+            Assert.IsNotNull(sock.socket);
+            Assert.IsTrue(sock.isConnected());
+        }
+
+        [Test]
+        public void testaSocketisConnectedNull()
+        {
+
+            sock = new aSocket(null);
+
+            Assert.IsFalse(sock.isConnected());
+        }
     }
 }
