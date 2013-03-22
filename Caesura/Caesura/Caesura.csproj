@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aSocket.cs" />
+    <Compile Include="aSocketTest.cs" />
     <Compile Include="client.cs" />
     <Compile Include="clientAndserverTest.cs" />
     <Compile Include="clientTest.cs" />

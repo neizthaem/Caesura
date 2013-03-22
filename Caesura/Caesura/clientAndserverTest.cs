@@ -55,7 +55,7 @@ namespace Caesura
         private void serverTestGeneric001()
         {
             server s = new server();
-            s.listen();
+            s.setSocket(s.listen());
             s.send("Test");
         }
     }

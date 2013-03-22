@@ -9,15 +9,16 @@ using System.Threading.Tasks;
 
 namespace Caesura
 {
-    
+
 
     class aSocket : iSocket
     {
-        private Socket socket;
+        // Must be public for test cases
+        public Socket socket;
 
-        public aSocket() 
-        { 
-            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp); 
+        public aSocket()
+        {
+            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
         public aSocket(Socket sock)
@@ -25,18 +26,29 @@ namespace Caesura
             socket = sock;
         }
 
-        public void connect(string host, int port)
+        public int connect(string host, int port)
         {
-           socket.Connect(host, port);
+            if (host == null)
+            {
+                return -1;
+            }
+            else if (host.Length == 0)
+            {
+                return -3;
+            }
+            socket.Connect(host, port);
+            return 1;
         }
 
-        public void listen(int port)
+        public iSocket listen(int port)
         {
-           socket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), port));
-           // I think this will cause it to block until a connection exists
-           socket.Blocking = true;
-           // Not sure what a good backlog is
-           socket.Listen(5);
+
+            socket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), port));
+            // I think this will cause it to block until a connection exists
+            socket.Blocking = true;
+
+            socket.Listen(1);
+            return new aSocket(socket.Accept());
         }
 
         public void close()
@@ -46,22 +58,60 @@ namespace Caesura
 
         public int receive(byte[] buffer, int size, SocketFlags flags)
         {
-            return socket.Receive(buffer, size, flags);
+            if (buffer == null)
+            {
+                return -2;
+            }
+            else if (size > buffer.Length || size <= 0)
+            {
+                return -3;
+            }
+            try
+            {
+
+                return socket.Receive(buffer, size, flags);
+            }
+            catch (SocketException)
+            {
+                return -1;
+            }
+            catch (ObjectDisposedException)
+            {
+                return -4;
+            }
         }
 
         public int send(byte[] buffer, int size, SocketFlags flags)
         {
-            return socket.Send(buffer, size, flags);
+            if (buffer == null)
+            {
+                return -2;
+            }
+            else if (size > buffer.Length || size <= 0)
+            {
+                return -3;
+            }
+            try
+            {
+                return socket.Send(buffer, size, flags);
+            }
+            catch (SocketException)
+            {
+                return -1;
+            }
+            catch (ObjectDisposedException)
+            {
+                return -4;
+            }
         }
 
-
-        public iSocket accept()
-        {
-            return new aSocket(socket.Accept());
-        }
 
         public Boolean isConnected()
         {
+            if (socket == null)
+            {
+                return false;
+            }
             return socket.Connected;
         }
 

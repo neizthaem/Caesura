@@ -52,11 +52,20 @@ namespace Caesura
             s.setSocket(mockiSocket);
             iSocket tempMockiSocket = mock.StrictMock<iSocket>();
 
-            mockiSocket.Stub(a => a.accept()).Return(tempMockiSocket);
+            mockiSocket.Stub(a => a.listen(3246)).Return(tempMockiSocket);
 
-            s.listen();
+            Assert.AreSame(s.listen(), tempMockiSocket);
+        }
 
-            Assert.AreSame(s.socket, tempMockiSocket);
+        [Test]
+        public void testServerSendString()
+        {
+            s.setSocket(mockiSocket);
+            byte[] temp = Encoding.ASCII.GetBytes("Test");
+
+            mockiSocket.Stub(a => a.send(temp, temp.Length, 0)).Return(4);
+
+            Assert.AreEqual(s.send("Test"), 4);
         }
     }
 }

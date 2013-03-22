@@ -24,28 +24,27 @@ namespace Caesura
         }
 
         // Will bind the current socket to whomever attempts to connect
-        public void listen()
+        public iSocket listen()
         {
-            socket.listen(standardPort);
-            setSocket(socket.accept());
+            return socket.listen(standardPort);
         }
 
-        public Boolean send(String message)
+        public int send(String message)
         {
             byte[] temp = Encoding.ASCII.GetBytes(message);
 
             return send(temp);
         }
 
-        public Boolean send(byte[] buffer)
+        public int send(byte[] buffer)
         {
             if (socket.isConnected())
             {
-                return (socket.send(buffer, buffer.Length, 0) >= 0);
+                return socket.send(buffer, buffer.Length, 0);
             }
             else
             {
-                return false;
+                return -1;
             }
                 
         }

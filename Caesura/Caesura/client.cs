@@ -10,7 +10,7 @@ namespace Caesura
     {
         
 
-        private iSocket socket;
+        public iSocket socket;
         private Int32 standardPort = 3246; //0xcae{sura} = 3246
 
         public client()
