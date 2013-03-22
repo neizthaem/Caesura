@@ -180,7 +180,7 @@ namespace CaesuraTest
         }
 
         [Test()]
-        public void TestfindContentContaining()
+        public void TestfindContentContainingNoTags()
         {
             String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
             String tagPath = Search.buildTagSubDir(path);
@@ -188,8 +188,36 @@ namespace CaesuraTest
             Search.addSearchTagEntry(path, "animeFile.txt", "anime", "video");
             Search.addSearchTagEntry(path, "musicFile.txt", "audio");
             Search.addSearchTagEntry(path, "pictureFile.txt", "picture");
-            List<String> actual = Search.findContentContainingTags(false, "anime", "audio");
+            List<String> actual = Search.findContentContainingTags();
+            List<String> expected = list();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test()]
+        public void TestfindContentContainingTwoResults()
+        {
+            String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
+            String tagPath = Search.buildTagSubDir(path);
+            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Search.addSearchTagEntry(path, "animeFile.txt", "anime", "video");
+            Search.addSearchTagEntry(path, "musicFile.txt", "audio");
+            Search.addSearchTagEntry(path, "pictureFile.txt", "picture");
+            List<String> actual = Search.findContentContainingTags("anime", "audio");
             List<String> expected = list(path + '\\' + "animeFile.txt", path + '\\' + "musicFile.txt");
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test()]
+        public void TestfindContentContainingNoResults()
+        {
+            String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
+            String tagPath = Search.buildTagSubDir(path);
+            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Search.addSearchTagEntry(path, "animeFile.txt", "anime", "video");
+            Search.addSearchTagEntry(path, "musicFile.txt", "audio");
+            Search.addSearchTagEntry(path, "pictureFile.txt", "picture");
+            List<String> actual = Search.findContentContainingTags("tag1", "tag2", "tag3");
+            List<String> expected = list();
             Assert.AreEqual(expected, actual);
         }
 
