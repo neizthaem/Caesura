@@ -112,5 +112,28 @@ namespace Caesura
             
         }
 
+        public static List<String> findContentContainingTags(Boolean recursive, params String[] tags)
+        {
+            List<String> file = findContentContainingRec(tagDir, recursive, tags.ToList());
+            return file;
+        }
+
+        public static List<String> findContentContainingRec(String path, Boolean recursive, List<String> tags)
+        {
+            List<String> files = new List<String>();
+            foreach(String s in Directory.GetFiles(path))
+            {
+                // CHECK CONDITIONS
+            }
+            if (recursive)
+            {
+                foreach (String dir in Directory.GetDirectories(path))
+                {
+                    findContentContainingRec(path + '\\' + dir, recursive, tags);
+                }
+            }
+            return null;
+        }
+
     }
 }
