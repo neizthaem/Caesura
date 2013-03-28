@@ -31,7 +31,7 @@ namespace Caesura
                 // yield
                 Thread.Sleep(1);
             }
-            Assert.AreEqual("Test", storage);
+            Assert.AreEqual("Caesura", storage.Substring(0,7));
         }
 
         // This test is meant to run in combination with serverTestGeneric001()
@@ -39,7 +39,7 @@ namespace Caesura
         {
             client c = new client();
             c.connect("127.0.0.1");
-            byte[] temp = new byte[4];
+            byte[] temp = new byte[40];
             Console.WriteLine("Client: " + c.recieve(temp));
             Console.Write("Client: ");
             foreach (Byte b in temp)
@@ -56,7 +56,7 @@ namespace Caesura
         {
             server s = new server();
             s.setSocket(s.listen());
-            s.send("Test");
+            s.send("Caesura");
         }
     }
 }

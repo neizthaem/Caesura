@@ -1,123 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.dll" total="23" errors="5" failures="3" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-03-22" time="03:31:14">
+<test-results name="C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-03-28" time="07:19:02">
   <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.5466" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="CARTERJ3TOWER" user="Carterj3-Tower" user-domain="Carterj3Tower" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.dll" executed="True" result="Failure" success="False" time="0.224" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.dll" executed="True" result="Success" success="True" time="0.632" asserts="0">
     <results>
-      <test-suite type="Namespace" name="Caesura" executed="True" result="Failure" success="False" time="0.224" asserts="0">
+      <test-suite type="Namespace" name="Caesura" executed="True" result="Success" success="True" time="0.606" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="aSocketTest" executed="True" result="Failure" success="False" time="0.152" asserts="0">
+          <test-suite type="TestFixture" name="clientAndserverTest" executed="True" result="Success" success="True" time="0.603" asserts="0">
             <results>
-              <test-case name="Caesura.aSocketTest.testaSocketConnectHostLengthZero" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketConnectNullHost" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketConstructor" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketConstructorGivenAnSocket" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketisConnectedFalse" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketisConnectedNull" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketisConnectedTrue" executed="True" result="Failure" success="False" time="0.001" asserts="2">
-                <failure>
-                  <message><![CDATA[  Expected: True
-  But was:  False
-]]></message>
-                  <stack-trace><![CDATA[at Caesura.aSocketTest.testaSocketisConnectedTrue() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 189
-]]></stack-trace>
-                </failure>
-              </test-case>
-              <test-case name="Caesura.aSocketTest.testaSocketListen" executed="True" result="Error" success="False" time="0.001" asserts="0">
-                <failure>
-                  <message><![CDATA[System.InvalidOperationException : You must call the Bind method before performing this operation.]]></message>
-                  <stack-trace><![CDATA[at System.Net.Sockets.Socket.Accept()
-at Caesura.aSocketTest.<testaSocketListen>b__0(Socket a) in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 72
-at Rhino.Mocks.RhinoMocksExtensions.Expect[T,R](T mock, Function`2 action)
-at Rhino.Mocks.RhinoMocksExtensions.Stub[T,R](T mock, Function`2 action)
-at Caesura.aSocketTest.testaSocketListen() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 72
-]]></stack-trace>
-                </failure>
-              </test-case>
-              <test-case name="Caesura.aSocketTest.testaSocketRecieveLengthLongerThanBuffer" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketRecieveNegativeLengthBuffer" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketRecieveNullBuffer" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketRecieveObjectDisposedException" executed="True" result="Error" success="False" time="0.002" asserts="0">
-                <failure>
-                  <message><![CDATA[System.Net.Sockets.SocketException : A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied]]></message>
-                  <stack-trace><![CDATA[at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-at Caesura.aSocketTest.<testaSocketRecieveObjectDisposedException>b__6(Socket a) in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 119
-at Rhino.Mocks.RhinoMocksExtensions.Expect[T,R](T mock, Function`2 action)
-at Rhino.Mocks.RhinoMocksExtensions.Stub[T,R](T mock, Function`2 action)
-at Caesura.aSocketTest.testaSocketRecieveObjectDisposedException() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 119
-]]></stack-trace>
-                </failure>
-              </test-case>
-              <test-case name="Caesura.aSocketTest.testaSocketRecieveSocketException" executed="True" result="Error" success="False" time="0.001" asserts="0">
-                <failure>
-                  <message><![CDATA[System.Net.Sockets.SocketException : A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied]]></message>
-                  <stack-trace><![CDATA[at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-at Caesura.aSocketTest.<testaSocketRecieveSocketException>b__4(Socket a) in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 108
-at Rhino.Mocks.RhinoMocksExtensions.Expect[T,R](T mock, Function`2 action)
-at Rhino.Mocks.RhinoMocksExtensions.Stub[T,R](T mock, Function`2 action)
-at Caesura.aSocketTest.testaSocketRecieveSocketException() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 108
-]]></stack-trace>
-                </failure>
-              </test-case>
-              <test-case name="Caesura.aSocketTest.testaSocketsendLengthLongerThanBuffer" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketsendNegativeLengthBuffer" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketsendNullBuffer" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.aSocketTest.testaSocketsendObjectDisposedException" executed="True" result="Error" success="False" time="0.001" asserts="0">
-                <failure>
-                  <message><![CDATA[System.Net.Sockets.SocketException : A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied]]></message>
-                  <stack-trace><![CDATA[at System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-at System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-at Caesura.aSocketTest.<testaSocketsendObjectDisposedException>b__a(Socket a) in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 163
-at Rhino.Mocks.RhinoMocksExtensions.Expect[T,R](T mock, Function`2 action)
-at Rhino.Mocks.RhinoMocksExtensions.Stub[T,R](T mock, Function`2 action)
-at Caesura.aSocketTest.testaSocketsendObjectDisposedException() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 163
-]]></stack-trace>
-                </failure>
-              </test-case>
-              <test-case name="Caesura.aSocketTest.testaSocketsendSocketException" executed="True" result="Error" success="False" time="0.001" asserts="0">
-                <failure>
-                  <message><![CDATA[System.Net.Sockets.SocketException : A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied]]></message>
-                  <stack-trace><![CDATA[at System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-at System.Net.Sockets.Socket.Send(Byte[] buffer, Int32 size, SocketFlags socketFlags)
-at Caesura.aSocketTest.<testaSocketsendSocketException>b__8(Socket a) in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 152
-at Rhino.Mocks.RhinoMocksExtensions.Expect[T,R](T mock, Function`2 action)
-at Rhino.Mocks.RhinoMocksExtensions.Stub[T,R](T mock, Function`2 action)
-at Caesura.aSocketTest.testaSocketsendSocketException() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\aSocketTest.cs:line 152
-]]></stack-trace>
-                </failure>
-              </test-case>
-            </results>
-          </test-suite>
-          <test-suite type="TestFixture" name="clientAndserverTest" executed="True" result="Success" success="True" time="0.003" asserts="0">
-            <results>
-              <test-case name="Caesura.clientAndserverTest.generic001Test" executed="True" result="Success" success="True" time="0.002" asserts="1" />
-            </results>
-          </test-suite>
-          <test-suite type="TestFixture" name="serverTest" executed="True" result="Failure" success="False" time="0.042" asserts="0">
-            <results>
-              <test-case name="Caesura.serverTest.testServerListen" executed="True" result="Failure" success="False" time="0.001" asserts="1">
-                <failure>
-                  <message><![CDATA[  Expected: same as <Castle.Proxies.iSocketProxy4bdfb6bb538a44d3a0a58db176a64ec4>
-  But was:  <Castle.Proxies.iSocketProxy4bdfb6bb538a44d3a0a58db176a64ec4>
-]]></message>
-                  <stack-trace><![CDATA[at Caesura.serverTest.testServerListen() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\serverTest.cs:line 57
-]]></stack-trace>
-                </failure>
-              </test-case>
-              <test-case name="Caesura.serverTest.testServerNoParameterConstructor" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="Caesura.serverTest.testServerSendString" executed="True" result="Failure" success="False" time="0.002" asserts="1">
-                <failure>
-                  <message><![CDATA[  Expected: -1
-  But was:  4
-]]></message>
-                  <stack-trace><![CDATA[at Caesura.serverTest.testServerSendString() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\serverTest.cs:line 68
-]]></stack-trace>
-                </failure>
-              </test-case>
-              <test-case name="Caesura.serverTest.testServerSetSocket" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="Caesura.clientAndserverTest.generic001Test" executed="True" result="Success" success="True" time="0.585" asserts="1" />
             </results>
           </test-suite>
         </results>
