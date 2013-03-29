@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" total="18" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-03-22" time="09:20:10">
+<test-results name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" total="18" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-03-22" time="09:58:51">
   <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.6400" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="UPHUSAR" user="Austin" user-domain="UPHUSAR" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" executed="True" result="Success" success="True" time="0.153" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" executed="True" result="Success" success="True" time="0.339" asserts="0">
     <results>
-      <test-suite type="Namespace" name="CaesuraTest" executed="True" result="Success" success="True" time="0.135" asserts="0">
+      <test-suite type="Namespace" name="CaesuraTest" executed="True" result="Success" success="True" time="0.302" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="SearchTest" executed="True" result="Success" success="True" time="0.133" asserts="0">
+          <test-suite type="TestFixture" name="SearchTest" executed="True" result="Success" success="True" time="0.302" asserts="0">
             <results>
-              <test-case name="CaesuraTest.SearchTest.TestAddSearchTagAddsDirectory" executed="True" result="Success" success="True" time="0.036" asserts="1" />
+              <test-case name="CaesuraTest.SearchTest.TestAddSearchTagAddsDirectory" executed="True" result="Success" success="True" time="0.062" asserts="1" />
               <test-case name="CaesuraTest.SearchTest.TestAddSearchTagAddsInfoFile" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="CaesuraTest.SearchTest.TestAddSearchTagAppendsToInfoFile" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+              <test-case name="CaesuraTest.SearchTest.TestAddSearchTagAppendsToInfoFile" executed="True" result="Success" success="True" time="0.016" asserts="2" />
               <test-case name="CaesuraTest.SearchTest.TestBuildTagSubCRootPath" executed="True" result="Success" success="True" time="0.000" asserts="1" />
               <test-case name="CaesuraTest.SearchTest.TestBuildTagSubDirValidPath" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="CaesuraTest.SearchTest.TestBuildTagSubEmptyPath" executed="True" result="Success" success="True" time="0.016" asserts="0" />
+              <test-case name="CaesuraTest.SearchTest.TestBuildTagSubEmptyPath" executed="True" result="Success" success="True" time="0.000" asserts="0" />
               <test-case name="CaesuraTest.SearchTest.TestBuildTagSubInvalidRecursivePath" executed="True" result="Success" success="True" time="0.000" asserts="0" />
               <test-case name="CaesuraTest.SearchTest.TestfindContentContainingNoResults" executed="True" result="Success" success="True" time="0.016" asserts="1" />
-              <test-case name="CaesuraTest.SearchTest.TestfindContentContainingNoTags" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CaesuraTest.SearchTest.TestfindContentContainingNoTags" executed="True" result="Success" success="True" time="0.016" asserts="1" />
               <test-case name="CaesuraTest.SearchTest.TestfindContentContainingTwoResults" executed="True" result="Success" success="True" time="0.000" asserts="1" />
-              <test-case name="CaesuraTest.SearchTest.TestfindContentWithTagsNoTags" executed="True" result="Success" success="True" time="0.016" asserts="1" />
-              <test-case name="CaesuraTest.SearchTest.TestfindContentWithTagsTwoTags" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CaesuraTest.SearchTest.TestfindContentWithTagsNoTags" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+              <test-case name="CaesuraTest.SearchTest.TestfindContentWithTagsTwoTags" executed="True" result="Success" success="True" time="0.016" asserts="1" />
               <test-case name="CaesuraTest.SearchTest.TestRemoveSearchTagEntryInvalid" executed="True" result="Success" success="True" time="0.000" asserts="0" />
               <test-case name="CaesuraTest.SearchTest.TestRemoveSearchTagEntryValid" executed="True" result="Success" success="True" time="0.000" asserts="2" />
               <test-case name="CaesuraTest.SearchTest.TestRestoreTagSubCRootPath" executed="True" result="Success" success="True" time="0.000" asserts="1" />

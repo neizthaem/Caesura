@@ -58,10 +58,7 @@ namespace Caesura
         public static void addSearchTagEntry(String dirPath, String fileName, params String[] tags)
         {
             String path = buildTagSubDir(dirPath);
-            if (!(Directory.Exists(path)))
-            {
-                Directory.CreateDirectory(path);
-            }
+            Directory.CreateDirectory(path);
 
             String file = path + "\\taginfo";
             StringBuilder str = new StringBuilder();

@@ -29,7 +29,7 @@ namespace CaesuraTest
 
         [TestFixtureTearDown]
         public void Cleanup() {
-            //Directory.Delete("C:\\Caesura", true);
+            Directory.Delete("C:\\Caesura", true);
         }
 
         [Test()]
@@ -93,7 +93,7 @@ namespace CaesuraTest
         [ExpectedException()]
         public void TestRestoreTagSubInvalidRecursivePath()
         {
-            String path = "C:\\Caesura\\tags\\Users\\Austin\\.ssh\\Caesura\\Caesura\\CaesuraTest\\bin\\Debug\\SearchTestFiles";
+            String path = "C:\\";
             String expected = "C:\\Caesura\\tags";
             String actual = Search.restoreTagSubDir(path);
             Assert.AreEqual(expected, actual);
@@ -113,7 +113,7 @@ namespace CaesuraTest
         {
             String path = Directory.GetCurrentDirectory() + "\\SearchTestFiles";
             String tagPath = Search.buildTagSubDir(path);
-            Directory.Delete(tagPath, true); // ensures that it didn't just already exist
+            Directory.Delete(Search.tagDir, true); // ensures that it didn't just already exist
             Search.addSearchTagEntry(path, "animeFile.txt", "anime");
             Boolean created = false;
             if (Directory.Exists(tagPath))
