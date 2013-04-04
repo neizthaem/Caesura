@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 
-namespace Caesura
+namespace iSocket
 {
     // Interface Socket would probably be a better name
     public interface iSocket

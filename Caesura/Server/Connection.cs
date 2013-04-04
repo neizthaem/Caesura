@@ -1,4 +1,4 @@
-﻿using Caesura;
+﻿using iSocket;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +8,13 @@ namespace Server
 {
     class Connection
     {
-        private iSocket sock;
+        private iSocket.iSocket sock;
         private Server server;
         private String username;
 
         // Default constructor is disabled because I specified a constructor
         // Do not create a default constructor
-        public Connection(Caesura.iSocket temp, Server server)
+        public Connection(iSocket.iSocket temp, Server server)
         {
             this.sock = temp;
             this.server = server;

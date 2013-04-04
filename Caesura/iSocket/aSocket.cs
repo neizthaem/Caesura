@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Caesura
+namespace iSocket
 {
 
 
@@ -37,6 +37,7 @@ namespace Caesura
                 return -3;
             }
             socket.Connect(host, port);
+
             return 1;
         }
 
@@ -46,6 +47,7 @@ namespace Caesura
             socket.Bind(new IPEndPoint(IPAddress.Parse("127.0.0.1"), port));
             // I think this will cause it to block until a connection exists
             socket.Blocking = true;
+
 
             socket.Listen(1);
             return new aSocket(socket.Accept());
@@ -62,11 +64,12 @@ namespace Caesura
             {
                 return -2;
             }
-           
+
             try
             {
 
                 return socket.Receive(buffer, buffer.Length, 0);
+
             }
             catch (SocketException)
             {

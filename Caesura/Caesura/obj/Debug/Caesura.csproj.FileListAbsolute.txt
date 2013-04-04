@@ -7,3 +7,11 @@ C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\nunit
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\nunit.framework.xml
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Rhino.Mocks.dll
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Rhino.Mocks.xml
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\nunit.framework.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\nunit.framework.xml
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Rhino.Mocks.xml
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.csprojResolveAssemblyReference.cache
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.pdb

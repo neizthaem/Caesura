@@ -5,9 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Caesura;
-using Caesura.iSocket;
-using Caesura.aSocket;
+using iSocket;
 
 namespace Server
 {
@@ -19,7 +17,7 @@ namespace Server
         Dictionary<String, Connection> connections = new Dictionary<string,Connection>();
         Mailbox mailbox = new Mailbox();
         int defaultPort = 6543;
-        iSocket socket = new aSocket();
+        iSocket.iSocket socket = new aSocket();
 
         public Server()
         {
@@ -28,7 +26,7 @@ namespace Server
 
         public void run()
         {
-            iSocket temp; 
+            iSocket.iSocket temp; 
             // enter a while loop
             while (true)
             {
