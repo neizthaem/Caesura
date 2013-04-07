@@ -43,7 +43,7 @@ namespace Caesura
             return this.password;
         }
 
-        internal bool writeNP()
+/*        internal bool writeNP()
         {
             StreamWriter writer = File.AppendText("c:\\Users.txt");
             
@@ -57,6 +57,6 @@ namespace Caesura
             {
                 return false;
             }
-        }
+        }*/
     }
 }
