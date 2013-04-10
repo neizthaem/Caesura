@@ -1,0 +1,5 @@
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\bin\Debug\Client.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\bin\Debug\Client.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.pdb

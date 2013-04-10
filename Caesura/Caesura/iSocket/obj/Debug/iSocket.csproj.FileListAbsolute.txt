@@ -1,0 +1,5 @@
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\bin\Debug\iSocket.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\bin\Debug\iSocket.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\obj\Debug\iSocket.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\obj\Debug\iSocket.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\obj\Debug\iSocket.pdb
