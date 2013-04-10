@@ -121,14 +121,18 @@ namespace Caesura
             using (mocks.Record())
             {
 
-                // The mock will return "Whale Rider" when the call is made with 24
+                
                 mockDatabase.getUser("Zarakava");
                 LastCall.Return(zarakavaUse);
+                mockDatabase.getUser("NULLMAN");
+                LastCall.Return(null);
             }
 
             UserRegistration.setDatabase(mockDatabase);
             Assert.IsTrue(UserRegistration.login("Zarakava", "Testing"));
+            
             Assert.IsFalse(UserRegistration.login("Zarakava", "NotTesting"));
+            Assert.IsFalse(UserRegistration.login("NULLMAN", "NotTesting"));
         }
     }
 }
