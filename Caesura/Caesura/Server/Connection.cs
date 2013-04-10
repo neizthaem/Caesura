@@ -99,12 +99,33 @@ namespace Server
 
         public void sendFile(string filename)
         {
+            int maxBytes = 512;
+            int length = fileSize(filename);
+            int transferLength;
+            int sentLength = 0;
             // Send file name
-
+            sock.send(iSocket.aSocket.stringToBytes(filename));
             // Number of transfers
+            int transfers = (int)Math.Ceiling((double)((double)length / (double)maxBytes));
+            sock.send(iSocket.aSocket.stringToBytes(transfers.ToString()));
+            while(length>0)
+            {
             // Length of a transfer
+                transferLength = Math.Min(maxBytes,length);
+                sock.send(iSocket.aSocket.stringToBytes(transferLength.ToString()));
             // transfers
-            throw new NotImplementedException();
+                sock.send(readFile(filename,sentLength,transferLength));
+                sentLength+=transferLength;
+                length -= transferLength;
+            
+            }
+            return;
+        }
+
+        public int fileSize(string filename)
+        {
+            FileInfo f = new FileInfo(filename);
+            return (int)f.Length;
         }
 
         // Public for the purpose of testing

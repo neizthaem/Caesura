@@ -10,6 +10,8 @@ namespace Server
     {
         Boolean validate(String username, String password);
 
+        Boolean validateFile(String username, String filename);
+
         void addFile(String username, String filename);
 
         void addFriend(String username, String friendname);

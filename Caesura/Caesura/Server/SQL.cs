@@ -38,5 +38,12 @@ namespace Server
         {
             throw new NotImplementedException();
         }
+
+
+        public bool validateFile(string username, string filename)
+        {
+            //throw new NotImplementedException();r
+            return true;
+        }
     }
 }

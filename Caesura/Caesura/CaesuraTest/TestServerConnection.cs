@@ -118,18 +118,24 @@ namespace CaesuraTest
             Assert.AreEqual(iSocket.aSocket.bytesToString(result), iSocket.aSocket.bytesToString(connection.readFile("generic.txt", 5, 4)));
         }
 
-        public void ServerConnectionSendMessage()
+        [Test]
+        public void ServerConnectionSendFile()
         {
             using (mocks.Record())
             {
                 // File Name
-
+                mockSocket.send(iSocket.aSocket.stringToBytes("generic.txt"));
                 // Number of transfers (1)
-
+                mockSocket.send(iSocket.aSocket.stringToBytes("1"));
                 // Length of a transfer
-
+                mockSocket.send(iSocket.aSocket.stringToBytes("18"));
                 // Transfer
+                mockSocket.send(iSocket.aSocket.stringToBytes("This here is a text file"));
             }
+
+            connection.sendFile("generic.txt");
+
+            mocks.VerifyAll();
         }
 
 
