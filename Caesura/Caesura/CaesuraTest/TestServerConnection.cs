@@ -138,6 +138,50 @@ namespace CaesuraTest
             mocks.VerifyAll();
         }
 
+        [Test]
+        public void TestServerConnectionSplitMessage()
+        {
+            string[] target = connection.splitMessage("RequestFile generic.txt");
+            Assert.AreEqual("RequestFile",target[0]);
+            Assert.AreEqual("generic.txt",target[1]);
+        }
+
+        [Test]
+        public void ServerConnectionOnRecieveFileRequestAllowed()
+        {
+            using (mocks.Record())
+            {
+                mockServer.requestFile("TestUser", "generic.txt");
+                LastCall.Return(true);
+
+                // File Name
+                mockSocket.send(iSocket.aSocket.stringToBytes("generic.txt"));
+                // Number of transfers (1)
+                mockSocket.send(iSocket.aSocket.stringToBytes("1"));
+                // Length of a transfer
+                mockSocket.send(iSocket.aSocket.stringToBytes("18"));
+                // Transfer
+                mockSocket.send(iSocket.aSocket.stringToBytes("This here is a text file"));
+            }
+
+            connection.onRecieve("RequestFile generic.txt");
+
+            mocks.VerifyAll();
+        }
+
+        [Test]
+        public void ServerConnectionOnRecieveQuit()
+        {
+            using (mocks.Record())
+            {
+                mockSocket.close();
+            }
+
+            connection.onRecieve("Quit ");
+
+            mocks.VerifyAll();
+        }
+
 
     }
 }

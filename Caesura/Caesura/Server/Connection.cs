@@ -15,6 +15,7 @@ namespace Server
         private iServer server;
         // needs to be public for test cases
         public string username;
+        public Boolean running = true;
 
         // Default constructor is disabled because I specified a constructor
         // Do not create a default constructor
@@ -86,9 +87,44 @@ namespace Server
             }
         }
 
+        public String[] splitMessage(string message)
+        {
+            int splitIndex = message.IndexOf(' ');
+
+            string[] ret = new string[2];
+            ret[0] = message.Substring(0, splitIndex);
+            ret[1] = message.Substring(splitIndex + 1, message.Length - splitIndex - 1);
+            return ret;
+        }
+
+        public void run()
+        {
+            String temp;
+            while (running)
+            {
+                temp = iSocket.aSocket.bytesToString(sock.receive(30));
+            }
+        }
 
         public void onRecieve(string message)
         {
+            string[] parsed = splitMessage(message);
+            // Message will contrain two parts
+            // Type
+            string type = parsed[0];
+            // Params
+            string param = parsed[1];
+
+            if ("RequestFile".Equals(type))
+            {
+                sendFile(param);
+            }
+            else if ("Quit".Equals(type))
+            {
+                sock.close();
+                running = false;
+
+            }
             throw new NotImplementedException();
         }
 
@@ -108,16 +144,16 @@ namespace Server
             // Number of transfers
             int transfers = (int)Math.Ceiling((double)((double)length / (double)maxBytes));
             sock.send(iSocket.aSocket.stringToBytes(transfers.ToString()));
-            while(length>0)
+            while (length > 0)
             {
-            // Length of a transfer
-                transferLength = Math.Min(maxBytes,length);
+                // Length of a transfer
+                transferLength = Math.Min(maxBytes, length);
                 sock.send(iSocket.aSocket.stringToBytes(transferLength.ToString()));
-            // transfers
-                sock.send(readFile(filename,sentLength,transferLength));
-                sentLength+=transferLength;
+                // transfers
+                sock.send(readFile(filename, sentLength, transferLength));
+                sentLength += transferLength;
                 length -= transferLength;
-            
+
             }
             return;
         }
