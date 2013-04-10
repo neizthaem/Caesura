@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\bin\Debug\iSocket.dll" total="12" errors="5" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-04" time="08:45:42">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.5466" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="JEFFREYCARTER" user="Jeffrey Carter" user-domain="JeffreyCarter" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\bin\Debug\iSocket.dll" executed="True" result="Failure" success="False" time="2.701" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="iSocket" executed="True" result="Failure" success="False" time="2.700" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="testaSocket" executed="True" result="Failure" success="False" time="2.700" asserts="0">
+            <results>
+              <test-case name="iSocket.testaSocket.testaSocketClose" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+              <test-case name="iSocket.testaSocket.testaSocketconnectGivenNonNullHostAndPort" executed="True" result="Error" success="False" time="2.556" asserts="0">
+                <failure>
+                  <message><![CDATA[System.Net.Sockets.SocketException : No such host is known]]></message>
+                  <stack-trace><![CDATA[at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6)
+at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+at System.Net.Sockets.Socket.Connect(String host, Int32 port)
+at iSocket.testaSocket.testaSocketconnectGivenNonNullHostAndPort() in c:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\TestCases\testaSocket.cs:line 70
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="iSocket.testaSocket.testaSocketconnectGivenNullHost" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="iSocket.testaSocket.testaSocketconnectGivenShortHostLength" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="iSocket.testaSocket.testaSocketConstructorGivenAMockSocket" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="iSocket.testaSocket.testaSocketConstructorNotNull" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="iSocket.testaSocket.testaSocketConstructorSocketNotNull" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="iSocket.testaSocket.testaSocketlisten" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                <failure>
+                  <message><![CDATA[System.ArgumentException : Can not instantiate proxy of class: System.Net.Sockets.Socket.
+Could not find a parameterless constructor.
+Parameter name: constructorArguments]]></message>
+                  <stack-trace><![CDATA[at Castle.DynamicProxy.ProxyGenerator.CreateClassProxy(Type classToProxy, Type[] additionalInterfacesToProxy, ProxyGenerationOptions options, Object[] constructorArguments, IInterceptor[] interceptors)
+at Rhino.Mocks.MockRepository.MockClass(CreateMockState mockStateFactory, Type type, Type[] extras, Object[] argumentsForConstructor)
+at Rhino.Mocks.MockRepository.Stub[T](Object[] argumentsForConstructor)
+at iSocket.testaSocket.testaSocketlisten() in c:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\TestCases\testaSocket.cs:line 94
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="iSocket.testaSocket.testaSocketrecieveWithNoExceptions" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                <failure>
+                  <message><![CDATA[System.Net.Sockets.SocketException : A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied]]></message>
+                  <stack-trace><![CDATA[at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+at iSocket.testaSocket.testaSocketrecieveWithNoExceptions() in c:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\TestCases\testaSocket.cs:line 129
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="iSocket.testaSocket.testaSocketrecieveWithNullBuffer" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="iSocket.testaSocket.testaSocketreieveWithObjectDisposedException" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                <failure>
+                  <message><![CDATA[System.Net.Sockets.SocketException : A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied]]></message>
+                  <stack-trace><![CDATA[at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+at iSocket.testaSocket.testaSocketreieveWithObjectDisposedException() in c:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\TestCases\testaSocket.cs:line 167
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="iSocket.testaSocket.testaSocketreieveWithSocketException" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                <failure>
+                  <message><![CDATA[System.Net.Sockets.SocketException : A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied]]></message>
+                  <stack-trace><![CDATA[at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 size, SocketFlags socketFlags)
+at iSocket.testaSocket.testaSocketreieveWithSocketException() in c:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\TestCases\testaSocket.cs:line 151
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

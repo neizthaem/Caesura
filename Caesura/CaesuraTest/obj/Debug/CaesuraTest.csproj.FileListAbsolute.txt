@@ -1,0 +1,15 @@
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Rhino.Mocks.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.xml
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Rhino.Mocks.xml
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.pdb

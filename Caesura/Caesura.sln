@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{952A50F2-5D5D-41B5-B1D3-FB3504BA9ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{53B070CE-C181-4120-A8F7-ADE6746D0780}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSocket", "iSocket\iSocket.csproj", "{11545D4F-7089-451C-BCA7-5F82B0846072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaesuraTest", "CaesuraTest\CaesuraTest.csproj", "{61B84129-D4C5-4E50-9A73-06F98F18E3CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{952A50F2-5D5D-41B5-B1D3-FB3504BA9ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{952A50F2-5D5D-41B5-B1D3-FB3504BA9ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{952A50F2-5D5D-41B5-B1D3-FB3504BA9ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{952A50F2-5D5D-41B5-B1D3-FB3504BA9ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B070CE-C181-4120-A8F7-ADE6746D0780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B070CE-C181-4120-A8F7-ADE6746D0780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B070CE-C181-4120-A8F7-ADE6746D0780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B070CE-C181-4120-A8F7-ADE6746D0780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11545D4F-7089-451C-BCA7-5F82B0846072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11545D4F-7089-451C-BCA7-5F82B0846072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11545D4F-7089-451C-BCA7-5F82B0846072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11545D4F-7089-451C-BCA7-5F82B0846072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B84129-D4C5-4E50-9A73-06F98F18E3CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B84129-D4C5-4E50-9A73-06F98F18E3CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B84129-D4C5-4E50-9A73-06F98F18E3CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B84129-D4C5-4E50-9A73-06F98F18E3CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

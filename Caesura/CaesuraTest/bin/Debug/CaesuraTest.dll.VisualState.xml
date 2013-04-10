@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1012]C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll</TopNode>
+  <SelectedNode>[0-1004]CaesuraTest.TestServerConnection</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1012]C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" Expanded="true" />
+    <Node UniqueName="[0-1013]CaesuraTest" Expanded="true" />
+    <Node UniqueName="[0-1000]CaesuraTest.TestServer" Expanded="true" />
+    <Node UniqueName="[0-1004]CaesuraTest.TestServerConnection" Expanded="true" />
+  </Nodes>
+</VisualState>
