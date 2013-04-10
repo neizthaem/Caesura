@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Caesura;
 
 namespace Caesura
 { 
     [TestFixture()]
     class UserRegTests
     {
-        private MockRepository mocks;
+        public MockRepository mocks = new MockRepository();
 
         [Test()]
         public void initializeTest()
@@ -63,7 +64,53 @@ namespace Caesura
         }*/
 
         [Test()]
-        public void testGetFromDatabase()
+        public void testIsRegisteredInDatabase()
+        {
+            DatabaseInterface mockDatabase = mocks.Stub<DatabaseInterface>();
+
+            User zarakavaUse = new User();
+            zarakavaUse.setName("Zarakava");
+            zarakavaUse.setPass("Testing");
+
+            using (mocks.Record())
+            {
+                mockDatabase.getUser("Zarakava");
+                LastCall.Return(zarakavaUse);
+                mockDatabase.getUser("NULLMAN");
+                LastCall.Return(null);
+            }
+
+            UserRegistration.setDatabase(mockDatabase);
+            Assert.IsTrue(UserRegistration.isRegistered("Zarakava"));
+            Assert.IsFalse(UserRegistration.isRegistered("NULLMAN"));
+        }
+
+        [Test()]
+        public void testRegisteredInDatabase()
+        {
+            DatabaseInterface mockDatabase = mocks.Stub<DatabaseInterface>();
+
+            User zarakavaUse = new User();
+            zarakavaUse.setName("Zarakava");
+            zarakavaUse.setPass("Testing");
+
+            using (mocks.Record())
+            {
+
+                // The mock will return "Whale Rider" when the call is made with 24
+                mockDatabase.registerUser(zarakavaUse);
+                LastCall.Return(true);
+                mockDatabase.registerUser(null);
+                LastCall.Return(false);
+            }
+
+            UserRegistration.setDatabase(mockDatabase);
+            Assert.IsTrue(UserRegistration.register(zarakavaUse));
+            Assert.IsFalse(UserRegistration.register(null));
+        }
+
+        [Test()]
+        public void testLogin()
         {
             DatabaseInterface mockDatabase = mocks.Stub<DatabaseInterface>();
 
@@ -77,19 +124,11 @@ namespace Caesura
                 // The mock will return "Whale Rider" when the call is made with 24
                 mockDatabase.getUser("Zarakava");
                 LastCall.Return(zarakavaUse);
-                mockDatabase.getUser("NULLMAN");
-                LastCall.Return(null);
             }
 
-            UserRegistration.Database = mockDatabase;
-            Assert.IsTrue(UserRegistration.isRegistered("Zarakava"));
-            Assert.IsFalse(UserRegistration.isRegistered("NULLMAN"));
-
-
-
+            UserRegistration.setDatabase(mockDatabase);
+            Assert.IsTrue(UserRegistration.login("Zarakava", "Testing"));
+            Assert.IsFalse(UserRegistration.login("Zarakava", "NotTesting"));
         }
-
-
-
     }
 }

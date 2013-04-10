@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Caesura
 {
-    class User
+    public class User
     {
         private String name;
         private String password;
