@@ -1,7 +1,8 @@
 ﻿using System;
-using NUnit.Framework;
 using Caesura;
+using NUnit.Framework;
 using Rhino.Mocks;
+using System.Collections.Generic;
 
 using System.Linq;
 using System.Data.Linq;
@@ -9,53 +10,43 @@ using System.Data.Linq.Mapping;
 
 namespace CaesuraSearchTest
 {
-    class SearchTest
+    public class SearchTest
     {
 
-        private MockRepository mocks;
-        private IDatabase mockDatabase;
-        private Tag movie1 = new Tag
+        [Test()]
+        public void TestThatEmptyDatabaseReturnsNoResults()
         {
-            FilePath = "/mnt/video/video.avi",
-            TagName = "video"
-        };
+            Search.database = ObjectMother.EmptyDatabase();
 
-        private Tag movie2 = new Tag
+            List<String> result;
+            List<String> empty = new List<String>();
+
+            result = Search.getFilesWithTags("video");
+            Assert.AreSame(empty, result);
+
+            result = Search.getFilesContainingTags("video");
+            Assert.AreSame(empty, result);
+
+            result = Search.getFilesNotContainingTags("video");
+            Assert.AreSame(empty, result);
+        }
+
+        [Test()]
+        public void TestThatNoValidResultsReturnsNoResults()
         {
-            FilePath = "/mnt/video/video.avi",
-            TagName = "avi"
-        };
+            Search.database = ObjectMother.PopulatedDatabase();
 
-        private Tag music1 = new Tag
-        {
-            FilePath = "/mnt/video/music.mp3",
-            TagName = "audio"
-        };
+            List<String> result;
+            List<String> empty = new List<String>();
 
-        private Tag music2 = new Tag
-        {
-            FilePath = "/mnt/video/music.mp3",
-            TagName = "mp3"
-        };
+            result = Search.getFilesWithTags("new");
+            Assert.AreSame(empty, result);
 
-        private Tag anime1 = new Tag
-        {
-            FilePath = "/mnt/video/anime.mkv",
-            TagName = "video"
-        };
+            result = Search.getFilesContainingTags("new");
+            Assert.AreSame(empty, result);
 
-        private Tag anime2 = new Tag
-        {
-            FilePath = "/mnt/video/anime.mkv",
-            TagName = "anime"
-        };
-
-        [SetUp()]
-        public void Setup()
-        {
-            mocks = new MockRepository();
-            mockDatabase = mocks.Stub<IDatabase>();
-
+            result = Search.getFilesNotContainingTags("video", "mp3");
+            Assert.AreSame(empty, result);
 
         }
 

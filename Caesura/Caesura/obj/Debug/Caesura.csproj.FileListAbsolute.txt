@@ -1,0 +1,5 @@
+C:\Users\Austin\.ssh\Caesura\Caesura\Caesura\obj\Debug\Caesura.csprojResolveAssemblyReference.cache
+C:\Users\Austin\.ssh\Caesura\Caesura\Caesura\bin\Debug\Caesura.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\Caesura\bin\Debug\Caesura.pdb
+C:\Users\Austin\.ssh\Caesura\Caesura\Caesura\obj\Debug\Caesura.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\Caesura\obj\Debug\Caesura.pdb

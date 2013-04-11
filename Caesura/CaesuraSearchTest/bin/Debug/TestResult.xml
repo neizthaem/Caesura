@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll" total="2" errors="0" failures="2" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-10" time="22:24:11">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.6400" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="UPHUSAR" user="Austin" user-domain="UPHUSAR" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll" executed="True" result="Failure" success="False" time="2.126" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="CaesuraSearchTest" executed="True" result="Failure" success="False" time="2.088" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="SearchTest" executed="True" result="Failure" success="False" time="2.084" asserts="0">
+            <results>
+              <test-case name="CaesuraSearchTest.SearchTest.TestThatEmptyDatabaseReturnsNoResults" executed="True" result="Failure" success="False" time="1.763" asserts="1">
+                <failure>
+                  <message><![CDATA[  Expected: same as <empty>
+  But was:  null
+]]></message>
+                  <stack-trace><![CDATA[at CaesuraSearchTest.SearchTest.TestThatEmptyDatabaseReturnsNoResults() in c:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\SearchTest.cs:line 25
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="CaesuraSearchTest.SearchTest.TestThatNoValidResultsReturnsNoResults" executed="True" result="Failure" success="False" time="0.116" asserts="1">
+                <failure>
+                  <message><![CDATA[  Expected: same as <empty>
+  But was:  null
+]]></message>
+                  <stack-trace><![CDATA[at CaesuraSearchTest.SearchTest.TestThatNoValidResultsReturnsNoResults() in c:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\SearchTest.cs:line 43
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
