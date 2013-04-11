@@ -125,7 +125,6 @@ namespace Server
                 running = false;
 
             }
-            throw new NotImplementedException();
         }
 
         public void sendMessage(string message)
