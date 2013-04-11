@@ -14,6 +14,24 @@ namespace CaesuraSearchTest
     {
 
         [Test()]
+        public void TestResultOfNullSearchDatabase()
+        {
+            Search.database = null;
+
+            List<String> result;
+            List<String> empty = new List<String>();
+
+            result = Search.getFilesWithTags("video");
+            Assert.AreEqual(empty, result);
+
+            result = Search.getFilesContainingTags("video");
+            Assert.AreEqual(empty, result);
+
+            result = Search.getFilesNotContainingTags("video");
+            Assert.AreEqual(empty, result);
+        }
+
+        [Test()]
         public void TestThatEmptyDatabaseReturnsNoResults()
         {
             Search.database = ObjectMother.EmptyDatabase();

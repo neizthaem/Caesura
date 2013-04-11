@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1004]C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll</TopNode>
-  <SelectedNode>[0-1003]CaesuraSearchTest.SearchTest.TestThatGetFilesWithTagsReturnsCorrectResults</SelectedNode>
+  <TopNode>[0-1008]C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll</TopNode>
+  <SelectedNode>[0-1000]CaesuraSearchTest.SearchTest</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1004]C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll" Expanded="true" />
-    <Node UniqueName="[0-1005]CaesuraSearchTest" Expanded="true" />
+    <Node UniqueName="[0-1008]C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll" Expanded="true" />
+    <Node UniqueName="[0-1009]CaesuraSearchTest" Expanded="true" />
     <Node UniqueName="[0-1000]CaesuraSearchTest.SearchTest" Expanded="true" />
   </Nodes>
 </VisualState>
