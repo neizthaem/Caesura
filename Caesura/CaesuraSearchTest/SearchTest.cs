@@ -45,7 +45,7 @@ namespace CaesuraSearchTest
             result = Search.getFilesContainingTags("new");
             Assert.AreEqual(empty, result);
 
-            result = Search.getFilesNotContainingTags("video", "mp3");
+            result = Search.getFilesNotContainingTags("video", "mp3", "wav");
             Assert.AreEqual(empty, result);
 
         }
@@ -113,10 +113,10 @@ namespace CaesuraSearchTest
             expected.Add(ObjectMother.soundFile);
             Assert.AreEqual(expected, result);
 
-            result = Search.getFilesWithTags("video", "video");
+            result = Search.getFilesContainingTags("video", "video");
             expected = new List<String>();
-            expected.Add(ObjectMother.videoFile);
             expected.Add(ObjectMother.animeFile);
+            expected.Add(ObjectMother.videoFile);
             Assert.AreEqual(expected, result);
 
         }
@@ -141,10 +141,12 @@ namespace CaesuraSearchTest
 
             result = Search.getFilesContainingTags("anime", "avi", "audio");
             expected = new List<String>();
-            expected.Add(ObjectMother.videoFile);
-            expected.Add(ObjectMother.animeFile);
-            expected.Add(ObjectMother.musicFile);
             expected.Add(ObjectMother.soundFile);
+            expected.Add(ObjectMother.animeFile);
+            expected.Add(ObjectMother.videoFile);
+            expected.Add(ObjectMother.musicFile);
+            result.Sort();
+            expected.Sort();
             Assert.AreEqual(expected, result);
 
         }
@@ -163,6 +165,8 @@ namespace CaesuraSearchTest
             expected.Add(ObjectMother.animeFile);
             expected.Add(ObjectMother.musicFile);
             expected.Add(ObjectMother.soundFile);
+            result.Sort();
+            expected.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesNotContainingTags("mkv", "mp3", "anime", "video");
@@ -170,10 +174,12 @@ namespace CaesuraSearchTest
             expected.Add(ObjectMother.soundFile);
             Assert.AreEqual(expected, result);
 
-            result = Search.getFilesContainingTags("video");
+            result = Search.getFilesNotContainingTags("video");
             expected = new List<String>();
             expected.Add(ObjectMother.soundFile);
             expected.Add(ObjectMother.musicFile);
+            result.Sort();
+            expected.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesNotContainingTags("mkv", "mp3", "audio", "video");
