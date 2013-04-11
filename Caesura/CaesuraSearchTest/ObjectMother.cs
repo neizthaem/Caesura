@@ -10,6 +10,11 @@ namespace CaesuraSearchTest
 {
     public class ObjectMother
     {
+
+        public static String videoFile = "video.avi";
+        public static String musicFile = "music.mp3";
+        public static String animeFile = "anime.mkv";
+
         public static IDatabase EmptyDatabase()
         {
             MockRepository mocks = new MockRepository();

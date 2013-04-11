@@ -22,13 +22,13 @@ namespace CaesuraSearchTest
             List<String> empty = new List<String>();
 
             result = Search.getFilesWithTags("video");
-            Assert.AreSame(empty, result);
+            Assert.AreEqual(empty, result);
 
             result = Search.getFilesContainingTags("video");
-            Assert.AreSame(empty, result);
+            Assert.AreEqual(empty, result);
 
             result = Search.getFilesNotContainingTags("video");
-            Assert.AreSame(empty, result);
+            Assert.AreEqual(empty, result);
         }
 
         [Test()]
@@ -40,13 +40,48 @@ namespace CaesuraSearchTest
             List<String> empty = new List<String>();
 
             result = Search.getFilesWithTags("new");
-            Assert.AreSame(empty, result);
+            Assert.AreEqual(empty, result);
 
             result = Search.getFilesContainingTags("new");
-            Assert.AreSame(empty, result);
+            Assert.AreEqual(empty, result);
 
             result = Search.getFilesNotContainingTags("video", "mp3");
-            Assert.AreSame(empty, result);
+            Assert.AreEqual(empty, result);
+
+        }
+
+        [Test()]
+        public void TestThatGetFilesWithTagsReturnsCorrectResults()
+        {
+            Search.database = ObjectMother.PopulatedDatabase();
+
+            List<String> result;
+            List<String> expected = new List<String>();
+
+            result = Search.getFilesWithTags("video");
+            expected.Add(ObjectMother.videoFile);
+            expected.Add(ObjectMother.animeFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesWithTags("anime");
+            expected = new List<String>();
+            expected.Add(ObjectMother.animeFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesWithTags("avi");
+            expected = new List<String>();
+            expected.Add(ObjectMother.videoFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesWithTags("music");
+            expected = new List<String>();
+            expected.Add(ObjectMother.musicFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesWithTags("mp3");
+            expected = new List<String>();
+            expected.Add(ObjectMother.musicFile);
+            Assert.AreEqual(expected, result);
 
         }
 
