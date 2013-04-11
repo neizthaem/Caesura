@@ -3,3 +3,7 @@ C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\bin\Debu
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.dll
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\bin\Debug\iSocket.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\bin\Debug\Server.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\bin\Debug\iSocket.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\bin\Debug\Server.pdb

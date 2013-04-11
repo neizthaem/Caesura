@@ -78,8 +78,12 @@ namespace Server
 
                 username = tempString;
 
-                return server.validate(tempString, tempPassword);
+                Boolean ret = server.validate(tempString, tempPassword);
+
+                sock.send(iSocket.aSocket.stringToBytes(ret.ToString()));
+                return ret;
             }
+                
             catch (Exception e)
             {
                 Console.WriteLine("Server.Connection.Validation():" + e.Message + " | " + e.Source + "|");
