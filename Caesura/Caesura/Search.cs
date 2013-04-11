@@ -15,15 +15,29 @@ namespace Caesura
         public static IDatabase database = null;
 
         // Get Files that have ALL of the tags in the list
-        public static List<String> getFilesWithTags(params string[] tags)
+        public static List<string> getFilesWithTags(params String[] tags)
         {
-            List<String> list = new List<String>();
+
+            if (database == null || tags.Length == 0)
+                return new List<String>();
+
+            List<String> temp;
+            List<String> list = getFilesWithTag(tags[0]);
+
+            for (int i = 1; i < tags.Length; i++)
+            {
+                temp = getFilesWithTag(tags[i]);
+                list = list.Intersect(temp).ToList<String>();
+            }
             return list;
         }
 
-        private List<String> getFilesWithTag(string tags)
+        private static List<String> getFilesWithTag(String tag)
         {
-            return null;
+            IQueryable<String> list = from t in database.Tags
+                                where t.TagName == tag
+                                select t.FilePath;
+            return list.ToList<String>();
         }
 
         // Get Files that have AT LEAST ONE of the tags in the list

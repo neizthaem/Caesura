@@ -14,11 +14,14 @@ namespace CaesuraSearchTest
         public static String videoFile = "video.avi";
         public static String musicFile = "music.mp3";
         public static String animeFile = "anime.mkv";
+        public static String soundFile = "bell.wav";
 
         public static IDatabase EmptyDatabase()
         {
             MockRepository mocks = new MockRepository();
             IDatabase mockDatabase = mocks.Stub<IDatabase>();
+            mockDatabase.Tags = new List<Tag> {
+            }.AsQueryable<Tag>();
             return mockDatabase;
         }
 
@@ -26,51 +29,23 @@ namespace CaesuraSearchTest
         {
             MockRepository mocks = new MockRepository();
             IDatabase mockDatabase = mocks.Stub<IDatabase>();
-            mockDatabase.Tags.InsertOnSubmit(movie1);
-            mockDatabase.Tags.InsertOnSubmit(movie2);
-            mockDatabase.Tags.InsertOnSubmit(music1);
-            mockDatabase.Tags.InsertOnSubmit(music2);
-            mockDatabase.Tags.InsertOnSubmit(anime1);
-            mockDatabase.Tags.InsertOnSubmit(anime2);
-            mockDatabase.SubmitChanges();
+            mockDatabase.Tags = new List<Tag> {
+                new Tag {FilePath = musicFile, TagName = "audio"},
+                new Tag {FilePath = musicFile, TagName = "mp3"},
+
+                new Tag {FilePath = soundFile, TagName = "audio"},
+                new Tag {FilePath = soundFile, TagName = "wav"},
+
+                new Tag {FilePath = animeFile, TagName = "video"},
+                new Tag {FilePath = animeFile, TagName = "anime"},
+                new Tag {FilePath = animeFile, TagName = "mkv"},
+
+                new Tag {FilePath = videoFile, TagName = "video"},
+                new Tag {FilePath = videoFile, TagName = "avi"}
+            }.AsQueryable<Tag>();
+
             return mockDatabase;
         }
-
-        private static Tag movie1 = new Tag
-        {
-            FilePath = "video.avi",
-            TagName = "video"
-        };
-
-        private static Tag movie2 = new Tag
-        {
-            FilePath = "video.avi",
-            TagName = "avi"
-        };
-
-        private static Tag music1 = new Tag
-        {
-            FilePath = "music.mp3",
-            TagName = "audio"
-        };
-
-        private static Tag music2 = new Tag
-        {
-            FilePath = "music.mp3",
-            TagName = "mp3"
-        };
-
-        private static Tag anime1 = new Tag
-        {
-            FilePath = "anime.mkv",
-            TagName = "video"
-        };
-
-        private static Tag anime2 = new Tag
-        {
-            FilePath = "anime.mkv",
-            TagName = "anime"
-        };
 
     }
 }

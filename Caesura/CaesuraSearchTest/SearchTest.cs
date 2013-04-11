@@ -59,11 +59,11 @@ namespace CaesuraSearchTest
             List<String> expected = new List<String>();
 
             result = Search.getFilesWithTags("video");
-            expected.Add(ObjectMother.videoFile);
             expected.Add(ObjectMother.animeFile);
+            expected.Add(ObjectMother.videoFile);
             Assert.AreEqual(expected, result);
 
-            result = Search.getFilesWithTags("anime");
+            result = Search.getFilesWithTags("mkv");
             expected = new List<String>();
             expected.Add(ObjectMother.animeFile);
             Assert.AreEqual(expected, result);
@@ -73,9 +73,10 @@ namespace CaesuraSearchTest
             expected.Add(ObjectMother.videoFile);
             Assert.AreEqual(expected, result);
 
-            result = Search.getFilesWithTags("music");
+            result = Search.getFilesWithTags("audio");
             expected = new List<String>();
             expected.Add(ObjectMother.musicFile);
+            expected.Add(ObjectMother.soundFile);
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesWithTags("mp3");
@@ -83,8 +84,103 @@ namespace CaesuraSearchTest
             expected.Add(ObjectMother.musicFile);
             Assert.AreEqual(expected, result);
 
+            result = Search.getFilesWithTags("audio", "mp3");
+            expected = new List<String>();
+            expected.Add(ObjectMother.musicFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesWithTags("audio", "mp3", "wav");
+            expected = new List<String>();
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesWithTags();
+            expected = new List<String>();
+            Assert.AreEqual(expected, result);
+
         }
 
+        [Test()]
+        public void TestThatGetFilesContainingTagsDoesNotReturnDuplicates()
+        {
+            Search.database = ObjectMother.PopulatedDatabase();
+
+            List<String> result;
+            List<String> expected = new List<String>();
+
+            result = Search.getFilesContainingTags("audio", "mp3");
+            expected = new List<String>();
+            expected.Add(ObjectMother.musicFile);
+            expected.Add(ObjectMother.soundFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesWithTags("video", "video");
+            expected = new List<String>();
+            expected.Add(ObjectMother.videoFile);
+            expected.Add(ObjectMother.animeFile);
+            Assert.AreEqual(expected, result);
+
+        }
+
+        [Test()]
+        public void TestThatGetFilesContainingTagsReturnsMatching()
+        {
+            Search.database = ObjectMother.PopulatedDatabase();
+
+            List<String> result;
+            List<String> expected = new List<String>();
+
+            result = Search.getFilesContainingTags();
+            expected = new List<String>();
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesContainingTags("mkv", "mp3");
+            expected = new List<String>();
+            expected.Add(ObjectMother.animeFile);
+            expected.Add(ObjectMother.musicFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesContainingTags("anime", "avi", "audio");
+            expected = new List<String>();
+            expected.Add(ObjectMother.videoFile);
+            expected.Add(ObjectMother.animeFile);
+            expected.Add(ObjectMother.musicFile);
+            expected.Add(ObjectMother.soundFile);
+            Assert.AreEqual(expected, result);
+
+        }
+
+        [Test()]
+        public void TestThatGetFilesNotContainingTagsReturnsCorrectly()
+        {
+            Search.database = ObjectMother.PopulatedDatabase();
+
+            List<String> result;
+            List<String> expected = new List<String>();
+
+            result = Search.getFilesNotContainingTags();
+            expected = new List<String>();
+            expected.Add(ObjectMother.videoFile);
+            expected.Add(ObjectMother.animeFile);
+            expected.Add(ObjectMother.musicFile);
+            expected.Add(ObjectMother.soundFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesNotContainingTags("mkv", "mp3", "anime", "video");
+            expected = new List<String>();
+            expected.Add(ObjectMother.soundFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesContainingTags("video");
+            expected = new List<String>();
+            expected.Add(ObjectMother.soundFile);
+            expected.Add(ObjectMother.musicFile);
+            Assert.AreEqual(expected, result);
+
+            result = Search.getFilesNotContainingTags("mkv", "mp3", "audio", "video");
+            expected = new List<String>();
+            Assert.AreEqual(expected, result);
+
+        }
 
     }
 }

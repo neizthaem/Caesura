@@ -7,19 +7,12 @@ using System.Data.Linq.Mapping;
 
 namespace Caesura
 {
-    public class IDatabase : DataContext
+    public interface IDatabase
     {
-
-        public Table<User> Users;
-        public Table<File> Files;
-        public Table<Tag> Tags;
-        public Table<Mail> PendingMail;
-
-        private const String LoginString = "login_string";
-
-        public IDatabase() : base(LoginString)
-        {
-        }
+        IQueryable<Tag> Tags { set;  get; }
+        IQueryable<User> Users { set; get; }
+        IQueryable<Mail> PendingMail { set; get; }
+        IQueryable<File> Files { set; get; }
 
     }
 }

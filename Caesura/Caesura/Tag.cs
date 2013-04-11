@@ -13,8 +13,8 @@ namespace Caesura
     public class Tag
     {
         [Column(IsPrimaryKey = true)]
-        public string FilePath;
+        public String FilePath;
         [Column]
-        public string TagName;
+        public String TagName;
     }
 }

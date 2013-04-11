@@ -1,25 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll" total="3" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-10" time="22:32:47">
+<test-results name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-11" time="16:04:11">
   <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.6400" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="UPHUSAR" user="Austin" user-domain="UPHUSAR" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll" executed="True" result="Failure" success="False" time="1.847" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll" executed="True" result="Success" success="True" time="1.247" asserts="0">
     <results>
-      <test-suite type="Namespace" name="CaesuraSearchTest" executed="True" result="Failure" success="False" time="1.809" asserts="0">
+      <test-suite type="Namespace" name="CaesuraSearchTest" executed="True" result="Success" success="True" time="1.209" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="SearchTest" executed="True" result="Failure" success="False" time="1.806" asserts="0">
+          <test-suite type="TestFixture" name="SearchTest" executed="True" result="Success" success="True" time="1.205" asserts="0">
             <results>
-              <test-case name="CaesuraSearchTest.SearchTest.TestThatEmptyDatabaseReturnsNoResults" executed="True" result="Success" success="True" time="1.601" asserts="3" />
-              <test-case name="CaesuraSearchTest.SearchTest.TestThatGetFilesWithTagsReturnsCorrectResults" executed="True" result="Failure" success="False" time="0.147" asserts="1">
-                <failure>
-                  <message><![CDATA[  Expected is <System.Collections.Generic.List`1[System.String]> with 2 elements, actual is <System.Collections.Generic.List`1[System.String]> with 0 elements
-  Values differ at index [0]
-  Missing:  < "video.avi", "anime.mkv" >]]></message>
-                  <stack-trace><![CDATA[at CaesuraSearchTest.SearchTest.TestThatGetFilesWithTagsReturnsCorrectResults() in c:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\SearchTest.cs:line 64
-]]></stack-trace>
-                </failure>
-              </test-case>
-              <test-case name="CaesuraSearchTest.SearchTest.TestThatNoValidResultsReturnsNoResults" executed="True" result="Success" success="True" time="0.004" asserts="3" />
+              <test-case name="CaesuraSearchTest.SearchTest.TestThatEmptyDatabaseReturnsNoResults" executed="True" result="Success" success="True" time="1.100" asserts="3" />
+              <test-case name="CaesuraSearchTest.SearchTest.TestThatGetFilesWithTagsReturnsCorrectResults" executed="True" result="Success" success="True" time="0.066" asserts="7" />
+              <test-case name="CaesuraSearchTest.SearchTest.TestThatNoValidResultsReturnsNoResults" executed="True" result="Success" success="True" time="0.005" asserts="3" />
             </results>
           </test-suite>
         </results>
