@@ -21,8 +21,8 @@ namespace CaesuraTest
         public void ServerConnectionSetUp()
         {
             mocks = new MockRepository();
-            mockSocket = mocks.Stub<iSocket.iSocket>();
-            mockServer = mocks.Stub<Server.iServer>();
+            mockSocket = mocks.DynamicMock<iSocket.iSocket>();
+            mockServer = mocks.DynamicMock<Server.iServer>();
             connection = new Server.Connection(mockSocket, mockServer);
 
         }
@@ -85,6 +85,94 @@ namespace CaesuraTest
                 LastCall.Return(iSocket.aSocket.stringToBytes("TestUser")).Repeat.Once().Repeat.Once();
                 mockSocket.receive(15);
                 LastCall.Return(iSocket.aSocket.stringToBytes("TestPass")).Repeat.Once().Repeat.Once();
+
+                mockServer.validate("TestUser", "TestPass");
+                LastCall.Return(true);
+            }
+            Boolean temp = connection.validation();
+
+            Assert.AreEqual("TestUser", connection.username);
+            Assert.True(temp);
+            mocks.VerifyAll();
+
+        }
+
+        [Test]
+        public void ServerConnectionValidationBadClientName()
+        {
+            using (mocks.Record())
+            {
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura" + "1")).Repeat.Once();
+
+                mockServer.validate("TestUser", "TestPass");
+                LastCall.Return(true);
+            }
+            Boolean temp = connection.validation();
+
+            Assert.False(temp);
+            mocks.VerifyAll();
+
+        }
+
+        [Test]
+        public void ServerConnectionValidationBadMajorNumber()
+        {
+            using (mocks.Record())
+            {
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura")).Repeat.Once();
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("1" + Server.Server.MajorNumber)).Repeat.Once();
+
+                mockServer.validate("TestUser", "TestPass");
+                LastCall.Return(true);
+            }
+            Boolean temp = connection.validation();
+
+            Assert.False(temp);
+            mocks.VerifyAll();
+
+        }
+
+        [Test]
+        public void ServerConnectionValidationBadMinorNumber()
+        {
+            using (mocks.Record())
+            {
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura")).Repeat.Once();
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber)).Repeat.Once();
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("1" + Server.Server.MinorNumber)).Repeat.Once();
+
+                mockServer.validate("TestUser", "TestPass");
+                LastCall.Return(true);
+            }
+            Boolean temp = connection.validation();
+
+            Assert.False(temp);
+            mocks.VerifyAll();
+
+        }
+
+
+        [Test]
+        public void ServerConnectionValidationWithExcessData()
+        {
+            using (mocks.Record())
+            {
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura" + "\0ex")).Repeat.Once();
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber + "\0ex")).Repeat.Once();
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber + "\0ex")).Repeat.Once();
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser" + "\0ex")).Repeat.Once().Repeat.Once();
+                mockSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestPass" + "\0ex")).Repeat.Once().Repeat.Once();
 
                 mockServer.validate("TestUser", "TestPass");
                 LastCall.Return(true);
@@ -178,6 +266,24 @@ namespace CaesuraTest
             }
 
             connection.onRecieve("Quit ");
+
+            mocks.VerifyAll();
+        }
+
+
+        [Test]
+        public void ServerConnectionRunRecieveQuit()
+        {
+            using (mocks.Record())
+            {
+                mockSocket.receive(30);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Quit ")).Repeat.Once();
+
+                mockSocket.close();
+            }
+            connection.run();
+
+            Assert.IsFalse(connection.running);
 
             mocks.VerifyAll();
         }

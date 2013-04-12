@@ -22,14 +22,14 @@ namespace Client
         public bool login(string username, string password)
         {
             sock.connect(Server.Server.host, Server.Server.defaultPort);
-
-            sock.send(iSocket.aSocket.stringToBytes("Caesura"));
+            
+            sock.send(iSocket.aSocket.stringToBytes("Caesura\0"));
 
             sock.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber));
             sock.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber));
 
-            sock.send(iSocket.aSocket.stringToBytes(username));
-            sock.send(iSocket.aSocket.stringToBytes(password));
+            sock.send(iSocket.aSocket.stringToBytes(username + "\0"));
+            sock.send(iSocket.aSocket.stringToBytes(password + "\0"));
 
             String recv = iSocket.aSocket.bytesToString(sock.receive(5));
 
@@ -52,7 +52,7 @@ namespace Client
             }
 
             return true;
-            
+
         }
 
         public void writeFile(string filename, byte[] bytes)

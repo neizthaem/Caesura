@@ -11,20 +11,20 @@ namespace Server
     public class Server : iServer
     {
         // it is convient if the major/minor numbers are stored as string
-        public static String MajorNumber = "0";
-        public static String MinorNumber = "0";
+        public static String MajorNumber = "0\0";
+        public static String MinorNumber = "0\0";
 
         public static int defaultPort = 6543;
-        public static string host ="localhost";
+        public static string host = "localhost";
 
         // fields need to be public so test cases can get at them
         public Dictionary<String, iConnection> connections = new Dictionary<string, iConnection>();
-        
+
         public iSocket.iSocket socket = new iSocket.aSocket();
         public iSQL SQL = new SQL();
 
         public Boolean running = true;
-        
+
 
         public Server()
         {
@@ -47,6 +47,10 @@ namespace Server
             if (conn.validation())
             {
                 connections.Add(conn.username, conn);
+            }
+            else
+            {
+                conn.quit();
             }
             conn = null;
 

@@ -26,11 +26,11 @@ namespace iSocket
             socket = sock;
         }
 
-        public static String bytesToString(byte[] bytes)
+        public static String bytesToMessage(byte[] bytes)
         {
             String tempString = System.Text.UTF8Encoding.UTF8.GetString(bytes);
             int tempIndex = tempString.IndexOf('\0', 0);
-            if (tempIndex < 0)
+            if (tempIndex <= 0)
             {
                 return tempString;
             }
@@ -40,6 +40,12 @@ namespace iSocket
 
                 return ret;
             }
+        }
+
+        public static String bytesToString(byte[] bytes)
+        {
+            String tempString = System.Text.UTF8Encoding.UTF8.GetString(bytes);
+            return tempString;
 
         }
 

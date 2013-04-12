@@ -21,7 +21,7 @@ namespace CaesuraTest
         {
             mocks = new MockRepository();
             mockSocket = mocks.Stub<iSocket.iSocket>();
-            mockConnection = mocks.Stub<Client.iConnection>();
+            mockConnection = mocks.DynamicMock<Client.iConnection>();
             client = new Client.Client();
             client.connection = mockConnection;
         }

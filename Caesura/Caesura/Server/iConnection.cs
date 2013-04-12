@@ -16,6 +16,6 @@ namespace Server
 
         void sendFile(String filename);
 
-
+        void quit();
     }
 }

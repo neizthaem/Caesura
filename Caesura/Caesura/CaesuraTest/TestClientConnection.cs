@@ -2,6 +2,7 @@
 using Rhino.Mocks;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,8 @@ namespace CaesuraTest
         public void TestClientConnectionSetUp()
         {
             mocks = new MockRepository();
-            mockSocket = mocks.Stub<iSocket.iSocket>();
-            mockClient = mocks.Stub<Client.iClient>();
+            mockSocket = mocks.DynamicMock<iSocket.iSocket>();
+            mockClient = mocks.DynamicMock<Client.iClient>();
             connection = new Client.Connection(mockClient);
             connection.sock = mockSocket;
         }
@@ -91,6 +92,43 @@ namespace CaesuraTest
             mocks.VerifyAll();
         }
 
+        [Test]
+        public void TestClientWriteFileFileDoesNotExist()
+        {
+            String filename = "TestClientWriteFile";
+
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+
+            Assert.IsFalse(File.Exists(filename));
+
+            connection.writeFile(filename, iSocket.aSocket.stringToBytes("TestClientWriteFile"));
+
+            Assert.AreEqual(File.ReadAllText(filename), "TestClientWriteFile");
+
+            File.Delete(filename);
+        }
+
+        [Test]
+        public void TestClientWriteFileFileDoes()
+        {
+            String filename = "TestClientWriteFile";
+
+            if (!File.Exists(filename))
+            {
+                File.Create(filename);
+            }
+
+            Assert.IsTrue(File.Exists(filename));
+
+            connection.writeFile(filename, iSocket.aSocket.stringToBytes("TestClientWriteFile"));
+
+            Assert.AreEqual(File.ReadAllText(filename), "TestClientWriteFile");
+
+            File.Delete(filename);
+        }
 
     }
 }

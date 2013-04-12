@@ -21,8 +21,8 @@ namespace CaesuraTest
         public void TestServerSetUp()
         {
             mocks = new MockRepository();
-            mockSocket = mocks.Stub<iSocket.iSocket>();
-            mockSQL = mocks.Stub<Server.iSQL>();
+            mockSocket = mocks.DynamicMock<iSocket.iSocket>();
+            mockSQL = mocks.DynamicMock<Server.iSQL>();
             server = new Server.Server();
 
             server.socket = mockSocket;
@@ -84,6 +84,38 @@ namespace CaesuraTest
 
             server.run();
             Assert.IsTrue(server.connections.ContainsKey("TestUser"));
+            Assert.IsFalse(server.running);
+
+            mocks.VerifyAll();
+        }
+
+        [Test]
+        public void TestServerRunFailedValidation()
+        {
+            iSocket.iSocket acceptedSocket = mocks.Stub<iSocket.iSocket>();
+
+            using (mocks.Record())
+            {
+                mockSocket.listen(Server.Server.defaultPort);
+                LastCall.Return(ReturnSocketAndCallStop(acceptedSocket, server));
+
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura")).Repeat.Once();
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber)).Repeat.Once();
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber)).Repeat.Once();
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser")).Repeat.Once().Repeat.Once();
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("BadPass")).Repeat.Once().Repeat.Once();
+
+                mockSQL.validate("TestUser", "BadPass");
+                LastCall.Return(false);
+            }
+
+            server.run();
+            Assert.IsFalse(server.connections.ContainsKey("TestUser"));
             Assert.IsFalse(server.running);
 
             mocks.VerifyAll();

@@ -15,6 +15,7 @@ namespace CaesuraTest
     {
         Client.Client client = null;
         Server.Server server = null;
+        MockRepository mocks = null;
 
         Thread serverThread = null;
 
@@ -23,7 +24,7 @@ namespace CaesuraTest
         {
             client = new Client.Client();
             server = new Server.Server();
-
+            mocks = new MockRepository();
             serverThread = new Thread(new ThreadStart(server.run));
         }
 
@@ -34,6 +35,33 @@ namespace CaesuraTest
             serverThread = null;
             server = null;
             client = null;
+            mocks = null;
+        }
+
+        [Test]
+        public void TestMockVeryifyAllDynamicMock()
+        {
+            iSocket.iSocket mockSocket = mocks.DynamicMock<iSocket.iSocket>();
+
+            using (mocks.Record())
+            {
+                mockSocket.send(null);
+            }
+
+            mocks.VerifyAll();
+        }
+
+        [Test]
+        public void TestMockVeryifyAllStub()
+        {
+            iSocket.iSocket mockSocket = mocks.Stub<iSocket.iSocket>();
+
+            using (mocks.Record())
+            {
+                mockSocket.send(null);
+            }
+
+            mocks.VerifyAll();
         }
 
         [Test]
@@ -41,7 +69,7 @@ namespace CaesuraTest
         {
             serverThread.Start();
 
-            Assert.True(client.login("TestUser", "TestPass"));
+            Assert.True(client.login("TestUser", "aPass"));
         }
 
         [Test]
@@ -57,7 +85,7 @@ namespace CaesuraTest
             Assert.IsFalse(File.Exists("generic"));
 
             // Client will login
-            client.login("TestUser", "TestPass");
+            client.login("aUser", "aPass");
             // Request the file
             client.requestFile("generic.txt");
             // Asert that the file exists

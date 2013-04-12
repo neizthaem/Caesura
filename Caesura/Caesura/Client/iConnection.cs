@@ -21,5 +21,7 @@ namespace Client
         void onMessage(String message);
 
         void sendMessage(String message);
+
+       
     }
 }
