@@ -30,7 +30,7 @@ namespace Server
 
         public Boolean validation()
         {
-            byte[] tempBytes = new byte[15];
+            byte[] tempBytes = new byte[Server.maxBytes];
             String tempString = "";
             String tempPassword = "";
             String fullString = "";
@@ -38,7 +38,7 @@ namespace Server
             {
                 // The rules for handshaking are
                 // Caesura
-                tempBytes = sock.receive(15);
+                tempBytes = sock.receive(Server.maxBytes);
                 fullString = iSocket.aSocket.bytesToString(tempBytes);
                 tempString = iSocket.aSocket.bytesToMessage(tempBytes);
                 if (!"Caesura".Equals(tempString))
@@ -46,10 +46,10 @@ namespace Server
                     throw new Exception("Incorrect program name :[" + tempString + "]");
                 }
 
-                tempBytes = new byte[15];
+                tempBytes = new byte[Server.maxBytes];
 
                 // Major Number
-                tempBytes = sock.receive(15);
+                tempBytes = sock.receive(Server.maxBytes);
                 tempString = iSocket.aSocket.bytesToMessage(tempBytes);
                 fullString = iSocket.aSocket.bytesToString(tempBytes);
                 if (!Server.MajorNumber.Substring(0, Server.MajorNumber.Length - 1).Equals(tempString))
@@ -57,10 +57,10 @@ namespace Server
                     throw new Exception("Incorrect Major Number :[" + tempString + "]");
                 }
 
-                tempBytes = new byte[15];
+                tempBytes = new byte[Server.maxBytes];
 
                 // Minor Number
-                tempBytes = sock.receive(15);
+                tempBytes = sock.receive(Server.maxBytes);
                 tempString = iSocket.aSocket.bytesToMessage(tempBytes);
                 fullString = iSocket.aSocket.bytesToString(tempBytes);
                 if (!Server.MinorNumber.Substring(0, Server.MajorNumber.Length - 1).Equals(tempString))
@@ -68,17 +68,17 @@ namespace Server
                     throw new Exception("Incorrect Minor Number :[" + tempString + "]");
                 }
 
-                tempBytes = new byte[15];
+                tempBytes = new byte[Server.maxBytes];
 
                 // Username
-                tempBytes = sock.receive(15);
+                tempBytes = sock.receive(Server.maxBytes);
                 fullString = iSocket.aSocket.bytesToString(tempBytes);
                 tempString = iSocket.aSocket.bytesToMessage(tempBytes);
 
-                tempBytes = new byte[15];
+                tempBytes = new byte[Server.maxBytes];
 
                 // Password
-                tempBytes = sock.receive(15);
+                tempBytes = sock.receive(Server.maxBytes);
                 fullString += ":" + iSocket.aSocket.bytesToString(tempBytes);
                 tempPassword = iSocket.aSocket.bytesToMessage(tempBytes);
 
@@ -99,9 +99,17 @@ namespace Server
 
         public String[] splitMessage(string message)
         {
+            
             int splitIndex = message.IndexOf(' ');
-
             string[] ret = new string[2];
+
+            if (splitIndex < 0)
+            {
+                ret[0] = message;
+                ret[1] = "";
+                return ret;
+            }
+           
             ret[0] = message.Substring(0, splitIndex);
             ret[1] = message.Substring(splitIndex + 1, message.Length - splitIndex - 1);
             return ret;
@@ -112,7 +120,7 @@ namespace Server
             String temp;
             while (running)
             {
-                temp = iSocket.aSocket.bytesToMessage(sock.receive(30));
+                temp = iSocket.aSocket.bytesToMessage(sock.receive(Server.maxBytes));
                 onRecieve(temp);
             }
         }
@@ -140,7 +148,7 @@ namespace Server
                 }
                 else
                 {
-                    sock.send(iSocket.aSocket.stringToBytes("Access Denied"));
+                    sock.send(iSocket.aSocket.stringToBytes("Access Denied", Server.maxBytes));
                 }
 
             }
@@ -163,15 +171,15 @@ namespace Server
             int transferLength;
             int sentLength = 0;
             // Send file name - don't send the extension for test purposes
-            sock.send(iSocket.aSocket.stringToBytes(filename.Substring(0, filename.Length - 4)));
+            sock.send(iSocket.aSocket.stringToBytes(filename.Substring(0, filename.Length - 4), Server.maxBytes));
             // Number of transfers
             int transfers = (int)Math.Ceiling((double)((double)length / (double)maxBytes));
-            sock.send(iSocket.aSocket.stringToBytes(transfers.ToString()));
+            sock.send(iSocket.aSocket.stringToBytes(transfers.ToString(), Server.maxBytes));
             while (length > 0)
             {
                 // Length of a transfer
                 transferLength = Math.Min(maxBytes, length);
-                sock.send(iSocket.aSocket.stringToBytes(transferLength.ToString()));
+                sock.send(iSocket.aSocket.stringToBytes(transferLength.ToString(), Server.maxBytes));
                 // transfers
                 sock.send(readFile(filename, sentLength, transferLength));
                 sentLength += transferLength;

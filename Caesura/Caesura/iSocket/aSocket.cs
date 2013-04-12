@@ -26,6 +26,22 @@ namespace iSocket
             socket = sock;
         }
 
+
+        public static byte[] stringToBytes(String message,int length)
+        {
+            byte[] ret = new byte[length];
+            byte[] temp = System.Text.UTF8Encoding.UTF8.GetBytes(message);
+            for (int i = 0; i < Math.Min(temp.Length,length); i++)
+            {
+                ret[i] = temp[i];   
+            }
+            for (int i = Math.Min(temp.Length, length); i < length; i++)
+            {
+                ret[i] = (byte)'\0';
+            }
+            return ret;
+        }
+
         public static String bytesToMessage(byte[] bytes)
         {
             if (bytes == null)
@@ -80,6 +96,8 @@ namespace iSocket
 
             socket.Listen(1);
             return (iSocket)(new aSocket(socket.Accept()));
+
+            
         }
 
         public void close()
@@ -91,6 +109,11 @@ namespace iSocket
         {
 
             byte[] buffer = new byte[length];
+            for (int i = 0; i < length; i++)
+            {
+                buffer[i] = (byte)'A';
+            }
+            socket.Blocking = true;
 
             try
             {
@@ -117,6 +140,7 @@ namespace iSocket
                 return;
             }
         }
+
 
     }
 }

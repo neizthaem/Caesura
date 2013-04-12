@@ -23,15 +23,15 @@ namespace Client
         {
             sock.connect(Server.Server.host, Server.Server.defaultPort);
 
-            sock.send(iSocket.aSocket.stringToBytes("Caesura"+"\0"));
+            sock.send(iSocket.aSocket.stringToBytes("Caesura" + "\0", Server.Server.maxBytes));
 
-            sock.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber));
-            sock.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber));
+            sock.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber, Server.Server.maxBytes));
+            sock.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber, Server.Server.maxBytes));
 
-            sock.send(iSocket.aSocket.stringToBytes(username + "\0"));
-            sock.send(iSocket.aSocket.stringToBytes(password + "\0"));
+            sock.send(iSocket.aSocket.stringToBytes(username + "\0", Server.Server.maxBytes));
+            sock.send(iSocket.aSocket.stringToBytes(password + "\0", Server.Server.maxBytes));
 
-            String recv = iSocket.aSocket.bytesToMessage(sock.receive(5));
+            String recv = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
 
             bool forDebugger = "True".Equals(recv);
             return forDebugger;
@@ -39,17 +39,17 @@ namespace Client
 
         public bool requestFile(string filename)
         {
-            sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename));
+            sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename,Server.Server.maxBytes));
 
             // need to code 512 as static (max bytes that can be transfered at once
-            String name = iSocket.aSocket.bytesToString(sock.receive(512));
+            String name = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
 
             if (name.Equals("Access Denied"))
             {
                 return false;
             }
 
-            Int32 numTransfers = Convert.ToInt32(iSocket.aSocket.bytesToString(sock.receive(512)));
+            Int32 numTransfers = Convert.ToInt32(iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes)));
             int counter = 100;
             while (numTransfers > 0 && counter > 0)
             {
@@ -57,7 +57,7 @@ namespace Client
                 String temp = "0";
                 try
                 {
-                    temp = iSocket.aSocket.bytesToString(sock.receive(512));
+                    temp = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
                     length = Convert.ToInt32(temp);
                     counter = 100;
                 }

@@ -43,6 +43,7 @@ namespace Server
         public bool validateFile(string username, string filename)
         {
             //throw new NotImplementedException();r
+            Console.WriteLine("true");
             return true;
         }
     }

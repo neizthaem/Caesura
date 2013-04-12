@@ -47,17 +47,17 @@ namespace CaesuraTest
                 mockSocket.send(iSocket.aSocket.stringToBytes("RequestFile generic.txt"));
 
                 // File Name
-                mockSocket.receive(512);
-                LastCall.Return(iSocket.aSocket.stringToBytes("generic.txt")).Repeat.Once();
+                mockSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("generic.txt", Server.Server.maxBytes)).Repeat.Once();
                 // Number of transfers (1)
-                mockSocket.receive(512);
-                LastCall.Return(iSocket.aSocket.stringToBytes("1")).Repeat.Once();
+                mockSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("1", Server.Server.maxBytes)).Repeat.Once();
                 // Length of a transfer
-                mockSocket.receive(512);
-                LastCall.Return(iSocket.aSocket.stringToBytes("18")).Repeat.Once();
+                mockSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("18", Server.Server.maxBytes)).Repeat.Once();
                 // Transfer
-                mockSocket.receive(512);
-                LastCall.Return(iSocket.aSocket.stringToBytes("This here is a text file")).Repeat.Once();
+                mockSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("This here is a text file", Server.Server.maxBytes)).Repeat.Once();
             }
 
             Assert.IsTrue(client.requestFile("generic.txt"));
@@ -75,18 +75,18 @@ namespace CaesuraTest
             {
                 mockSocket.connect(Server.Server.host, Server.Server.defaultPort);
                 // Caesura
-                mockSocket.send(iSocket.aSocket.stringToBytes("Caesura"));
+                mockSocket.send(iSocket.aSocket.stringToBytes("Caesura", Server.Server.maxBytes));
                 // Major
-                mockSocket.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber));
+                mockSocket.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber, Server.Server.maxBytes));
                 // Minor
-                mockSocket.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber));
+                mockSocket.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber, Server.Server.maxBytes));
                 // Username
-                mockSocket.send(iSocket.aSocket.stringToBytes("TestUser"));
+                mockSocket.send(iSocket.aSocket.stringToBytes("TestUser", Server.Server.maxBytes));
                 // Password
-                mockSocket.send(iSocket.aSocket.stringToBytes("TestPass"));
+                mockSocket.send(iSocket.aSocket.stringToBytes("TestPass", Server.Server.maxBytes));
 
-                mockSocket.receive(5);
-                LastCall.Return(iSocket.aSocket.stringToBytes("True"));
+                mockSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("True", Server.Server.maxBytes));
             }
 
             Assert.True(client.login("TestUser", "TestPass"));

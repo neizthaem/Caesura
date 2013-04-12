@@ -5,3 +5,10 @@ C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Server\obj\Debu
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Server\obj\Debug\Server.pdb
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Server\bin\Debug\iSocket.dll
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Server\bin\Debug\iSocket.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Server\bin\Debug\Server.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Server\bin\Debug\Server.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Server\bin\Debug\iSocket.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Server\bin\Debug\iSocket.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Server\obj\Debug\Server.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Server\obj\Debug\Server.pdb

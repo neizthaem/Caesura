@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1007]CaesuraTest.TestASocket.TestASocketBytesToMessage</TopNode>
-  <SelectedNode>[0-1030]CaesuraTest.TestServer.TestServerRunSingleConnection</SelectedNode>
+  <TopNode>[0-1053]C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll</TopNode>
+  <SelectedNode>[0-1053]C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1051]C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" Expanded="true" />
-    <Node UniqueName="[0-1052]CaesuraTest" Expanded="true" />
+    <Node UniqueName="[0-1053]C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" Expanded="true" />
+    <Node UniqueName="[0-1054]CaesuraTest" Expanded="true" />
     <Node UniqueName="[0-1000]CaesuraTest.TestASocket" Expanded="true" />
-    <Node UniqueName="[0-1012]CaesuraTest.TestClient" Expanded="true" />
-    <Node UniqueName="[0-1015]CaesuraTest.TestClientConnection" Expanded="true" />
-    <Node UniqueName="[0-1022]CaesuraTest.TestClientServerIntegration" Expanded="true" />
-    <Node UniqueName="[0-1027]CaesuraTest.TestServer" Expanded="true" />
-    <Node UniqueName="[0-1033]CaesuraTest.TestServerConnection" Expanded="true" />
+    <Node UniqueName="[0-1028]CaesuraTest.TestServer" Expanded="true" />
   </Nodes>
 </VisualState>

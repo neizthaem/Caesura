@@ -34,10 +34,35 @@ namespace CaesuraTest
             sock = null;
             caesura = null;
         }
+
+        [Test]
+        public void TestASocketStringToBytesWithLength()
+        {
+            byte[] bytes = new Byte[15];
+            bytes[0] = (byte)'C';
+            bytes[1] = (byte)'a';
+            bytes[2] = (byte)'e';
+            bytes[3] = (byte)'s';
+            bytes[4] = (byte)'u';
+            bytes[5] = (byte)'r';
+            bytes[6] = (byte)'a';
+            for (int i = 7; i < 15; i++)
+            {
+                bytes[i] = (byte)'\0';
+            }
+            Assert.AreEqual(bytes, iSocket.aSocket.stringToBytes("Caesura", 15));
+        }
+
         [Test]
         public void TestASocketStringToBytesCaesura()
         {
             Assert.AreEqual(caesura, iSocket.aSocket.stringToBytes("Caesura"));
+        }
+
+        [Test]
+        public void TestASocketCloseUnconnectedSocket()
+        {
+            (new iSocket.aSocket()).close();
         }
 
         [Test]

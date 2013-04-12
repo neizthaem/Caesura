@@ -18,6 +18,8 @@ namespace Server
         public static int defaultPort = 6543;
         public static string host = "localhost";
 
+        public static int maxBytes = 512;
+
         // fields need to be public so test cases can get at them
         public Dictionary<String, iConnection> connections = new Dictionary<string, iConnection>();
 

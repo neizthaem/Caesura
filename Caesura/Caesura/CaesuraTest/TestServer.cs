@@ -60,29 +60,29 @@ namespace CaesuraTest
         [Test]
         public void TestServerRunSingleConnection()
         {
-            iSocket.iSocket acceptedSocket = mocks.Stub<iSocket.iSocket>();
+            iSocket.iSocket acceptedSocket = mocks.DynamicMock<iSocket.iSocket>();
 
             using (mocks.Record())
             {
                 mockSocket.listen(Server.Server.defaultPort);
                 LastCall.Return(ReturnSocketAndCallStop(acceptedSocket, server));
 
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura")).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber)).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber)).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser")).Repeat.Once().Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("TestPass")).Repeat.Once().Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura", Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber, Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber, Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser", Server.Server.maxBytes)).Repeat.Once().Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestPass", Server.Server.maxBytes)).Repeat.Once().Repeat.Once();
 
                 mockSQL.validate("TestUser", "TestPass");
                 LastCall.Return(true);
 
-                acceptedSocket.receive(30);
-                LastCall.Return(iSocket.aSocket.stringToBytes("Quit ")).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Quit ", Server.Server.maxBytes)).Repeat.Once();
             }
 
             server.run();
@@ -102,16 +102,16 @@ namespace CaesuraTest
                 mockSocket.listen(Server.Server.defaultPort);
                 LastCall.Return(ReturnSocketAndCallStop(acceptedSocket, server));
 
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura")).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber)).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber)).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser")).Repeat.Once().Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("BadPass")).Repeat.Once().Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura", Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber, Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber, Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser", Server.Server.maxBytes)).Repeat.Once().Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("BadPass", Server.Server.maxBytes)).Repeat.Once().Repeat.Once();
 
                 mockSQL.validate("TestUser", "BadPass");
                 LastCall.Return(false);
@@ -134,37 +134,37 @@ namespace CaesuraTest
                 mockSocket.listen(Server.Server.defaultPort);
                 LastCall.Return(acceptedSocket);
 
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura")).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber)).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber)).Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser")).Repeat.Once().Repeat.Once();
-                acceptedSocket.receive(15);
-                LastCall.Return(iSocket.aSocket.stringToBytes("TestPass")).Repeat.Once().Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura", Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber, Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber, Server.Server.maxBytes)).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser", Server.Server.maxBytes)).Repeat.Once().Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestPass", Server.Server.maxBytes)).Repeat.Once().Repeat.Once();
 
                 mockSQL.validate("TestUser", "TestPass");
-                LastCall.Return(true).Repeat.Once(); ;
+                LastCall.Return(true).Repeat.Once();
 
-                acceptedSocket.receive(30);
-                LastCall.Return(iSocket.aSocket.stringToBytes("RequestFile generic.txt")).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("RequestFile generic.txt", Server.Server.maxBytes)).Repeat.Once();
 
                 mockSQL.validateFile("TestUser", "generic.txt");
                 LastCall.Return(true).Repeat.Once();
 
                                 // File Name
-                acceptedSocket.send(iSocket.aSocket.stringToBytes("generic"));
+                acceptedSocket.send(iSocket.aSocket.stringToBytes("generic", Server.Server.maxBytes));
                 // Number of transfers (1)
-                acceptedSocket.send(iSocket.aSocket.stringToBytes("1"));
+                acceptedSocket.send(iSocket.aSocket.stringToBytes("1", Server.Server.maxBytes));
                 // Length of a transfer
-                acceptedSocket.send(iSocket.aSocket.stringToBytes("24"));
+                acceptedSocket.send(iSocket.aSocket.stringToBytes("24", Server.Server.maxBytes));
                 // Transfer
-                acceptedSocket.send(iSocket.aSocket.stringToBytes("This here is a text file"));
+                acceptedSocket.send(iSocket.aSocket.stringToBytes("This here is a text file", 24));
 
-                acceptedSocket.receive(30);
-                LastCall.Return(iSocket.aSocket.stringToBytes("Quit ")).Repeat.Once();
+                acceptedSocket.receive(Server.Server.maxBytes);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Quit ", Server.Server.maxBytes)).Repeat.Once();
             }
 
             server.run();
