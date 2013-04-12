@@ -1,22 +1,145 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-12" time="02:17:44">
+<test-results name="C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" total="45" errors="5" failures="2" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-12" time="06:53:05">
   <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.5466" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="CARTERJ3TOWER" user="Carterj3-Tower" user-domain="Carterj3Tower" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" executed="True" result="Failure" success="False" time="0.008" asserts="0">
+  <test-suite type="Assembly" name="C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll" executed="True" result="Failure" success="False" time="34.262" asserts="0">
     <results>
-      <test-suite type="Namespace" name="CaesuraTest" executed="True" result="Failure" success="False" time="0.007" asserts="0">
+      <test-suite type="Namespace" name="CaesuraTest" executed="True" result="Failure" success="False" time="34.262" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="TestServerConnection" executed="True" result="Failure" success="False" time="0.006" asserts="0">
+          <test-suite type="TestFixture" name="TestASocket" executed="True" result="Success" success="True" time="0.094" asserts="0">
             <results>
-              <test-case name="CaesuraTest.TestServerConnection.MockSocketMultipleRecieveAsserts" executed="True" result="Error" success="False" time="0.002" asserts="2">
+              <test-case name="CaesuraTest.TestASocket.TestASocketBytesToMessage" executed="True" result="Success" success="True" time="0.016" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketBytesToMessageExcessDataOfNullTermination" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketBytesToMessageExcessDataOfNullTerminationAndMore" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketBytesToMessageManualByteArrayExcessData" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketBytesToMessageNull" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketBytesToStringManual" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketBytesToStringNull" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketRecieveException" executed="True" result="Success" success="True" time="0.011" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketSendException" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketStringToBytesCaesura" executed="True" result="Success" success="True" time="0.012" asserts="1" />
+              <test-case name="CaesuraTest.TestASocket.TestASocketStringToBytesManual" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="TestClient" executed="True" result="Success" success="True" time="0.074" asserts="0">
+            <results>
+              <test-case name="CaesuraTest.TestClient.TestClientLoginRealConnectionSuccess" executed="True" result="Success" success="True" time="0.040" asserts="1" />
+              <test-case name="CaesuraTest.TestClient.TestClientRequestFileRealConnectionSuccess" executed="True" result="Success" success="True" time="0.022" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="TestClientConnection" executed="True" result="Failure" success="False" time="0.084" asserts="0">
+            <results>
+              <test-case name="CaesuraTest.TestClientConnection.TestClientConnectionConstructorNotNull" executed="True" result="Success" success="True" time="0.032" asserts="1" />
+              <test-case name="CaesuraTest.TestClientConnection.TestClientConnectionLoginSuccess" executed="True" result="Success" success="True" time="0.008" asserts="1" />
+              <test-case name="CaesuraTest.TestClientConnection.TestClientRequestFileFailure" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+              <test-case name="CaesuraTest.TestClientConnection.TestClientRequestFileSuccess" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+              <test-case name="CaesuraTest.TestClientConnection.TestClientWriteFileFileDoesExist" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+              <test-case name="CaesuraTest.TestClientConnection.TestClientWriteFileFileDoesNotExist" executed="True" result="Error" success="False" time="0.015" asserts="1">
                 <failure>
-                  <message><![CDATA[System.InvalidOperationException : The object 'Rhino.Mocks.MockRepository' is not a mocked object.]]></message>
-                  <stack-trace><![CDATA[at Rhino.Mocks.RhinoMocksExtensions.VerifyAllExpectations(Object mockObject)
-at CaesuraTest.TestServerConnection.MockSocketMultipleRecieveAsserts() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\TestServerConnection.cs:line 69
+                  <message><![CDATA[System.IO.IOException : The process cannot access the file 'C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\bin\Debug\TestClientWriteFile' because it is being used by another process.]]></message>
+                  <stack-trace><![CDATA[at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+at System.IO.File.Open(String path, FileMode mode)
+at Client.Connection.writeFile(String filename, Byte[] bytes) in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Client\Connection.cs:line 90
+at CaesuraTest.TestClientConnection.TestClientWriteFileFileDoesNotExist() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\TestClientConnection.cs:line 141
 ]]></stack-trace>
                 </failure>
               </test-case>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="TestClientServerIntegration" executed="True" result="Failure" success="False" time="33.676" asserts="0">
+            <results>
+              <test-case name="CaesuraTest.TestClientServerIntegration.TestClientServerIntegrationCanLogin" executed="True" result="Failure" success="False" time="5.066" asserts="1">
+                <failure>
+                  <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                  <stack-trace><![CDATA[at CaesuraTest.TestClientServerIntegration.TestClientServerIntegrationCanLogin() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\TestClientServerIntegration.cs:line 74
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="CaesuraTest.TestClientServerIntegration.TestClientServerIntegrationClientRequestFileGeneric" executed="True" result="Failure" success="False" time="28.531" asserts="2">
+                <failure>
+                  <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                  <stack-trace><![CDATA[at CaesuraTest.TestClientServerIntegration.TestClientServerIntegrationClientRequestFileGeneric() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\TestClientServerIntegration.cs:line 93
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="CaesuraTest.TestClientServerIntegration.TestMockVeryifyAllDynamicMock" executed="True" result="Error" success="False" time="0.017" asserts="0">
+                <failure>
+                  <message><![CDATA[Rhino.Mocks.Exceptions.ExpectationViolationException : iSocket.send(null); Expected #1, Actual #0.]]></message>
+                  <stack-trace><![CDATA[at Rhino.Mocks.MockRepository.VerifyAll()
+at CaesuraTest.TestClientServerIntegration.TestMockVeryifyAllDynamicMock() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\TestClientServerIntegration.cs:line 51
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="CaesuraTest.TestClientServerIntegration.TestMockVeryifyAllStub" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="TestServer" executed="True" result="Failure" success="False" time="0.056" asserts="0">
+            <results>
+              <test-case name="CaesuraTest.TestServer.TestServerConstructor" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="CaesuraTest.TestServer.TestServerRunFailedValidation" executed="True" result="Success" success="True" time="0.004" asserts="2" />
+              <test-case name="CaesuraTest.TestServer.TestServerRunSingleConnection" executed="True" result="Error" success="False" time="0.019" asserts="0">
+                <failure>
+                  <message><![CDATA[System.ArgumentOutOfRangeException : Length cannot be less than zero.
+Parameter name: length]]></message>
+                  <stack-trace><![CDATA[at System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+at Server.Connection.splitMessage(String message) in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Server\Connection.cs:line 105
+at Server.Connection.onRecieve(String message) in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Server\Connection.cs:line 128
+at Server.Connection.run() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Server\Connection.cs:line 116
+at Server.Server.run() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\Server\Server.cs:line 53
+at CaesuraTest.TestServer.TestServerRunSingleConnection() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\TestServer.cs:line 85
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="CaesuraTest.TestServer.TestServerSingleConnectionFileTransfer" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+              <test-case name="CaesuraTest.TestServer.TestServerStop" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="TestServerConnection" executed="True" result="Failure" success="False" time="0.146" asserts="0">
+            <results>
+              <test-case name="CaesuraTest.TestServerConnection.MockSocketMultipleRecieveAsserts" executed="True" result="Success" success="True" time="0.026" asserts="2" />
+              <test-case name="CaesuraTest.TestServerConnection.MockSocketRecieve" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionConstructor" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionOnRecieveFileRequestAllowed" executed="True" result="Error" success="False" time="0.008" asserts="0">
+                <failure>
+                  <message><![CDATA[Rhino.Mocks.Exceptions.ExpectationViolationException : iSocket.send([103, 101, 110, 101, 114, 105, 99]); Expected #1, Actual #0.
+iSocket.send([49]); Expected #1, Actual #0.
+iSocket.send([50, 52]); Expected #1, Actual #0.
+iSocket.send([84, 104, 105, 115, 32, 104, 101, 114, 101, 32, 105, 115, 32, 97, 32, 116, 101, 120, 116, 32, 102, 105, 108, 101]); Expected #1, Actual #0.
+iServer.validate("TestUser", "generic.txt"); Expected #1, Actual #0.
+]]></message>
+                  <stack-trace><![CDATA[at Rhino.Mocks.MockRepository.VerifyAll()
+at CaesuraTest.TestServerConnection.ServerConnectionOnRecieveFileRequestAllowed() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\TestServerConnection.cs:line 253
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionOnRecieveFileRequestDenied" executed="True" result="Error" success="False" time="0.003" asserts="0">
+                <failure>
+                  <message><![CDATA[Rhino.Mocks.Exceptions.ExpectationViolationException : iServer.validate("TestUser", "generic.txt"); Expected #1, Actual #0.]]></message>
+                  <stack-trace><![CDATA[at Rhino.Mocks.MockRepository.VerifyAll()
+at CaesuraTest.TestServerConnection.ServerConnectionOnRecieveFileRequestDenied() in c:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\TestServerConnection.cs:line 271
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionOnRecieveQuit" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionReadFileBeginingFour" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionReadFileEntireFile" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionReadFileSubsection" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionRunRecieveQuit" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionSendFile" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionValidation" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionValidationBadClientName" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionValidationBadMajorNumber" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionValidationBadMinorNumber" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+              <test-case name="CaesuraTest.TestServerConnection.ServerConnectionValidationWithExcessData" executed="True" result="Success" success="True" time="0.003" asserts="2" />
+              <test-case name="CaesuraTest.TestServerConnection.TestServerConnectionSplitMessage" executed="True" result="Success" success="True" time="0.001" asserts="2" />
             </results>
           </test-suite>
         </results>

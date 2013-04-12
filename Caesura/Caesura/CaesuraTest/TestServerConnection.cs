@@ -105,8 +105,7 @@ namespace CaesuraTest
                 mockSocket.receive(15);
                 LastCall.Return(iSocket.aSocket.stringToBytes("Caesura" + "1")).Repeat.Once();
 
-                mockServer.validate("TestUser", "TestPass");
-                LastCall.Return(true);
+
             }
             Boolean temp = connection.validation();
 
@@ -125,8 +124,7 @@ namespace CaesuraTest
                 mockSocket.receive(15);
                 LastCall.Return(iSocket.aSocket.stringToBytes("1" + Server.Server.MajorNumber)).Repeat.Once();
 
-                mockServer.validate("TestUser", "TestPass");
-                LastCall.Return(true);
+
             }
             Boolean temp = connection.validation();
 
@@ -147,8 +145,6 @@ namespace CaesuraTest
                 mockSocket.receive(15);
                 LastCall.Return(iSocket.aSocket.stringToBytes("1" + Server.Server.MinorNumber)).Repeat.Once();
 
-                mockServer.validate("TestUser", "TestPass");
-                LastCall.Return(true);
             }
             Boolean temp = connection.validation();
 
@@ -216,7 +212,7 @@ namespace CaesuraTest
                 // Number of transfers (1)
                 mockSocket.send(iSocket.aSocket.stringToBytes("1"));
                 // Length of a transfer
-                mockSocket.send(iSocket.aSocket.stringToBytes("18"));
+                mockSocket.send(iSocket.aSocket.stringToBytes("24"));
                 // Transfer
                 mockSocket.send(iSocket.aSocket.stringToBytes("This here is a text file"));
             }
@@ -247,11 +243,29 @@ namespace CaesuraTest
                 // Number of transfers (1)
                 mockSocket.send(iSocket.aSocket.stringToBytes("1"));
                 // Length of a transfer
-                mockSocket.send(iSocket.aSocket.stringToBytes("18"));
+                mockSocket.send(iSocket.aSocket.stringToBytes("24"));
                 // Transfer
                 mockSocket.send(iSocket.aSocket.stringToBytes("This here is a text file"));
             }
+            connection.username = "TestUser";
+            connection.onRecieve("RequestFile generic.txt");
 
+            mocks.VerifyAll();
+        }
+
+
+        [Test]
+        public void ServerConnectionOnRecieveFileRequestDenied()
+        {
+            using (mocks.Record())
+            {
+                mockServer.requestFile("TestUser", "generic.txt");
+                LastCall.Return(false);
+
+                // File Name
+                mockSocket.send(iSocket.aSocket.stringToBytes("Access Denied"));
+            }
+            connection.username = "TestUser";
             connection.onRecieve("RequestFile generic.txt");
 
             mocks.VerifyAll();

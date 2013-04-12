@@ -134,7 +134,15 @@ namespace Server
 
             if ("RequestFile".Equals(type))
             {
-                sendFile(param);
+                if (server.requestFile(username, param))
+                {
+                    sendFile(param);
+                }
+                else
+                {
+                    sock.send(iSocket.aSocket.stringToBytes("Access Denied"));
+                }
+
             }
             else if ("Quit".Equals(type))
             {

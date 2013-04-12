@@ -49,7 +49,5 @@ namespace iSocket
         // attempts to send the data stored in the buffer along the socket
         void send(byte[] buffer);
 
-        // returns a true or false value if the socket was connected after the last transfer of data
-        Boolean isConnected();
     }
 }

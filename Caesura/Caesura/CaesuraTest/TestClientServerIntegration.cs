@@ -68,6 +68,8 @@ namespace CaesuraTest
         public void TestClientServerIntegrationCanLogin()
         {
             serverThread.Start();
+            // Sleep to let the server start up
+            System.Threading.Thread.Sleep(5000);
 
             Assert.True(client.login("TestUser", "aPass"));
         }
@@ -77,6 +79,9 @@ namespace CaesuraTest
         {
             serverThread.Start();
 
+            // Sleep to let the server start up
+            System.Threading.Thread.Sleep(5000);
+
             if (File.Exists("generic"))
             {
                 File.Delete("generic");
@@ -85,7 +90,7 @@ namespace CaesuraTest
             Assert.IsFalse(File.Exists("generic"));
 
             // Client will login
-            client.login("aUser", "aPass");
+            Assert.True(client.login("aUser", "aPass"));
             // Request the file
             client.requestFile("generic.txt");
             // Asert that the file exists

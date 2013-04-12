@@ -59,6 +59,49 @@ namespace CaesuraTest
         }
 
         [Test]
+        public void TestASocketStringToBytesManual()
+        {
+            byte[] bytes = new Byte[7];
+            bytes[0] = (byte)'C';
+            bytes[1] = (byte)'a';
+            bytes[2] = (byte)'e';
+            bytes[3] = (byte)'s';
+            bytes[4] = (byte)'u';
+            bytes[5] = (byte)'r';
+            bytes[6] = (byte)'a';
+
+            Assert.AreEqual(bytes, iSocket.aSocket.stringToBytes("Caesura"));
+
+        }
+
+        [Test]
+        public void TestASocketBytesToStringManual()
+        {
+            byte[] bytes = new Byte[7];
+            bytes[0] = (byte)'C';
+            bytes[1] = (byte)'a';
+            bytes[2] = (byte)'e';
+            bytes[3] = (byte)'s';
+            bytes[4] = (byte)'u';
+            bytes[5] = (byte)'r';
+            bytes[6] = (byte)'a';
+
+            Assert.AreEqual("Caesura", iSocket.aSocket.bytesToString(bytes));
+        }
+
+        [Test]
+        public void TestASocketBytesToMessageNull()
+        {
+            Assert.AreEqual("null", iSocket.aSocket.bytesToMessage(null));
+        }
+
+        [Test]
+        public void TestASocketBytesToStringNull()
+        {
+            Assert.AreEqual("null", iSocket.aSocket.bytesToString(null));
+        }
+
+        [Test]
         public void TestASocketBytesToMessage()
         {
             Assert.AreEqual("Caesura", iSocket.aSocket.bytesToMessage(iSocket.aSocket.stringToBytes("Caesura")));
@@ -74,6 +117,20 @@ namespace CaesuraTest
         public void TestASocketBytesToMessageExcessDataOfNullTerminationAndMore()
         {
             Assert.AreEqual("Caesura", iSocket.aSocket.bytesToMessage(iSocket.aSocket.stringToBytes("Caesura\0Caesuree")));
+        }
+
+        [Test]
+        public void TestASocketRecieveException()
+        {
+            iSocket.aSocket sock = new iSocket.aSocket();
+            Assert.IsNull(sock.receive(5));
+        }
+
+        [Test]
+        public void TestASocketSendException()
+        {
+            iSocket.aSocket sock = new iSocket.aSocket();
+            sock.send(null);
         }
     }
 }

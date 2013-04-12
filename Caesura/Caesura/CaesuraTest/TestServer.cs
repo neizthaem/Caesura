@@ -80,6 +80,9 @@ namespace CaesuraTest
 
                 mockSQL.validate("TestUser", "TestPass");
                 LastCall.Return(true);
+
+                acceptedSocket.receive(30);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Quit ")).Repeat.Once();
             }
 
             server.run();
@@ -120,6 +123,55 @@ namespace CaesuraTest
 
             mocks.VerifyAll();
         }
+
+        [Test]
+        public void TestServerSingleConnectionFileTransfer()
+        {
+            iSocket.iSocket acceptedSocket = mocks.DynamicMock<iSocket.iSocket>();
+
+            using (mocks.Record())
+            {
+                mockSocket.listen(Server.Server.defaultPort);
+                LastCall.Return(acceptedSocket);
+
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Caesura")).Repeat.Once();
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber)).Repeat.Once();
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber)).Repeat.Once();
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestUser")).Repeat.Once().Repeat.Once();
+                acceptedSocket.receive(15);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestPass")).Repeat.Once().Repeat.Once();
+
+                mockSQL.validate("TestUser", "TestPass");
+                LastCall.Return(true).Repeat.Once(); ;
+
+                acceptedSocket.receive(30);
+                LastCall.Return(iSocket.aSocket.stringToBytes("RequestFile generic.txt")).Repeat.Once();
+
+                mockSQL.validateFile("TestUser", "generic.txt");
+                LastCall.Return(true).Repeat.Once();
+
+                                // File Name
+                acceptedSocket.send(iSocket.aSocket.stringToBytes("generic"));
+                // Number of transfers (1)
+                acceptedSocket.send(iSocket.aSocket.stringToBytes("1"));
+                // Length of a transfer
+                acceptedSocket.send(iSocket.aSocket.stringToBytes("24"));
+                // Transfer
+                acceptedSocket.send(iSocket.aSocket.stringToBytes("This here is a text file"));
+
+                acceptedSocket.receive(30);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Quit ")).Repeat.Once();
+            }
+
+            server.run();
+
+            mocks.VerifyAll();
+        }
+
 
 
     }

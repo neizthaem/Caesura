@@ -86,7 +86,7 @@ namespace CaesuraTest
                 mockSocket.send(iSocket.aSocket.stringToBytes("TestPass"));
 
                 mockSocket.receive(5);
-                LastCall.Return(iSocket.aSocket.stringToBytes("true"));
+                LastCall.Return(iSocket.aSocket.stringToBytes("True"));
             }
 
             Assert.True(client.login("TestUser", "TestPass"));

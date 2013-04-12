@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 
@@ -47,6 +48,9 @@ namespace Server
             if (conn.validation())
             {
                 connections.Add(conn.username, conn);
+                Thread tempThread = new Thread(conn.run);
+                //tempThread.Start();
+                conn.run();
             }
             else
             {
@@ -64,7 +68,8 @@ namespace Server
 
         public bool validate(string username, string password)
         {
-            return SQL.validate(username, password);
+            Boolean ret = SQL.validate(username, password);
+            return ret;
         }
 
         public void removeConnection(string username)
@@ -82,11 +87,6 @@ namespace Server
             throw new NotImplementedException();
         }
 
-        public bool requestFile(string username, string filename)
-        {
-            throw new NotImplementedException();
-        }
-
         public string[] ownedFiles(string username)
         {
             throw new NotImplementedException();
@@ -94,5 +94,12 @@ namespace Server
 
 
 
+
+
+        public bool requestFile(string username, string filename)
+        {
+            Boolean ret = SQL.validateFile(username, filename);
+            return ret;
+        }
     }
 }

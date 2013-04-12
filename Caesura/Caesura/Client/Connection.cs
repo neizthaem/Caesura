@@ -22,8 +22,8 @@ namespace Client
         public bool login(string username, string password)
         {
             sock.connect(Server.Server.host, Server.Server.defaultPort);
-            
-            sock.send(iSocket.aSocket.stringToBytes("Caesura\0"));
+
+            sock.send(iSocket.aSocket.stringToBytes("Caesura"+"\0"));
 
             sock.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber));
             sock.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber));
@@ -31,9 +31,10 @@ namespace Client
             sock.send(iSocket.aSocket.stringToBytes(username + "\0"));
             sock.send(iSocket.aSocket.stringToBytes(password + "\0"));
 
-            String recv = iSocket.aSocket.bytesToString(sock.receive(5));
+            String recv = iSocket.aSocket.bytesToMessage(sock.receive(5));
 
-            return "true".Equals(recv);
+            bool forDebugger = "True".Equals(recv);
+            return forDebugger;
         }
 
         public bool requestFile(string filename)
@@ -43,12 +44,36 @@ namespace Client
             // need to code 512 as static (max bytes that can be transfered at once
             String name = iSocket.aSocket.bytesToString(sock.receive(512));
 
-            Int32 numTransfers = Convert.ToInt32(iSocket.aSocket.bytesToString(sock.receive(512)));
-
-            while (numTransfers > 0)
+            if (name.Equals("Access Denied"))
             {
+                return false;
+            }
 
-                numTransfers--;
+            Int32 numTransfers = Convert.ToInt32(iSocket.aSocket.bytesToString(sock.receive(512)));
+            int counter = 100;
+            while (numTransfers > 0 && counter > 0)
+            {
+                Int32 length = 0;
+                String temp = "0";
+                try
+                {
+                    temp = iSocket.aSocket.bytesToString(sock.receive(512));
+                    length = Convert.ToInt32(temp);
+                    counter = 100;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("RequestFile 000 :" + e.Message + temp);
+                    length = 0;
+                    counter --;
+                }
+                Byte[] bytes = sock.receive(length);
+                if (bytes != null)
+                {
+                    writeFile(name, bytes);
+                    numTransfers--;
+                }
+
             }
 
             return true;
@@ -62,7 +87,7 @@ namespace Client
                 File.Create(filename);
             }
 
-            using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Create)))
+            using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Open)))
             {
                 writer.Write(bytes);
             }

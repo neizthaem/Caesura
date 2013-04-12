@@ -28,6 +28,10 @@ namespace iSocket
 
         public static String bytesToMessage(byte[] bytes)
         {
+            if (bytes == null)
+            {
+                return "null";
+            }
             String tempString = System.Text.UTF8Encoding.UTF8.GetString(bytes);
             int tempIndex = tempString.IndexOf('\0', 0);
             if (tempIndex <= 0)
@@ -44,6 +48,10 @@ namespace iSocket
 
         public static String bytesToString(byte[] bytes)
         {
+            if (bytes == null)
+            {
+                return "null";
+            }
             String tempString = System.Text.UTF8Encoding.UTF8.GetString(bytes);
             return tempString;
 
@@ -110,13 +118,5 @@ namespace iSocket
             }
         }
 
-        public bool isConnected()
-        {
-            if (socket == null)
-            {
-                return false;
-            }
-            return socket.Connected;
-        }
     }
 }
