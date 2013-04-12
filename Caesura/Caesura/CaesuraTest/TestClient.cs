@@ -64,34 +64,7 @@ namespace CaesuraTest
             mocks.VerifyAll();
         }
 
-        [Test]
-        public void TestClientLoginRealConnectionSuccess()
-        {
-            Client.Connection temp = new Client.Connection(client);
-            client.connection = temp;
-            temp.sock = mockSocket;
 
-            using (mocks.Record())
-            {
-                mockSocket.connect(Server.Server.host, Server.Server.defaultPort);
-                // Caesura
-                mockSocket.send(iSocket.aSocket.stringToBytes("Caesura", Server.Server.maxBytes));
-                // Major
-                mockSocket.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber, Server.Server.maxBytes));
-                // Minor
-                mockSocket.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber, Server.Server.maxBytes));
-                // Username
-                mockSocket.send(iSocket.aSocket.stringToBytes("TestUser", Server.Server.maxBytes));
-                // Password
-                mockSocket.send(iSocket.aSocket.stringToBytes("TestPass", Server.Server.maxBytes));
-
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("True", Server.Server.maxBytes));
-            }
-
-            Assert.True(client.login("TestUser", "TestPass"));
-            mocks.VerifyAll();
-        }
 
     }
 }

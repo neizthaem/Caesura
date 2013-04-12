@@ -16,6 +16,11 @@ namespace Client
             connection = new Connection(this);
         }
 
+        public void connect()
+        {
+            connection.connect();
+        }
+
         public void addFriend(string friendname)
         {
             throw new NotImplementedException();
@@ -46,9 +51,7 @@ namespace Client
             return connection.requestFile(filename);
         }
 
-        public bool login(string username, string password)
-        {
-            return connection.login(username, password);
-        }
+
+
     }
 }

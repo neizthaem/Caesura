@@ -39,7 +39,7 @@ namespace Client
 
         public bool requestFile(string filename)
         {
-            sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename,Server.Server.maxBytes));
+            sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename, Server.Server.maxBytes));
 
             // need to code 512 as static (max bytes that can be transfered at once
             String name = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
@@ -65,7 +65,7 @@ namespace Client
                 {
                     Console.WriteLine("RequestFile 000 :" + e.Message + temp);
                     length = 0;
-                    counter --;
+                    counter--;
                 }
                 Byte[] bytes = sock.receive(length);
                 if (bytes != null)
@@ -82,14 +82,15 @@ namespace Client
 
         public void writeFile(string filename, byte[] bytes)
         {
-            if (!File.Exists(filename))
+            foreach (byte b in bytes)
             {
-                File.Create(filename);
+                Console.Write((char)b);
             }
-
-            using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Open)))
+            Console.WriteLine();
+            using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Open, FileAccess.Write)))
             {
                 writer.Write(bytes);
+                Console.WriteLine("Wrote bytes");
             }
 
         }
@@ -107,6 +108,12 @@ namespace Client
         public void sendMessage(string message)
         {
             throw new NotImplementedException();
+        }
+
+
+        public void connect()
+        {
+            sock.connect(Server.Server.host, Server.Server.defaultPort);
         }
     }
 }

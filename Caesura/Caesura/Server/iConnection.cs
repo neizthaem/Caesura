@@ -8,7 +8,6 @@ namespace Server
 {
     public interface iConnection
     {
-        Boolean validation();
 
         void onRecieve(String message);
 

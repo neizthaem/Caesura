@@ -26,80 +26,9 @@ namespace Server
 
         }
 
-
-
-        public Boolean validation()
-        {
-            byte[] tempBytes = new byte[Server.maxBytes];
-            String tempString = "";
-            String tempPassword = "";
-            String fullString = "";
-            try
-            {
-                // The rules for handshaking are
-                // Caesura
-                tempBytes = sock.receive(Server.maxBytes);
-                fullString = iSocket.aSocket.bytesToString(tempBytes);
-                tempString = iSocket.aSocket.bytesToMessage(tempBytes);
-                if (!"Caesura".Equals(tempString))
-                {
-                    throw new Exception("Incorrect program name :[" + tempString + "]");
-                }
-
-                tempBytes = new byte[Server.maxBytes];
-
-                // Major Number
-                tempBytes = sock.receive(Server.maxBytes);
-                tempString = iSocket.aSocket.bytesToMessage(tempBytes);
-                fullString = iSocket.aSocket.bytesToString(tempBytes);
-                if (!Server.MajorNumber.Substring(0, Server.MajorNumber.Length - 1).Equals(tempString))
-                {
-                    throw new Exception("Incorrect Major Number :[" + tempString + "]");
-                }
-
-                tempBytes = new byte[Server.maxBytes];
-
-                // Minor Number
-                tempBytes = sock.receive(Server.maxBytes);
-                tempString = iSocket.aSocket.bytesToMessage(tempBytes);
-                fullString = iSocket.aSocket.bytesToString(tempBytes);
-                if (!Server.MinorNumber.Substring(0, Server.MajorNumber.Length - 1).Equals(tempString))
-                {
-                    throw new Exception("Incorrect Minor Number :[" + tempString + "]");
-                }
-
-                tempBytes = new byte[Server.maxBytes];
-
-                // Username
-                tempBytes = sock.receive(Server.maxBytes);
-                fullString = iSocket.aSocket.bytesToString(tempBytes);
-                tempString = iSocket.aSocket.bytesToMessage(tempBytes);
-
-                tempBytes = new byte[Server.maxBytes];
-
-                // Password
-                tempBytes = sock.receive(Server.maxBytes);
-                fullString += ":" + iSocket.aSocket.bytesToString(tempBytes);
-                tempPassword = iSocket.aSocket.bytesToMessage(tempBytes);
-
-                username = tempString;
-
-                Boolean ret = server.validate(tempString, tempPassword);
-
-                sock.send(iSocket.aSocket.stringToBytes(ret.ToString()));
-                return ret;
-            }
-
-            catch (Exception e)
-            {
-                Console.WriteLine("Server.Connection.Validation():" + e.Message + " | " + e.Source + "|" + fullString);
-                return false;
-            }
-        }
-
         public String[] splitMessage(string message)
         {
-            
+
             int splitIndex = message.IndexOf(' ');
             string[] ret = new string[2];
 
@@ -109,7 +38,7 @@ namespace Server
                 ret[1] = "";
                 return ret;
             }
-           
+
             ret[0] = message.Substring(0, splitIndex);
             ret[1] = message.Substring(splitIndex + 1, message.Length - splitIndex - 1);
             return ret;
@@ -142,14 +71,8 @@ namespace Server
 
             if ("RequestFile".Equals(type))
             {
-                if (server.requestFile(username, param))
-                {
-                    sendFile(param);
-                }
-                else
-                {
-                    sock.send(iSocket.aSocket.stringToBytes("Access Denied", Server.maxBytes));
-                }
+
+                sendFile(param);
 
             }
             else if ("Quit".Equals(type))
@@ -200,7 +123,7 @@ namespace Server
         public byte[] readFile(string filename, int index, int length)
         {
 
-            using (BinaryReader b = new BinaryReader(File.Open(filename, FileMode.Open)))
+            using (BinaryReader b = new BinaryReader(File.Open(filename, FileMode.Open,FileAccess.Read)))
             {
                 int pos = index;
                 int end;
@@ -213,7 +136,9 @@ namespace Server
                     end = length;
                 }
                 b.ReadBytes(pos);
-                return b.ReadBytes(end);
+                Byte[] ret = b.ReadBytes(end);
+                b.Close();
+                return ret;
             }
         }
     }

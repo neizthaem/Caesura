@@ -47,18 +47,11 @@ namespace Server
 
             // spawn a new connection 
             conn = new Connection(temp, this);
-            if (conn.validation())
-            {
-                connections.Add(conn.username, conn);
-                Thread tempThread = new Thread(conn.run);
-                //tempThread.Start();
-                conn.run();
-            }
-            else
-            {
-                conn.quit();
-            }
-            conn = null;
+
+            Thread tempThread = new Thread(conn.run);
+            //tempThread.Start();
+            conn.run();
+
 
             // }
         }

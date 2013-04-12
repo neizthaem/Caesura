@@ -9,8 +9,6 @@ namespace Client
     public interface iConnection
     {
 
-        // returns true if successfully logged in
-        Boolean login(String username, String password);
 
         // returns true if the file transfer begins
         Boolean requestFile(String filename);
@@ -22,6 +20,6 @@ namespace Client
 
         void sendMessage(String message);
 
-       
+        void connect();
     }
 }
