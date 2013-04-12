@@ -15,7 +15,7 @@ namespace Server
         public static String MajorNumber = "0\0";
         public static String MinorNumber = "0\0";
 
-        public static int defaultPort = 6543;
+        public static int defaultPort = 6000;
         public static string host = "localhost";
 
         public static int maxBytes = 512;
@@ -39,17 +39,12 @@ namespace Server
 
             iSocket.iSocket temp;
             Connection conn;
-            // enter a while loop
-            //while (running)
-            //{
-            // listen on a port
+
             temp = socket.listen(defaultPort);
 
             // spawn a new connection 
             conn = new Connection(temp, this);
 
-            Thread tempThread = new Thread(conn.run);
-            //tempThread.Start();
             conn.run();
 
 
