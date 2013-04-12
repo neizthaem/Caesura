@@ -73,7 +73,22 @@ namespace CaesuraTest
             {
                 mockSocket.send(iSocket.aSocket.stringToBytes("RequestFile generic.txt"));
 
+                // File Name
+                mockSocket.receive(512);
+                LastCall.Return(iSocket.aSocket.stringToBytes("generic.txt")).Repeat.Once();
+                // Number of transfers (1)
+                mockSocket.receive(512);
+                LastCall.Return(iSocket.aSocket.stringToBytes("1")).Repeat.Once();
+                // Length of a transfer
+                mockSocket.receive(512);
+                LastCall.Return(iSocket.aSocket.stringToBytes("18")).Repeat.Once();
+                // Transfer
+                mockSocket.receive(512);
+                LastCall.Return(iSocket.aSocket.stringToBytes("This here is a text file")).Repeat.Once();
             }
+
+            Assert.IsTrue(connection.requestFile("generic.txt"));
+            mocks.VerifyAll();
         }
     }
 }
