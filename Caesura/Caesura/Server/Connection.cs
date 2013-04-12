@@ -83,7 +83,7 @@ namespace Server
                 sock.send(iSocket.aSocket.stringToBytes(ret.ToString()));
                 return ret;
             }
-                
+
             catch (Exception e)
             {
                 Console.WriteLine("Server.Connection.Validation():" + e.Message + " | " + e.Source + "|");
@@ -142,8 +142,8 @@ namespace Server
             int length = fileSize(filename);
             int transferLength;
             int sentLength = 0;
-            // Send file name
-            sock.send(iSocket.aSocket.stringToBytes(filename));
+            // Send file name - don't send the extension for test purposes
+            sock.send(iSocket.aSocket.stringToBytes(filename.Substring(0,filename.Length-4)));
             // Number of transfers
             int transfers = (int)Math.Ceiling((double)((double)length / (double)maxBytes));
             sock.send(iSocket.aSocket.stringToBytes(transfers.ToString()));
@@ -184,7 +184,6 @@ namespace Server
                 {
                     end = length;
                 }
-
                 b.ReadBytes(pos);
                 return b.ReadBytes(end);
             }

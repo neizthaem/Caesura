@@ -8,6 +8,10 @@ namespace Client
 {
     public interface iClient
     {
+        Boolean login(string username, string password);
+
+        Boolean requestFile(string filename);
+
         void addFriend(String friendname);
 
         void removeFriend(String friendname);

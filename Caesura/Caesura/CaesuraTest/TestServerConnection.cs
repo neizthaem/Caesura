@@ -124,7 +124,7 @@ namespace CaesuraTest
             using (mocks.Record())
             {
                 // File Name
-                mockSocket.send(iSocket.aSocket.stringToBytes("generic.txt"));
+                mockSocket.send(iSocket.aSocket.stringToBytes("generic"));
                 // Number of transfers (1)
                 mockSocket.send(iSocket.aSocket.stringToBytes("1"));
                 // Length of a transfer
@@ -142,8 +142,8 @@ namespace CaesuraTest
         public void TestServerConnectionSplitMessage()
         {
             string[] target = connection.splitMessage("RequestFile generic.txt");
-            Assert.AreEqual("RequestFile",target[0]);
-            Assert.AreEqual("generic.txt",target[1]);
+            Assert.AreEqual("RequestFile", target[0]);
+            Assert.AreEqual("generic.txt", target[1]);
         }
 
         [Test]
@@ -155,7 +155,7 @@ namespace CaesuraTest
                 LastCall.Return(true);
 
                 // File Name
-                mockSocket.send(iSocket.aSocket.stringToBytes("generic.txt"));
+                mockSocket.send(iSocket.aSocket.stringToBytes("generic"));
                 // Number of transfers (1)
                 mockSocket.send(iSocket.aSocket.stringToBytes("1"));
                 // Length of a transfer

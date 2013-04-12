@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,35 @@ namespace Client
 
         public bool requestFile(string filename)
         {
-            throw new NotImplementedException();
+            sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename));
+
+            // need to code 512 as static (max bytes that can be transfered at once
+            String name = iSocket.aSocket.bytesToString(sock.receive(512));
+
+            Int32 numTransfers = Convert.ToInt32(iSocket.aSocket.bytesToString(sock.receive(512)));
+
+            while (numTransfers > 0)
+            {
+
+                numTransfers--;
+            }
+
+            return true;
+            
+        }
+
+        public void writeFile(string filename, byte[] bytes)
+        {
+            if (!File.Exists(filename))
+            {
+                File.Create(filename);
+            }
+
+            using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Create)))
+            {
+                writer.Write(bytes);
+            }
+
         }
 
         public string[] search(string[] tags)

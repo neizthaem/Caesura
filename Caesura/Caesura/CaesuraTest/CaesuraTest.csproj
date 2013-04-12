@@ -46,6 +46,7 @@
     <Compile Include="TestClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestClientConnection.cs" />
+    <Compile Include="TestClientServerIntegration.cs" />
     <Compile Include="TestServer.cs" />
     <Compile Include="TestServerConnection.cs" />
   </ItemGroup>

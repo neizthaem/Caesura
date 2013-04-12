@@ -8,7 +8,13 @@ namespace Client
 {
     public class Client : iClient
     {
-        
+        // Needs to be public for test cases
+        public iConnection connection;
+
+        public Client()
+        {
+            connection = new Connection(this);
+        }
 
         public void addFriend(string friendname)
         {
@@ -33,6 +39,16 @@ namespace Client
         public void sendMail(string reciever, string message)
         {
             throw new NotImplementedException();
+        }
+
+        public bool requestFile(string filename)
+        {
+            return connection.requestFile(filename);
+        }
+
+        public bool login(string username, string password)
+        {
+            return connection.login(username, password);
         }
     }
 }
