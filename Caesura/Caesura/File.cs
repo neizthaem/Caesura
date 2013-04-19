@@ -10,7 +10,7 @@ using System.Data.Linq.Mapping;
 namespace Caesura
 {
     [Table(Name = "Files")]
-    public class File
+    public class CaesFile
     {
         [Column(IsPrimaryKey = true)]
         public string Path;

@@ -12,7 +12,7 @@ namespace Caesura
         IQueryable<Tag> Tags { set;  get; }
         IQueryable<User> Users { set; get; }
         IQueryable<Mail> PendingMail { set; get; }
-        IQueryable<File> Files { set; get; }
+        IQueryable<CaesFile> Files { set; get; }
 
     }
 }

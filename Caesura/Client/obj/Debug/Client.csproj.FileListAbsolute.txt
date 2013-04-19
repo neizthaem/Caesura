@@ -16,3 +16,12 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Client\bin\Debu
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\Client\obj\Debug\Client.pdb
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.dll
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.pdb
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\iSocket.dll
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Server.dll
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\iSocket.pdb
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Server.pdb
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.dll
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.pdb

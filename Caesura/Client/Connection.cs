@@ -37,6 +37,7 @@ namespace Client
             return forDebugger;
         }
 
+        //PUT IN A DESTINATION EVENTUALLY
         public bool requestFile(string filename)
         {
             sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename, Server.Server.maxBytes));
@@ -70,7 +71,7 @@ namespace Client
                 Byte[] bytes = sock.receive(length);
                 if (bytes != null)
                 {
-                    writeFile(name, bytes);
+                    writeFile("C:\\Caesura\\"+ name + ".txt", bytes);
                     numTransfers--;
                 }
 

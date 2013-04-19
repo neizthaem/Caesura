@@ -1,17 +1,26 @@
 ﻿using System;
-<<<<<<< HEAD
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
 
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
+
 namespace Caesura
 {
+
+    [Table(Name = "Users")]
     public class User
     {
         private String name;
         private String password;
 
+
+        [Column(IsPrimaryKey = true)]
+        public string Username;
+        [Column]
+        public string PasswordHash;
 
         public User()
         {
@@ -28,7 +37,7 @@ namespace Caesura
         }
 
         internal String getName()
-        {   
+        {
             return this.name;
         }
 
@@ -44,19 +53,20 @@ namespace Caesura
             return this.password;
         }
 
-/*        internal bool writeNP()
-        {
-            StreamWriter writer = File.AppendText("c:\\Users.txt");
+        /*        internal bool writeNP()
+                {
+                    StreamWriter writer = File.AppendText("c:\\Users.txt");
             
-            try{
-                writer.WriteLine(this.name + ' ' + this.password);
-                writer.Close();
-            return true;
-            }
+                    try{
+                        writer.WriteLine(this.name + ' ' + this.password);
+                        writer.Close();
+                    return true;
+                    }
 
-            catch
-            {
-                return false;
-            }
-        }*/
+                    catch
+                    {
+                        return false;
+                    }
+                }*/
     }
+}
