@@ -1,9 +1,11 @@
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\nunit.framework.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\nunit.framework.xml
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.csprojResolveAssemblyReference.cache
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Rhino.Mocks.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Rhino.Mocks.xml
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.UserRegGUI.resources
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.csproj.GenerateResource.Cache
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\bin\Debug\Caesura.exe
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Caesura\obj\Debug\Caesura.exe
