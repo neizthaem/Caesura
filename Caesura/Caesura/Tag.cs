@@ -14,7 +14,7 @@ namespace Caesura
     {
         [Column(IsPrimaryKey = true)]
         public String FilePath;
-        [Column]
+        [Column(IsPrimaryKey = true)]
         public String TagName;
     }
 }
