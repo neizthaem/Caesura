@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>203</x>
+      <y>21</y>
+      <w>273</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>Server
+--
+-Hashmap&lt;String username,Connection connection&gt; : connections
+-Mailbox : mailbox
+-Integer : defaultPort
+--
++run() : void
++addConnection(String username,Socket socket) : void
++removeConnection(String username) : void
++checkMail(String username) : String[]
++sendMail(String sender, String reciever, String message) : void
++requestFile(String username,String filename) : boolean
++ownedFiles(String username) : String[]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>749</x>
+      <y>105</y>
+      <w>217</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Client
+--
+-GUI : gui
+-Connection : connection
+--
++AddFriends(String friendname) : void
++RemoveFriend(String friendname) : void
++SetStatus(String status) : void
++CheckMail() : string[]
++SendMail(String username, String message) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>119</x>
+      <y>112</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Console</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>994</x>
+      <y>259</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>GUI
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>7</x>
+      <y>259</y>
+      <w>224</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Connection
+--
+-String : Username
+-Socket : sock
+-Server : server
+--
++Validate(String username,String password) : boolean
++OnRecieve(String message) : ?void?
++SendMessage(String message) : void
++SendFile(String filename) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>238</x>
+      <y>259</y>
+      <w>175</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Mailbox
+--
+--
++CheckMail(String user) : string[]
++StoreMail(String user,message) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>420</x>
+      <y>259</y>
+      <w>245</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>SQL [rename better]
+--
+--
++Validate(String username,String password) : boolean
++AddFile(String username,String filename) : void
++AddFriend(String username,String friendname) : void
++RemoveFriend(String username,String friendname) : void
+#Tag Seaching</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>812</x>
+      <y>259</y>
+      <w>175</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Connection
+--
+-Socket : sock
+--
++login(String username,String password)
++requestFile(String filename)
++search(String tags)
++onMessage(String message)
++sendMessage(String message)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>168</x>
+      <y>98</y>
+      <w>48</w>
+      <h>34</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>21;21;35;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>301</x>
+      <y>196</y>
+      <w>34</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;63;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>301</x>
+      <y>210</y>
+      <w>244</w>
+      <h>62</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>231;49;231;21;21;21;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>98</x>
+      <y>210</y>
+      <w>237</w>
+      <h>62</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;49;21;21;224;21;224;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>945</x>
+      <y>140</y>
+      <w>146</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>133;119;133;21;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>861</x>
+      <y>196</y>
+      <w>34</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;63;21;21</additional_attributes>
+  </element>
+</diagram>
