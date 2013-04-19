@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{91D50832-09EE-45B1-B2FD-6692D65D6C9F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{80353FB8-3806-4653-9D4E-C207DCEB4CEC}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Caesura</RootNamespace>
-    <AssemblyName>Caesura</AssemblyName>
+    <RootNamespace>CaesuraSearchTest</RootNamespace>
+    <AssemblyName>CaesuraSearchTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,17 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Caesura.MainStart</StartupObject>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\..\..\..\..\..\Rhino.Mocks-3.6-Build-20\Rhino.Mocks.dll</HintPath>
+      <HintPath>..\..\..\..\!\Rhino.Mocks-3.6-Build-21\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,26 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainStart.cs" />
-    <Compile Include="DatabaseInterface.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserRegGUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserRegGUI.Designer.cs">
-      <DependentUpon>UserRegGUI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserRegistration.cs" />
-    <Compile Include="UserRegTests.cs" />
+    <Compile Include="ObjectMother.cs" />
+    <Compile Include="SearchTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UserReg\" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UserRegGUI.resx">
-      <DependentUpon>UserRegGUI.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\Caesura\Caesura.csproj">
+      <Project>{91d50832-09ee-45b1-b2fd-6692d65d6c9f}</Project>
+      <Name>Caesura</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
