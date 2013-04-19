@@ -82,10 +82,6 @@ namespace Server
             }
         }
 
-        public void sendMessage(string message)
-        {
-            throw new NotImplementedException();
-        }
 
         public void sendFile(string filename)
         {

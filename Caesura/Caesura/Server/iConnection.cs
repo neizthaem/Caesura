@@ -11,8 +11,6 @@ namespace Server
 
         void onRecieve(String message);
 
-        void sendMessage(String message);
-
         void sendFile(String filename);
 
         void quit();

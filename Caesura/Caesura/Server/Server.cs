@@ -15,7 +15,7 @@ namespace Server
         public static String MajorNumber = "0\0";
         public static String MinorNumber = "0\0";
 
-        public static int defaultPort = 6000;
+        public static int defaultPort = 6014;
         public static string host = "localhost";
 
         public static int maxBytes = 512;
@@ -24,7 +24,6 @@ namespace Server
         public Dictionary<String, iConnection> connections = new Dictionary<string, iConnection>();
 
         public iSocket.iSocket socket = new iSocket.aSocket();
-        public iSQL SQL = new SQL();
 
         public Boolean running = true;
 
@@ -56,40 +55,6 @@ namespace Server
             running = false;
         }
 
-        public bool validate(string username, string password)
-        {
-            Boolean ret = SQL.validate(username, password);
-            return ret;
-        }
-
-        public void removeConnection(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string[] checkMail(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void sendMail(string sender, string reciever, string message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string[] ownedFiles(string username)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-
-        public bool requestFile(string username, string filename)
-        {
-            Boolean ret = SQL.validateFile(username, filename);
-            return ret;
-        }
+ 
     }
 }

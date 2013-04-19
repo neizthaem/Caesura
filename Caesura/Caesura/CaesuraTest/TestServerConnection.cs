@@ -137,8 +137,6 @@ namespace CaesuraTest
         {
             using (mocks.Record())
             {
-                mockServer.requestFile("TestUser", "generic.txt");
-                LastCall.Return(true);
 
                 // File Name
                 mockSocket.send(iSocket.aSocket.stringToBytes("generic", Server.Server.maxBytes));
@@ -148,24 +146,6 @@ namespace CaesuraTest
                 mockSocket.send(iSocket.aSocket.stringToBytes("24", Server.Server.maxBytes));
                 // Transfer
                 mockSocket.send(iSocket.aSocket.stringToBytes("This here is a text file"));
-            }
-            connection.username = "TestUser";
-            connection.onRecieve("RequestFile generic.txt");
-
-            mocks.VerifyAll();
-        }
-
-
-        [Test]
-        public void ServerConnectionOnRecieveFileRequestDenied()
-        {
-            using (mocks.Record())
-            {
-                mockServer.requestFile("TestUser", "generic.txt");
-                LastCall.Return(false);
-
-                // File Name
-                mockSocket.send(iSocket.aSocket.stringToBytes("Access Denied", Server.Server.maxBytes));
             }
             connection.username = "TestUser";
             connection.onRecieve("RequestFile generic.txt");

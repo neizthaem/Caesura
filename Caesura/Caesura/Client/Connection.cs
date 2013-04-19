@@ -82,6 +82,10 @@ namespace Client
 
         public void writeFile(string filename, byte[] bytes)
         {
+            if (!File.Exists(filename))
+            {
+                File.Create(filename).Close();
+            }
             foreach (byte b in bytes)
             {
                 Console.Write((char)b);
@@ -95,25 +99,18 @@ namespace Client
 
         }
 
-        public string[] search(string[] tags)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void onMessage(string message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void sendMessage(string message)
-        {
-            throw new NotImplementedException();
-        }
 
 
         public void connect()
         {
             sock.connect(Server.Server.host, Server.Server.defaultPort);
+        }
+
+
+        public void disconnect()
+        {
+            sock.send(iSocket.aSocket.stringToBytes("Quit ", Server.Server.maxBytes));
         }
     }
 }

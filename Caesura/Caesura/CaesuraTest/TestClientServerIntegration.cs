@@ -39,32 +39,6 @@ namespace CaesuraTest
         }
 
         [Test]
-        public void TestMockVeryifyAllDynamicMock()
-        {
-            iSocket.iSocket mockSocket = mocks.DynamicMock<iSocket.iSocket>();
-
-            using (mocks.Record())
-            {
-                mockSocket.send(null);
-            }
-
-            mocks.VerifyAll();
-        }
-
-        [Test]
-        public void TestMockVeryifyAllStub()
-        {
-            iSocket.iSocket mockSocket = mocks.Stub<iSocket.iSocket>();
-
-            using (mocks.Record())
-            {
-                mockSocket.send(null);
-            }
-
-            mocks.VerifyAll();
-        }
-
-        [Test]
         public void TestClientServerIntegrationClientRequestFileGeneric()
         {
             serverThread.Start();
@@ -81,6 +55,7 @@ namespace CaesuraTest
             client.connect();
             // Request the file
             client.requestFile("generic.txt");
+            client.disconnect();
             // Asert that the file exists
             Assert.IsTrue(File.Exists("generic"));
             // Assert that the contents are correct

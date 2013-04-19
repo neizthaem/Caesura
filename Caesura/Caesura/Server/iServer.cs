@@ -13,16 +13,5 @@ namespace Server
 
         void stop();
 
-        Boolean validate(String username, String password);
-
-        void removeConnection(String username);
-
-        String[] checkMail(String username);
-
-        void sendMail(String sender, String reciever, String message);
-
-        Boolean requestFile(String username, String filename);
-
-        String[] ownedFiles(String username);
     }
 }

@@ -10,14 +10,5 @@ namespace Client
     {
         Boolean requestFile(string filename);
 
-        void addFriend(String friendname);
-
-        void removeFriend(String friendname);
-
-        void setStatus(String status);
-
-        String[] checkMail();
-
-        void sendMail(String reciever, String message);
     }
 }

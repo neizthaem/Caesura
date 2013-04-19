@@ -13,13 +13,8 @@ namespace Client
         // returns true if the file transfer begins
         Boolean requestFile(String filename);
 
-        // returns an string[] of files that fit the given search parameters
-        string[] search(String[] tags);
-
-        void onMessage(String message);
-
-        void sendMessage(String message);
-
         void connect();
+
+        void disconnect();
     }
 }

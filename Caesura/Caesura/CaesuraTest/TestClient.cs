@@ -35,6 +35,11 @@ namespace CaesuraTest
             mocks = null;
         }
 
+        public void TestClientConstructor()
+        {
+            Assert.NotNull(client);
+        }
+
         [Test]
         public void TestClientRequestFileRealConnectionSuccess()
         {

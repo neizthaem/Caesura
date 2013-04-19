@@ -96,11 +96,6 @@ namespace CaesuraTest
 
             Assert.IsTrue(connection.requestFile("TestClientRequestFileSuccess"));
 
-            //Assert.IsTrue(File.Exists("TestClientRequestFileSuccess"));
-            //Assert.AreEqual(File.ReadAllText("TestClientRequestFileSuccess"), "This here is a text file");
-            //File.Delete("TestClientRequestFileSuccess");
-
-            //Assert.IsFalse(File.Exists("TestClientRequestFileSuccess"));
             mocks.VerifyAll();
         }
 
@@ -118,12 +113,7 @@ namespace CaesuraTest
 
             Assert.IsFalse(connection.requestFile("TestClientRequestFileSuccess"));
 
-            //Assert.IsTrue(File.Exists("TestClientRequestFileSuccess"));
-            //Assert.AreEqual(File.ReadAllText("TestClientRequestFileSuccess"), "This here is a text file");
-            //File.Delete("TestClientRequestFileSuccess");
-
-            //Assert.IsFalse(File.Exists("TestClientRequestFileSuccess"));
-            mocks.VerifyAll();
+             mocks.VerifyAll();
         }
 
         [Test]
@@ -140,9 +130,9 @@ namespace CaesuraTest
 
             connection.writeFile(filename, iSocket.aSocket.stringToBytes("TestClientWriteFile"));
 
-            //Assert.AreEqual(File.ReadAllText(filename), "TestClientWriteFile");
+            Assert.AreEqual(File.ReadAllText(filename), "TestClientWriteFile");
 
-            //File.Delete(filename);
+            File.Delete(filename);
         }
 
         [Test]
@@ -152,7 +142,7 @@ namespace CaesuraTest
 
             if (!File.Exists(filename))
             {
-                File.Create(filename);
+                File.Create(filename).Close();
             }
 
             Assert.IsTrue(File.Exists(filename));
@@ -161,7 +151,7 @@ namespace CaesuraTest
 
             Assert.AreEqual(File.ReadAllText(filename), "TestClientWriteFile");
 
-            //File.Delete(filename);
+            File.Delete(filename);
         }
 
     }
