@@ -1,0 +1,12 @@
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\obj\Debug\CaesuraSearchTest.csprojResolveAssemblyReference.cache
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll.config
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.pdb
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Caesura.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\nunit.framework.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Rhino.Mocks.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Caesura.pdb
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\nunit.framework.xml
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Rhino.Mocks.xml
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\obj\Debug\CaesuraSearchTest.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\CaesuraSearchTest\obj\Debug\CaesuraSearchTest.pdb
