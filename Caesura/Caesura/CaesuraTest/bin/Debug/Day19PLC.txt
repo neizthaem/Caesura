@@ -1,0 +1,31 @@
+((lambda (x) ((x 1) 1)) (lambda (y) (lambda (z) (+ y z))))
+
+(app-exp
+	(lambda-exp (x) (app-exp
+						(app-exp
+							(var-exp x)
+							(lit-exp 1))
+							(lit-exp 1)))
+		(lambda-exp (y) (lambda-exp (z)
+			(app-exp
+				(var-exp +)
+				(var-exp y)
+				(var-exp z))))
+	)
+	
+C1 : | (x)		| (app-exp (app-exp (var-exp x) (lit-exp 1)) (list-exp 1))) 		| () |
+C2 : | (y) 		| (lambda-exp (z) (app-exp (var-exp +) (var-exp y) (var-exp z))) 	| () |
+
+E1 : | (x) (C2) 	| () 						|
+
+Evaluate (app-exp (var-exp x) (lit-exp 1))
+
+Evaluate (lambda-exp (y) (lambda (z) (app-exp (var-exp +) (var-exp y) (var-exp z))))
+E2 : | 	(y) (1) 	| ((x) (C2) ()) 			|
+
+Evaluate (app-exp (var-exp y) (lit-exp 1))
+E3 : | (z) (1) 		| ((y) (1) ((x) (C2) ()))	|
+
+Evaluate (app-exp (var-exp +) (var-exp y) (var-exp z))
+Value : 2
+

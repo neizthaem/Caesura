@@ -86,21 +86,11 @@ namespace Client
             {
                 File.Create(filename).Close();
             }
-            foreach (byte b in bytes)
-            {
-                Console.Write((char)b);
-            }
-            Console.WriteLine();
-            using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Open, FileAccess.Write)))
-            {
-                writer.Write(bytes);
-                Console.WriteLine("Wrote bytes");
-            }
+
+
+            File.AppendAllText(filename, iSocket.aSocket.bytesToString(bytes));
 
         }
-
-
-
 
         public void connect()
         {

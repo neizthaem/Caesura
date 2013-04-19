@@ -15,7 +15,7 @@ namespace Server
         public static String MajorNumber = "0\0";
         public static String MinorNumber = "0\0";
 
-        public static int defaultPort = 6014;
+        public static int defaultPort = 6016;
         public static string host = "localhost";
 
         public static int maxBytes = 512;

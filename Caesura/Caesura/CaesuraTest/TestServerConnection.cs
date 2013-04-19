@@ -117,6 +117,31 @@ namespace CaesuraTest
         }
 
         [Test]
+        public void ServerConnectionSendFile513()
+        {
+            using (mocks.Record())
+            {
+                // File Name
+                mockSocket.send(iSocket.aSocket.stringToBytes("513", Server.Server.maxBytes));
+                // Number of transfers (1)
+                mockSocket.send(iSocket.aSocket.stringToBytes("2", Server.Server.maxBytes));
+                // Length of a transfer
+                mockSocket.send(iSocket.aSocket.stringToBytes("512", Server.Server.maxBytes));
+                // Transfer
+                mockSocket.send(iSocket.aSocket.stringToBytes("11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"));
+                // Length of a transfer
+                mockSocket.send(iSocket.aSocket.stringToBytes("1", Server.Server.maxBytes));
+                // Transfer
+                mockSocket.send(iSocket.aSocket.stringToBytes("2"));
+            
+            }
+
+            connection.sendFile("513.txt");
+
+            mocks.VerifyAll();
+        }
+
+        [Test]
         public void TestServerConnectionSplitMessage()
         {
             string[] target = connection.splitMessage("RequestFile generic.txt");
