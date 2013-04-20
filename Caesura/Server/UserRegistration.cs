@@ -12,7 +12,7 @@ namespace Server
     public class UserRegistration
     {
 
-        private static DatabaseInterface Database;
+        private static LINQDatabase database;
 
 
         public static void mockStuff()
@@ -34,26 +34,27 @@ namespace Server
                 LastCall.Return(null);
             }
 
-            UserRegistration.setDatabase(mockDatabase);
+            //UserRegistration.setDatabase(mockDatabase);
         }
 
-        public static void setDatabase(DatabaseInterface toSet)
+        public static void setDatabase(LINQDatabase toSet)
         {
 
 
 
 
-            Database = toSet;
+            database = toSet;
         }
 
         public static bool register(User toRegister)
         {
-            return Database.registerUser(toRegister);
+            return true;
+            //return database.registerUser(toRegister);
         }
 
         public static bool isRegistered(string name)
         {
-            User checker = Database.getUser(name);
+            User checker = database.getUser(name);
             return (checker != null);
         }
 
@@ -61,8 +62,8 @@ namespace Server
         {
             if (isRegistered(name))
             {
-                User checker = Database.getUser(name);
-                return checker.getPass().Equals(password);
+                User checker = database.getUser(name);
+                return checker.PasswordHash.Trim().Equals(password);
             }
             return false;
             

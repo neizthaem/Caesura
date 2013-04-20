@@ -21,5 +21,13 @@ namespace Server
             public LINQDatabase(): base(LoginString)
             {
             }
+
+            public User getUser(string username)
+            {
+                return (from t in this.Users
+                                   where t.Username == username
+                        select t).First();
+
+            }
     }
 }

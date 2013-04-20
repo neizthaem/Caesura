@@ -32,7 +32,7 @@ namespace Server
 
         public Server()
         {
-
+            UserRegistration.setDatabase(new LINQDatabase());
         }
 
         public void run()

@@ -66,7 +66,7 @@ namespace Server
         [Test()]
         public void testIsRegisteredInDatabase()
         {
-            DatabaseInterface mockDatabase = mocks.Stub<DatabaseInterface>();
+            LINQDatabase mockDatabase = mocks.Stub<LINQDatabase>();
 
             User zarakavaUse = new User();
             zarakavaUse.setName("Zarakava");
@@ -88,7 +88,7 @@ namespace Server
         [Test()]
         public void testRegisteredInDatabase()
         {
-            DatabaseInterface mockDatabase = mocks.Stub<DatabaseInterface>();
+            LINQDatabase mockDatabase = mocks.Stub<LINQDatabase>();
 
             User zarakavaUse = new User();
             zarakavaUse.setName("Zarakava");
@@ -98,10 +98,10 @@ namespace Server
             {
 
                 // The mock will return "Whale Rider" when the call is made with 24
-                mockDatabase.registerUser(zarakavaUse);
-                LastCall.Return(true);
-                mockDatabase.registerUser(null);
-                LastCall.Return(false);
+                //mockDatabase.registerUser(zarakavaUse);
+                //LastCall.Return(true);
+               // mockDatabase.registerUser(null);
+               // LastCall.Return(false);
             }
 
             UserRegistration.setDatabase(mockDatabase);
@@ -112,7 +112,7 @@ namespace Server
         [Test()]
         public void testLogin()
         {
-            DatabaseInterface mockDatabase = mocks.Stub<DatabaseInterface>();
+            LINQDatabase mockDatabase = mocks.Stub<LINQDatabase>();
 
             User zarakavaUse = new User();
             zarakavaUse.setName("Zarakava");
