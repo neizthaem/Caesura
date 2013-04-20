@@ -81,15 +81,44 @@ namespace CaesuraTest
             System.Threading.Thread.Sleep(5000);
             client.connect();
 
+            client.login("Testuser", "Test");
             List<String> toReturn = client.getFromTag("picture");
             List<String> checker = new List<String>();
-            checker.Add("picture1.jpg");
+            checker.Add("picture.jpg");
             checker.Add("picture&text.jpg");
             checker.Add("picture&video.jpg");
-            checker.Add("picture&text&video.jpg");
+            checker.Add("pic&text&video.jpg");
 
             client.disconnect();
             serverThread.Abort();
+
+            checker.Sort();
+            toReturn.Sort();
+
+            Assert.AreEqual(toReturn, checker);
+
+        }
+
+        [Test()]
+        public void testSearching2()
+        {
+
+            serverThread.Start();
+            System.Threading.Thread.Sleep(5000);
+            client.connect();
+
+            client.login("Testuser", "Test");
+            List<String> toReturn = client.getFromTag("picture","text");
+            List<String> checker = new List<String>();
+            
+            checker.Add("picture&text.jpg");
+            checker.Add("pic&text&video.jpg");
+
+            client.disconnect();
+            serverThread.Abort();
+
+            checker.Sort();
+            toReturn.Sort();
 
             Assert.AreEqual(toReturn, checker);
 

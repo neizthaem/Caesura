@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Linq;
 using System.Text;
+using Server;
 using System.Threading.Tasks;
 
 namespace Client
@@ -43,6 +45,14 @@ namespace Client
         public void disconnect()
         {
             connection.disconnect();
+        }
+
+        public List<string> getFromTag(params string[] tag)
+        {
+            //if (loggedIn)
+            Search.database = UserRegistration.database;
+            return Search.getFilesWithTags(tag);
+            
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Server
     public class Search
     {
 
-        public static IDatabase database = null;
+        public static LINQDatabase database = null;
 
         private static List<String> getFilesWithTag(String tag)
         {

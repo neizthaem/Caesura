@@ -12,7 +12,7 @@ namespace Server
     public class UserRegistration
     {
 
-        private static LINQDatabase database;
+        public static LINQDatabase database;
 
 
         public static void setDatabase(LINQDatabase toSet)
