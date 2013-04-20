@@ -10,6 +10,7 @@ namespace Client
     {
         // Needs to be public for test cases
         public iConnection connection;
+        private bool loggedIn;
 
         public Client()
         {
@@ -24,12 +25,16 @@ namespace Client
 
         public bool requestFile(string filename)
         {
-            return connection.requestFile(filename);
+            if(loggedIn)
+                return connection.requestFile(filename);
+            return false;
         }
 
         public bool login(string username, string password)
         {
-            return connection.login(username, password);
+            
+            loggedIn = connection.login(username, password);
+            return loggedIn;
         }
 
 

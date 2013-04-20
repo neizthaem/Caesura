@@ -64,7 +64,7 @@ namespace Client
                 Byte[] bytes = sock.receive(length);
                 if (bytes != null)
                 {
-                    writeFile("C:\\Caesura\\"+ name + ".txt", bytes);
+                    writeFile("C:\\Caesura\\"+ name, bytes);
                     numTransfers--;
                 }
 

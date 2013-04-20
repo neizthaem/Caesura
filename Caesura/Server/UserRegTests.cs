@@ -64,6 +64,7 @@ namespace Server
         }*/
 
         [Test()]
+        [Ignore()]
         public void testIsRegisteredInDatabase()
         {
             LINQDatabase mockDatabase = mocks.Stub<LINQDatabase>();
@@ -110,6 +111,7 @@ namespace Server
         }
 
         [Test()]
+        [Ignore()]
         public void testLogin()
         {
             LINQDatabase mockDatabase = mocks.Stub<LINQDatabase>();

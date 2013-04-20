@@ -15,28 +15,6 @@ namespace Server
         private static LINQDatabase database;
 
 
-        public static void mockStuff()
-        {
-            MockRepository mocks = new MockRepository();
-            DatabaseInterface mockDatabase = mocks.Stub<DatabaseInterface>();
-
-            User zarakavaUse = new User();
-            zarakavaUse.setName("Testuser");
-            zarakavaUse.setPass("Test");
-
-            using (mocks.Record())
-            {
-
-
-                mockDatabase.getUser("Testuser");
-                LastCall.Return(zarakavaUse);
-                mockDatabase.getUser("NULLMAN");
-                LastCall.Return(null);
-            }
-
-            //UserRegistration.setDatabase(mockDatabase);
-        }
-
         public static void setDatabase(LINQDatabase toSet)
         {
 
@@ -48,8 +26,8 @@ namespace Server
 
         public static bool register(User toRegister)
         {
-            return true;
-            //return database.registerUser(toRegister);
+            
+            return database.registerUser(toRegister);
         }
 
         public static bool isRegistered(string name)

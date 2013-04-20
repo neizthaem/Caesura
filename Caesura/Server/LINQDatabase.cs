@@ -29,5 +29,14 @@ namespace Server
                         select t).First();
 
             }
+
+            public bool registerUser(User toRegister)
+            {
+                this.Users.InsertOnSubmit(toRegister);
+                this.SubmitChanges();
+                return ((from t in this.Users
+                         where t == toRegister
+                         select t).Count() > 0);
+            }
     }
 }

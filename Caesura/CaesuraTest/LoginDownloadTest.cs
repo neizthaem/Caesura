@@ -16,40 +16,120 @@ namespace CaesuraTest
     class LoginDownloadTest
     {
 
+
+        public Client.Client client = null;
+        public Server.Server server = null;
+        
+
+        public Thread serverThread = null;
+
+        [SetUp]
+        public void TestClientServerIntegrationSetUp()
+        {
+            client = new Client.Client();
+            server = new Server.Server();
+
+            serverThread = new Thread(new ThreadStart(server.run));
+        }
+
+        [TearDown]
+        public void TestClientServerIntegrationTearDown()
+        {
+            serverThread.Abort();
+            serverThread = null;
+            server.socket.close();
+            server = null;
+            client = null;
+            
+        }
+
         [Test()]
-        public static void testLogin()
+        public void testLogin()
         {
             
-            Thread serverThread = null;
-            Server.Server server = new Server.Server();
-            Client.Client client = new Client.Client();
-            serverThread = new Thread(new ThreadStart(server.run));
+
             serverThread.Start();
             System.Threading.Thread.Sleep(5000);
             client.connect();
             Assert.True(client.login("Testuser", "Test"));
             client.disconnect();
+            serverThread.Abort();
 
         }
 
         [Test()]
-        public static void testTransfer()
+        public void testLoginTransfer()
         {
-            Thread serverThread = null;
-            Server.Server server = new Server.Server();
-            Client.Client client = new Client.Client();
-            serverThread = new Thread(new ThreadStart(server.run));
+            
             serverThread.Start();
             System.Threading.Thread.Sleep(5000);
             client.connect();
 
-            client.requestFile("513.txt");
+            Assert.True(client.login("Testuser", "Test"));
+            Assert.True(client.requestFile("513.txt"));
+
+            client.disconnect();
+            serverThread.Abort();
+
+        }
+
+        [Test()]
+        public void testSearching()
+        {
+
+            serverThread.Start();
+            System.Threading.Thread.Sleep(5000);
+            client.connect();
+
+            List<String> toReturn = client.getFromTag("picture");
+            List<String> checker = new List<String>();
+            checker.Add("picture1.jpg");
+            checker.Add("picture&text.jpg");
+            checker.Add("picture&video.jpg");
+            checker.Add("picture&text&video.jpg");
+
+            client.disconnect();
+            serverThread.Abort();
+
+            Assert.AreEqual(toReturn, checker);
+
+        }
+
+        [Test()]
+        public void testRegister()
+        {
+
+            serverThread.Start();
+            System.Threading.Thread.Sleep(5000);
+            client.connect();
+            User addNew = new User();
+            addNew.PasswordHash = "TROLLING";
+            addNew.Username = "WTFBRAH";
+
+            Assert.True(UserRegistration.register(addNew));
+            
+
+            client.disconnect();
+            serverThread.Abort();
+
+        }
+
+
+
+        [Test()]
+        public void testFailTransfer()
+        {
+            serverThread.Start();
+            System.Threading.Thread.Sleep(5000);
+            client.connect();
+
+            Assert.False(client.requestFile("513.txt"));
 
             client.disconnect();
         }
 
         [Test()]
-        public static void testGetUser()
+        public void testGetUser()
         {
             LINQDatabase database = new LINQDatabase();
             

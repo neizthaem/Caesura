@@ -97,7 +97,7 @@ namespace Server
             int transferLength;
             int sentLength = 0;
             // Send file name - don't send the extension for test purposes
-            sock.send(iSocket.aSocket.stringToBytes(filename.Substring(0, filename.Length - 4), Server.maxBytes));
+            sock.send(iSocket.aSocket.stringToBytes(filename, Server.maxBytes));
             // Number of transfers
             int transfers = (int)Math.Ceiling((double)((double)length / (double)maxBytes));
             sock.send(iSocket.aSocket.stringToBytes(transfers.ToString(), Server.maxBytes));
