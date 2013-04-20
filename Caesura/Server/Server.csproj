@@ -53,6 +53,7 @@
     <Compile Include="iConnection.cs" />
     <Compile Include="IDatabase.cs" />
     <Compile Include="iServer.cs" />
+    <Compile Include="LINQDatabase.cs" />
     <Compile Include="Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search.cs" />

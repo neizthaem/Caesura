@@ -52,21 +52,5 @@ namespace Server
         {
             return this.password;
         }
-
-        /*        internal bool writeNP()
-                {
-                    StreamWriter writer = File.AppendText("c:\\Users.txt");
-            
-                    try{
-                        writer.WriteLine(this.name + ' ' + this.password);
-                        writer.Close();
-                    return true;
-                    }
-
-                    catch
-                    {
-                        return false;
-                    }
-                }*/
     }
 }
