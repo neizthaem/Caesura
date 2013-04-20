@@ -11,11 +11,13 @@ namespace Server
 {
     public class Server : iServer
     {
+
+        
         // it is convient if the major/minor numbers are stored as string
         public static String MajorNumber = "0\0";
         public static String MinorNumber = "0\0";
 
-        public static int defaultPort = 6016;
+        public static int defaultPort = 6069;
         public static string host = "localhost";
 
         public static int maxBytes = 512;

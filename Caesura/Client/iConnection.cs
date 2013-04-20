@@ -9,7 +9,7 @@ namespace Client
     public interface iConnection
     {
 
-
+        Boolean login(string username, string password);
         // returns true if the file transfer begins
         Boolean requestFile(String filename);
 

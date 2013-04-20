@@ -27,6 +27,11 @@ namespace Client
             return connection.requestFile(filename);
         }
 
+        public bool login(string username, string password)
+        {
+            return connection.login(username, password);
+        }
+
 
 
 

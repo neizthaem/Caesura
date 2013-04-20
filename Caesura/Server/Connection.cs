@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Server;
 
 namespace Server
 {
@@ -74,6 +75,12 @@ namespace Server
 
                 sendFile(param);
 
+            }
+            else if ("Login".Equals(type))
+            {
+                string[] userPass = param.Split(' ');
+                bool returner = UserRegistration.login(userPass[0], userPass[1]);
+                sock.send(iSocket.aSocket.stringToBytes(returner.ToString(), Server.maxBytes));
             }
             else if ("Quit".Equals(type))
             {

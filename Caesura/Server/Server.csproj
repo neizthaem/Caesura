@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\..\..\..\Rhino.Mocks-3.6-Build-20\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,10 +48,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="DatabaseInterface.cs" />
+    <Compile Include="File.cs" />
     <Compile Include="iConnection.cs" />
+    <Compile Include="IDatabase.cs" />
     <Compile Include="iServer.cs" />
+    <Compile Include="Mail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search.cs" />
     <Compile Include="Server.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserRegistration.cs" />
+    <Compile Include="UserRegTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iSocket\iSocket.csproj">

@@ -16,14 +16,10 @@ C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\obj\Debug\C
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll.config
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\CaesuraSearchTest.pdb
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Caesura.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\nunit.framework.dll
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Caesura.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\nunit.framework.xml
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Rhino.Mocks.xml
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Client.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Server.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\iSocket.dll
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Client.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\Server.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraSearchTest\bin\Debug\iSocket.pdb

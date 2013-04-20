@@ -47,20 +47,20 @@ namespace CaesuraTest
             // Sleep to let the server start up
             System.Threading.Thread.Sleep(5000);
 
-            if (File.Exists("generic"))
+            if (File.Exists("C:\\Caesura\\generic.txt"))
             {
-                File.Delete("generic");
+                File.Delete("C:\\Caesura\\generic.txt");
             }
 
-            Assert.IsFalse(File.Exists("generic"));
+            Assert.IsFalse(File.Exists("C:\\Caesura\\generic.txt"));
             client.connect();
             // Request the file
             client.requestFile("generic.txt");
             client.disconnect();
             // Asert that the file exists
-            Assert.IsTrue(File.Exists("generic"));
+            Assert.IsTrue(File.Exists("C:\\Caesura\\generic.txt"));
             // Assert that the contents are correct
-            Assert.AreEqual(File.ReadAllText("generic.txt"), File.ReadAllText("generic"));
+            Assert.AreEqual(File.ReadAllText("generic.txt"), File.ReadAllText("C:\\Caesura\\generic.txt"));
         }
 
         [Test]

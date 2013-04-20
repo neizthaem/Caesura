@@ -25,3 +25,7 @@ C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Server.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.pdb
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.dll
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\nunit.framework.dll
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.xml
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\nunit.framework.xml

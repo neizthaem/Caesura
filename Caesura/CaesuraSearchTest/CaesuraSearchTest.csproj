@@ -57,9 +57,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Caesura\Caesura.csproj">
-      <Project>{91d50832-09ee-45b1-b2fd-6692d65d6c9f}</Project>
-      <Name>Caesura</Name>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{076cebc5-38cc-4189-b6fe-5cda3280e2b2}</Project>
+      <Name>Server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

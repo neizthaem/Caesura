@@ -21,15 +21,8 @@ namespace Client
 
         public bool login(string username, string password)
         {
-            sock.connect(Server.Server.host, Server.Server.defaultPort);
+            sock.send(iSocket.aSocket.stringToBytes("Login " + username + ' ' + password, Server.Server.maxBytes));
 
-            sock.send(iSocket.aSocket.stringToBytes("Caesura" + "\0", Server.Server.maxBytes));
-
-            sock.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber, Server.Server.maxBytes));
-            sock.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber, Server.Server.maxBytes));
-
-            sock.send(iSocket.aSocket.stringToBytes(username + "\0", Server.Server.maxBytes));
-            sock.send(iSocket.aSocket.stringToBytes(password + "\0", Server.Server.maxBytes));
 
             String recv = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
 

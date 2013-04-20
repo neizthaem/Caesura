@@ -53,10 +53,6 @@
     <Compile Include="TestServerConnection.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Caesura\Caesura.csproj">
-      <Project>{91d50832-09ee-45b1-b2fd-6692d65d6c9f}</Project>
-      <Name>Caesura</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Client\Client.csproj">
       <Project>{18fbb55d-2c7f-4d1a-8eb2-1dd46a3b0e09}</Project>
       <Name>Client</Name>
