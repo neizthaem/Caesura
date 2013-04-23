@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>210</x>
+      <y>77</y>
+      <w>84</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Server</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>735</x>
+      <y>91</y>
+      <w>84</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Client</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>126</x>
+      <y>84</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>Console</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>651</x>
+      <y>98</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>GUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>35</x>
+      <y>196</y>
+      <w>147</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Connection
+--
+-String Username
+-Socket sock
+--
++Validate(username,password)
++OnRecieve(message)
++SendMessage(message)
++SendFile(path)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>189</x>
+      <y>196</y>
+      <w>140</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Mailbox
+--
++CheckMail(user)
++StoreMail(user,message)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>336</x>
+      <y>196</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>SQL [rename better]
+--
++Validate(username,password)
++AddFile(username,file)
++AddFriend(username,friendname)
++RemoveFriend(username.friendname)
+#Tag Seaching</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>231</x>
+      <y>91</y>
+      <w>34</w>
+      <h>118</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;105;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>77</x>
+      <y>91</y>
+      <w>174</w>
+      <h>118</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;105;161;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>245</x>
+      <y>91</y>
+      <w>188</w>
+      <h>118</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>175;105;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>553</x>
+      <y>196</y>
+      <w>147</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>User
+--
++AddFriend(friendname)
++RemoveFriends</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>707</x>
+      <y>196</y>
+      <w>154</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Connection
+--
++login(username,password)
++requestFile(filename)
++search(tags)
++onMessage(message)
++sendMessage(message)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>602</x>
+      <y>105</y>
+      <w>174</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;91;161;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>756</x>
+      <y>105</y>
+      <w>34</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>21;91;21;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>700</x>
+      <y>84</y>
+      <w>48</w>
+      <h>34</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>21;21;35;21</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>175</x>
+      <y>70</y>
+      <w>48</w>
+      <h>34</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>21;21;35;21</additional_attributes>
+  </element>
+</diagram>
