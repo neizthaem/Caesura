@@ -104,7 +104,7 @@ namespace CaesuraSearchTest
             expected.Sort();
             result.Sort();
             Assert.AreEqual(expected, result);
-
+            
             result = Search.getFilesWithTags("mp3");
             expected = new List<String>();
             expected.Add(ObjectMother.musicFile);

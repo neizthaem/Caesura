@@ -29,15 +29,18 @@ namespace Server
             if (database == null || tags.Length == 0)
                 return new List<String>();
 
-            List<String> temp;
-            List<String> list = getFilesWithTag(tags[0]);
-
-            for (int i = 1; i < tags.Length; i++)
+            IQueryable<Tag> table = database.Tags;
+            IQueryable<String> lastQuery = null;
+            IQueryable<String> temp = null;
+            foreach (String tag in tags)
             {
-                temp = getFilesWithTag(tags[i]);
-                list = list.Intersect(temp).ToList<String>();
+                temp = table.Where(p => p.TagName.Equals(tag)).Select(p => p.FilePath);
+                if (lastQuery != null)
+                    temp = lastQuery.Join(temp, a => a, b => b, (a, b) => a);
+                lastQuery = temp;
             }
-            return list;
+
+            return temp.ToList<String>();
         }
 
         // Get Files that have AT LEAST ONE of the tags in the list
@@ -46,15 +49,14 @@ namespace Server
             if (database == null || tags.Length == 0)
                 return new List<String>();
 
-            List<String> temp;
-            List<String> list = getFilesWithTag(tags[0]);
-
-            for (int i = 1; i < tags.Length; i++)
+            var predicate = PredicateBuilder.False<Tag>();
+            foreach (String tag in tags)
             {
-                temp = getFilesWithTag(tags[i]);
-                list = list.Union(temp).ToList<String>();
+                predicate = predicate.Or(p => p.TagName.Equals(tag));
             }
-            return list;
+
+            return database.Tags.Where(predicate).Select(p => p.FilePath).Distinct().ToList<String>();
+
         }
 
         // Get Files that DO NOT HAVE ANY of the tags in the list
