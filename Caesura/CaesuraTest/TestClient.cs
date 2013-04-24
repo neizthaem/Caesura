@@ -40,6 +40,32 @@ namespace CaesuraTest
             Assert.NotNull(client);
         }
 
+        [Test()]
+        public void testLoginTransferHex()
+        {
+            client = new Client.Client();
+            client.connect();
+
+
+            if (System.IO.File.Exists("C:\\Caesura\\testpic.jpg"))
+            {
+                System.IO.File.Delete("C:\\Caesura\\testpic.jpg");
+            }
+            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\testpic.jpg"));
+
+            Assert.True(client.login("Testuser", "Test"));
+            Assert.True(client.requestFile("testpic.jpg"));
+
+            client.disconnect();
+
+            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\testpic.jpg"));
+            // Assert that the contents are correct
+            Assert.AreEqual(System.IO.File.ReadAllBytes("testpic.jpg"), System.IO.File.ReadAllBytes("C:\\Caesura\\testpic.jpg"));
+
+
+        }
+
+
         [Test]
         public void TestClientRequestFileRealConnectionSuccess()
         {

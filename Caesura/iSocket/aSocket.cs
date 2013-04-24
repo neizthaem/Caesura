@@ -16,9 +16,14 @@ namespace iSocket
         // Must be public for test cases
         public Socket socket;
 
+        public Boolean verbose = true;
+
         public aSocket()
         {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            // Need to move max size to Sockets instead of Server
+            socket.ReceiveBufferSize = 512;
+            socket.SendBufferSize = 512;
         }
 
         public aSocket(Socket sock)
@@ -27,13 +32,13 @@ namespace iSocket
         }
 
 
-        public static byte[] stringToBytes(String message,int length)
+        public static byte[] stringToBytes(String message, int length)
         {
             byte[] ret = new byte[length];
             byte[] temp = System.Text.UTF8Encoding.UTF8.GetBytes(message);
-            for (int i = 0; i < Math.Min(temp.Length,length); i++)
+            for (int i = 0; i < Math.Min(temp.Length, length); i++)
             {
-                ret[i] = temp[i];   
+                ret[i] = temp[i];
             }
             for (int i = Math.Min(temp.Length, length); i < length; i++)
             {
@@ -46,7 +51,7 @@ namespace iSocket
         {
             if (bytes == null)
             {
-                return "null";
+                throw new NullReferenceException("Bytes to Message");
             }
             String tempString = System.Text.UTF8Encoding.UTF8.GetString(bytes);
             int tempIndex = tempString.IndexOf('\0', 0);
@@ -66,7 +71,7 @@ namespace iSocket
         {
             if (bytes == null)
             {
-                return "null";
+                throw new NullReferenceException("Byte to String");
             }
             String tempString = System.Text.UTF8Encoding.UTF8.GetString(bytes);
             return tempString;
@@ -97,7 +102,7 @@ namespace iSocket
             socket.Listen(1);
             return (iSocket)(new aSocket(socket.Accept()));
 
-            
+
         }
 
         public void close()
@@ -109,21 +114,21 @@ namespace iSocket
         {
 
             byte[] buffer = new byte[length];
-            for (int i = 0; i < length; i++)
-            {
-                buffer[i] = (byte)'A';
-            }
+
             socket.Blocking = true;
 
             try
             {
                 socket.Receive(buffer, buffer.Length, 0);
+                if(verbose){
+                    Console.WriteLine(BitConverter.ToString(buffer));
+                }
                 return buffer;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return null;
+                throw;
             }
         }
 
@@ -132,12 +137,15 @@ namespace iSocket
             try
             {
                 socket.Send(buffer, buffer.Length, 0);
+                if(verbose){
+                    Console.WriteLine(BitConverter.ToString(buffer));
+                }
                 return;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return;
+                throw;
             }
         }
 

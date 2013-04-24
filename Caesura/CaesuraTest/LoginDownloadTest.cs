@@ -85,22 +85,24 @@ namespace CaesuraTest
             System.Threading.Thread.Sleep(100);
             client.connect();
 
+            var file = "testpic.jpg";
 
-            if (System.IO.File.Exists("C:\\Caesura\\testpic.jpg"))
+
+            if (System.IO.File.Exists("C:\\Caesura\\"+file))
             {
-                System.IO.File.Delete("C:\\Caesura\\testpic.jpg");
+                System.IO.File.Delete("C:\\Caesura\\"+file);
             }
-            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\testpic.jpg"));
+            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\"+file));
 
             Assert.True(client.login("Testuser", "Test"));
-            Assert.True(client.requestFile("testpic.jpg"));
+            Assert.True(client.requestFile(file));
 
             client.disconnect();
             serverThread.Abort();
 
-            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\testpic.jpg"));
+            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\"+file));
             // Assert that the contents are correct
-            Assert.AreEqual(System.IO.File.ReadAllBytes("testpic.jpg"), System.IO.File.ReadAllBytes("C:\\Caesura\\testpic.jpg"));
+            Assert.AreEqual(System.IO.File.ReadAllBytes(file), System.IO.File.ReadAllBytes("C:\\Caesura\\"+file));
 
 
         }

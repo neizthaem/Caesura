@@ -8,3 +8,8 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\obj\Deb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\bin\Debug\iSocket.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\bin\Debug\iSocket.pdb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\iSocket\obj\Debug\iSocket.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\bin\Debug\iSocket.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\bin\Debug\iSocket.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\obj\Debug\iSocket.csprojResolveAssemblyReference.cache
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\obj\Debug\iSocket.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\iSocket\obj\Debug\iSocket.pdb

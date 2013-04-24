@@ -35,8 +35,6 @@ C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\nunit.framework.dll
 C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\iSocket.pdb
 C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\nunit.framework.xml
 C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\Rhino.Mocks.xml
-C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.dll.config
-C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.pdb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\iSocket.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\nunit.framework.dll
@@ -44,5 +42,7 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\iSocke
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\nunit.framework.xml
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Rhino.Mocks.xml
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
-C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.exe.config
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.exe
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.exe

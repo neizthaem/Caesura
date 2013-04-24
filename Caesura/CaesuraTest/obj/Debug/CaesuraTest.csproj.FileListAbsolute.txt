@@ -60,7 +60,6 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\C
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.dll
-C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.pdb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.pdb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.pdb
@@ -69,3 +68,4 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\R
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.csprojResolveAssemblyReference.cache
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.pdb
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.exe
