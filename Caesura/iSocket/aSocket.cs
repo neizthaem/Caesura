@@ -16,7 +16,7 @@ namespace iSocket
         // Must be public for test cases
         public Socket socket;
 
-        public Boolean verbose = true;
+        public Boolean verbose = false;
 
         public aSocket()
         {
