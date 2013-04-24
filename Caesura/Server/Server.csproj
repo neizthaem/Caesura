@@ -64,6 +64,7 @@
     <Compile Include="Search.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Tag.cs" />
+    <Compile Include="TagName.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRegistration.cs" />
     <Compile Include="UserRegTests.cs" />

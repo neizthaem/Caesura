@@ -24,3 +24,14 @@ C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.cspro
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.dll.config
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\obj\Debug\Server.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\obj\Debug\Server.pdb
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\Server.dll.config
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\Server.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\Server.pdb
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\iSocket.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\nunit.framework.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\iSocket.pdb
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\nunit.framework.xml
+C:\Users\Austin\.ssh\Caesura\Caesura\Server\bin\Debug\Rhino.Mocks.xml

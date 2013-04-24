@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using Server;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -79,40 +79,56 @@ namespace CaesuraSearchTest
             result = Search.getFilesWithTags("video");
             expected.Add(ObjectMother.animeFile);
             expected.Add(ObjectMother.videoFile);
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesWithTags("mkv");
             expected = new List<String>();
             expected.Add(ObjectMother.animeFile);
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesWithTags("avi");
             expected = new List<String>();
             expected.Add(ObjectMother.videoFile);
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesWithTags("audio");
             expected = new List<String>();
             expected.Add(ObjectMother.musicFile);
             expected.Add(ObjectMother.soundFile);
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesWithTags("mp3");
             expected = new List<String>();
             expected.Add(ObjectMother.musicFile);
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesWithTags("audio", "mp3");
             expected = new List<String>();
             expected.Add(ObjectMother.musicFile);
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesWithTags("audio", "mp3", "wav");
             expected = new List<String>();
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesWithTags();
             expected = new List<String>();
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
         }
@@ -129,12 +145,16 @@ namespace CaesuraSearchTest
             expected = new List<String>();
             expected.Add(ObjectMother.musicFile);
             expected.Add(ObjectMother.soundFile);
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
             result = Search.getFilesContainingTags("video", "video");
             expected = new List<String>();
             expected.Add(ObjectMother.animeFile);
             expected.Add(ObjectMother.videoFile);
+            expected.Sort();
+            result.Sort();
             Assert.AreEqual(expected, result);
 
         }
@@ -208,4 +228,3 @@ namespace CaesuraSearchTest
 
     }
 }
-*/
