@@ -38,5 +38,45 @@ namespace Server
                          where t == toRegister
                          select t).Count() > 0);
             }
+
+            /**
+             * Add a file to the CMS database
+             * */
+            public static void addFile(CaesFile file)
+            {
+                //TODO: Write test cases and implement
+            }
+
+            public static void addFile(String FilePath, String Name)
+            {
+                //TODO: Write test cases and implement
+            }
+
+            /**
+             * Add a tag to the CMS database
+             * */
+            public static void addTag(String TagName)
+            {
+                //TODO: Write test cases and implement
+            }
+
+            public static void addTag(TagNames tag)
+            {
+                //TODO: Write test cases and implement
+            }
+
+            /**
+             * Add a tags to a file
+             * */
+            public static void addTagForFile(String FilePath, params String[] tags)
+            {
+                //TODO: Write test cases and implement
+            }
+
+            // Insert tags for a file
+            public static void addTagForFile(CaesFile file, params String[] tags)
+            {
+                //TODO: Write test cases and implement
+            }
     }
 }
