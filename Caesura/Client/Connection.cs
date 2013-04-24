@@ -83,7 +83,7 @@ namespace Client
             {
                 File.Create(filename).Close();
             }
-            Console.WriteLine(BitConverter.ToString(bytes));
+            //Console.WriteLine(BitConverter.ToString(bytes));
             using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Append)))
             {
                 writer.BaseStream.Position = (long)writer.BaseStream.Length;
