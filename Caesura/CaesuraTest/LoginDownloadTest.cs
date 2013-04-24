@@ -19,7 +19,7 @@ namespace CaesuraTest
 
         public Client.Client client = null;
         public Server.Server server = null;
-        
+
 
         public Thread serverThread = null;
 
@@ -40,13 +40,13 @@ namespace CaesuraTest
             server.socket.close();
             server = null;
             client = null;
-            
+
         }
 
         [Test()]
         public void testLogin()
         {
-            
+
 
             serverThread.Start();
             System.Threading.Thread.Sleep(5000);
@@ -60,7 +60,7 @@ namespace CaesuraTest
         [Test()]
         public void testLoginTransfer()
         {
-            
+
             serverThread.Start();
             System.Threading.Thread.Sleep(5000);
             client.connect();
@@ -70,6 +70,56 @@ namespace CaesuraTest
 
             client.disconnect();
             serverThread.Abort();
+
+        }
+
+        // Jeff uses this method to prvent files from being overwritten and therefore causing a test to fail.
+        // If the file exists a file transfer will append to it
+        private void removeFile(String pathname)
+        {
+
+            if (System.IO.File.Exists("C:\\Caesura\\" + pathname))
+            {
+                System.IO.File.Delete("C:\\Caesura\\" + pathname);
+            }
+            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\" + pathname));
+        }
+
+        // Since the downloads folder is C:\Caesura\ this method abuses that to check to make sure the transfer occured correctly
+        private void assertFile(String pathname)
+        {
+            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\" + pathname));
+            // Assert that the contents are correct
+            Assert.AreEqual(System.IO.File.ReadAllText(pathname), System.IO.File.ReadAllText("C:\\Caesura\\" + pathname));
+        }
+
+        [Test]
+        public void testLoginOfTwoUsersWithTransfer()
+        {
+            serverThread.Start();
+            System.Threading.Thread.Sleep(100);
+            client.connect();
+
+            Client.Client client2 = new Client.Client();
+            client2.connect();
+
+            Assert.True(client.login("Testuser", "Test"));
+            Assert.True(client2.login("Testuser2", "Test"));
+
+            removeFile("hex");
+            removeFile("testpic.jpg");
+
+            client.requestFile("hex");
+            client2.requestFile("testpic.jpg");
+
+            assertFile("hex");
+            assertFile("testpic.jpg");
+
+            client.disconnect();
+            client2.disconnect();
+
+            serverThread.Abort();
+
 
         }
 
@@ -96,7 +146,7 @@ namespace CaesuraTest
             Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\hex"));
             // Assert that the contents are correct
             Assert.AreEqual(System.IO.File.ReadAllText("hex"), System.IO.File.ReadAllText("C:\\Caesura\\hex"));
-       
+
 
         }
 
@@ -123,7 +173,7 @@ namespace CaesuraTest
             Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\testpic.jpg"));
             // Assert that the contents are correct
             Assert.AreEqual(System.IO.File.ReadAllText("testpic.jpg"), System.IO.File.ReadAllText("C:\\Caesura\\testpic.jpg"));
-       
+
 
         }
 
@@ -162,9 +212,9 @@ namespace CaesuraTest
             client.connect();
 
             client.login("Testuser", "Test");
-            List<String> toReturn = client.getFromTag("picture","text");
+            List<String> toReturn = client.getFromTag("picture", "text");
             List<String> checker = new List<String>();
-            
+
             checker.Add("picture&text.jpg");
             checker.Add("pic&text&video.jpg");
 
@@ -190,7 +240,7 @@ namespace CaesuraTest
             addNew.Username = "WTFBRAH";
 
             Assert.True(UserRegistration.register(addNew));
-            
+
 
             client.disconnect();
             serverThread.Abort();
@@ -215,8 +265,8 @@ namespace CaesuraTest
         public void testGetUser()
         {
             LINQDatabase database = new LINQDatabase();
-            
-            
+
+
             Assert.AreEqual(database.getUser("Testuser").Username, "Testuser                 ");
 
         }
