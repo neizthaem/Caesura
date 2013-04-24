@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginDownloadTest.cs" />
+    <Compile Include="ObjectMother.cs" />
+    <Compile Include="SearchTest.cs" />
     <Compile Include="TestASocket.cs" />
     <Compile Include="TestClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
