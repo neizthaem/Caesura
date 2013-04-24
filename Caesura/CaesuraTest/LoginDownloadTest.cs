@@ -57,6 +57,54 @@ namespace CaesuraTest
 
         }
 
+        // Jeff uses this method to prvent files from being overwritten and therefore causing a test to fail.
+        // If the file exists a file transfer will append to it
+        private void removeFile(String pathname)
+        {
+
+            if (System.IO.File.Exists("C:\\Caesura\\" + pathname))
+            {
+                System.IO.File.Delete("C:\\Caesura\\" + pathname);
+            }
+            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\" + pathname));
+        }
+
+        // Since the downloads folder is C:\Caesura\ this method abuses that to check to make sure the transfer occured correctly
+        private void assertFile(String pathname)
+        {
+            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\" + pathname));
+            // Assert that the contents are correct
+            Assert.AreEqual(System.IO.File.ReadAllText(pathname), System.IO.File.ReadAllText("C:\\Caesura\\" + pathname));
+        }
+
+        [Test()]
+        public void testLoginTransferHex()
+        {
+
+            serverThread.Start();
+            System.Threading.Thread.Sleep(100);
+            client.connect();
+
+
+            if (System.IO.File.Exists("C:\\Caesura\\testpic.jpg"))
+            {
+                System.IO.File.Delete("C:\\Caesura\\testpic.jpg");
+            }
+            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\testpic.jpg"));
+
+            Assert.True(client.login("Testuser", "Test"));
+            Assert.True(client.requestFile("testpic.jpg"));
+
+            client.disconnect();
+            serverThread.Abort();
+
+            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\testpic.jpg"));
+            // Assert that the contents are correct
+            Assert.AreEqual(System.IO.File.ReadAllBytes("testpic.jpg"), System.IO.File.ReadAllBytes("C:\\Caesura\\testpic.jpg"));
+
+
+        }
+
         [Test()]
         public void testLoginTransfer()
         {
