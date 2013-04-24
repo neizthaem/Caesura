@@ -18,7 +18,7 @@ namespace Server
         public static String MinorNumber = "0\0";
 
         public static int defaultPort = 6074;
-        public static string host = "localhost";
+        public static string host = "caesura.csse.rose-hulman.edu";
 
         public static int maxBytes = 512;
 
