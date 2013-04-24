@@ -57,6 +57,12 @@ namespace Server
             running = false;
         }
 
+        public static void Main()
+        {
+            Server newServer = new Server();
+            newServer.run();
+        }
+
  
     }
 }
