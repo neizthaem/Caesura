@@ -125,7 +125,7 @@ namespace iSocket
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return null;
+                throw;
             }
         }
 
@@ -139,7 +139,7 @@ namespace iSocket
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return;
+                throw;
             }
         }
 

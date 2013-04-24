@@ -123,6 +123,33 @@ namespace CaesuraTest
 
         }
 
+        // Purpose of this test is to start a server
+        // Wait 20 seconds
+        // Confirm it didn't break with a file transfer
+        [Test]
+        public void testServerTimeout()
+        {
+            serverThread.Start();
+            System.Threading.Thread.Sleep(20000);
+            client.connect();
+
+            if (System.IO.File.Exists("C:\\Caesura\\hex"))
+            {
+                System.IO.File.Delete("C:\\Caesura\\hex");
+            }
+            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\hex.txt"));
+
+            Assert.True(client.login("Testuser", "Test"));
+            Assert.True(client.requestFile("hex"));
+
+            client.disconnect();
+            serverThread.Abort();
+
+            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\hex"));
+            // Assert that the contents are correct
+            Assert.AreEqual(System.IO.File.ReadAllText("hex"), System.IO.File.ReadAllText("C:\\Caesura\\hex"));
+        }
+
         [Test()]
         public void testLoginTransferHex()
         {
