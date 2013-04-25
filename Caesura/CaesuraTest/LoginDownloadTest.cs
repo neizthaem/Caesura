@@ -27,17 +27,17 @@ namespace CaesuraTest
         public void TestClientServerIntegrationSetUp()
         {
             client = new Client.Client();
-            server = new Server.Server();
+            //server = new Server.Server();
 
-            serverThread = new Thread(new ThreadStart(server.run));
+            //serverThread = new Thread(new ThreadStart(server.run));
         }
 
         [TearDown]
         public void TestClientServerIntegrationTearDown()
         {
-            serverThread.Abort();
-            serverThread = null;
-            server.socket.close();
+            //serverThread.Abort();
+            //serverThread = null;
+            //server.socket.close();
             server = null;
             client = null;
             
@@ -81,8 +81,8 @@ namespace CaesuraTest
         public void testLoginTransferHex()
         {
 
-            serverThread.Start();
-            System.Threading.Thread.Sleep(100);
+            //serverThread.Start();
+            //System.Threading.Thread.Sleep(100);
             client.connect();
 
             var file = "testpic.jpg";
@@ -98,7 +98,7 @@ namespace CaesuraTest
             Assert.True(client.requestFile(file));
 
             client.disconnect();
-            serverThread.Abort();
+            //serverThread.Abort();
 
             Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\"+file));
             // Assert that the contents are correct
@@ -122,7 +122,7 @@ namespace CaesuraTest
             serverThread.Abort();
 
         }
-
+        /*
         [Test()]
         public void testSearching()
         {
@@ -172,7 +172,7 @@ namespace CaesuraTest
 
             Assert.AreEqual(toReturn, checker);
 
-        }
+        }*/
 
         [Test()]
         public void testRegister()

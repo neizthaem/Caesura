@@ -29,10 +29,8 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\obj
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\CaesuraTest.pdb
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.dll
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.pdb
@@ -69,3 +67,6 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\C
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.pdb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.exe
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.exe
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.exe
+C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\ja\Client.resources.dll

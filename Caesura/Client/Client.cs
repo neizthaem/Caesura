@@ -47,11 +47,20 @@ namespace Client
             connection.disconnect();
         }
 
-        public List<string> getFromTag(params string[] tag)
+        public List<string> getFromTag(List<string> tag)
         {
             //if (loggedIn)
-            Search.database = UserRegistration.database;
-            return Search.getFilesWithTags(tag);
+
+            string[] searcher = new string[tag.Count];
+
+            for (int x = 0; x < tag.Count; x++)
+            {
+                searcher[x] = tag.ElementAt(x);
+            }
+
+
+            Search.database = new LINQDatabase();
+            return Search.getFilesWithTags(searcher);
             
         }
     }
