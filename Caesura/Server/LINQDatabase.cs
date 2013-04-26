@@ -15,6 +15,7 @@ namespace Server
         public Table<CaesFile> Files;
         public Table<Tag> Tags;
         public Table<Mail> PendingMail;
+        public Table<TagNames> TagNames;
 
         private const String LoginString = "Data Source=whale.cs.rose-hulman.edu;Initial Catalog=Caesura;User ID=stewarzt;Password=Chronotrigger20o";
 
@@ -37,6 +38,11 @@ namespace Server
                 return ((from t in this.Users
                          where t == toRegister
                          select t).Count() > 0);
+            }
+
+            public List<String> getListOfAllTags()
+            {
+                return this.TagNames.Select(p => p.TagName).ToList<String>();
             }
 
             /**

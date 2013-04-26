@@ -64,3 +64,4 @@ C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strin
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\ja\Client.resources.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strings.ja.resources
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\ja\Client.resources.dll
+C:\Users\Austin\.ssh\Caesura\Caesura\Client\bin\Debug\Client.exe.config
