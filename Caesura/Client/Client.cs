@@ -16,6 +16,7 @@ namespace Client
 
         public Client()
         {
+            Search.database = new LINQDatabase();
             connection = new Connection(this);
         }
 
@@ -59,7 +60,7 @@ namespace Client
             }
 
 
-            Search.database = new LINQDatabase();
+            
             return Search.getFilesWithTags(searcher);
             
         }

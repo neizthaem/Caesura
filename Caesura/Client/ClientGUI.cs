@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Server;
 
 namespace Client
 {
@@ -23,8 +24,14 @@ namespace Client
 
             //Add in all tags
             var items = checkedListBox1.Items;
-            items.Add("picture");
-            items.Add("text");
+            List<String> temp = Search.database.getListOfAllTags();
+
+            foreach (String x in temp)
+            {
+                items.Add(x);
+            }
+
+
             client.connect();
             client.login("Testuser", "Test");
 
