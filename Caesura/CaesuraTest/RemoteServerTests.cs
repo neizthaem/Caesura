@@ -28,18 +28,24 @@ namespace CaesuraTest
             Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\" + files.First()));
         }
 
-
+        // To be exact it throws a FileNotFoundException
         [Test()]
         [ExpectedException]
         public void testGetBadFileFromRemote()
         {
             Client.Client client = new Client.Client();
-            
+
             client.connect();
             client.login("Testuser", "Test");
-            client.requestFile("failFile.txt");
-            client.disconnect();
-         }
+            try
+            {
+                client.requestFile("failFile.txt");
+            }
+            finally
+            {
+                client.disconnect();
+            }
+        }
 
 
         [Test()]
@@ -54,10 +60,10 @@ namespace CaesuraTest
 
             Assert.IsTrue((files.Count < 1));
 
-            
+
             client.disconnect();
         }
-        
+
 
 
 

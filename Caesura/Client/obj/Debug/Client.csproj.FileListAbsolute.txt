@@ -39,7 +39,6 @@ C:\Users\Austin\.ssh\Caesura\Caesura\Client\bin\Debug\nunit.framework.xml
 C:\Users\Austin\.ssh\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\Austin\.ssh\Caesura\Caesura\Client\obj\Debug\Client.dll
 C:\Users\Austin\.ssh\Caesura\Caesura\Client\obj\Debug\Client.pdb
-C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.pdb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\iSocket.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.dll
@@ -49,7 +48,6 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Server
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.xml
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\nunit.framework.xml
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
-C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.pdb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Server.exe
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Server.exe
@@ -65,3 +63,14 @@ C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\ja\Client.re
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strings.ja.resources
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\ja\Client.resources.dll
 C:\Users\Austin\.ssh\Caesura\Caesura\Client\bin\Debug\Client.exe.config
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.exe.config
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.exe
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\ja\Client.resources.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\EntityFramework.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\EntityFramework.xml
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.ClientGUI.resources
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strings.resources
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strings.ja.resources
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\ja\Client.resources.dll
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.exe
