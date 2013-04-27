@@ -37,12 +37,12 @@ namespace Client
         {
             sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename, Server.Server.maxBytes));
 
-            
+
 
             // need to code 512 as static (max bytes that can be transfered at once
             String name = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
 
-            if ((name.Length > 9) && ("Exception".Equals(name.Substring(0,9))))
+            if ((name.Length > 9) && ("Exception".Equals(name.Substring(0, 9))))
             {
                 throw new FileNotFoundException(filename + " was not found");
             }
@@ -52,35 +52,20 @@ namespace Client
                 return false;
             }
 
-            Int32 numTransfers = Convert.ToInt32(iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes)));
-            while (numTransfers > 0)
+            // Size of the file
+            Int32 fileSize = iSocket.aSocket.byteToInt(sock.receive(4));
+
+            while (fileSize > iSocket.aSocket.MAXPACKETSIZE)
             {
-                Int32 length = iSocket.aSocket.MAXPACKETSIZE;
-                String temp = iSocket.aSocket.MAXPACKETSIZE.ToString();
+                byte[] bytes = sock.receive(iSocket.aSocket.MAXPACKETSIZE);
+                writeFile("C:\\Caesura\\" + name, bytes);
+                fileSize = fileSize - iSocket.aSocket.MAXPACKETSIZE;
 
-                // Last transfer might not be the max size
-                if (numTransfers == 1)
-                {
-                    try
-                    {
-                        temp = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
-                        length = Convert.ToInt32(temp);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("RequestFile :" + e.Message + temp);
-                        throw;
-                    }
-                }
-                
-               
-                Byte[] bytes = sock.receive(length);
-                if (bytes != null)
-                {
-                    writeFile("C:\\Caesura\\"+ name, bytes);
-                    numTransfers--;
-                }
-
+            }
+            if (fileSize > 0)
+            {
+                byte[] bytes = sock.receive(fileSize);
+                writeFile("C:\\Caesura\\" + name, bytes);
             }
 
             return true;

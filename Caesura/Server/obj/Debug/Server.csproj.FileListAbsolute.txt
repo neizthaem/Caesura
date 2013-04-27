@@ -46,3 +46,14 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.exe.config
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.exe
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.exe
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.exe.config
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.exe
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Server.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\iSocket.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\nunit.framework.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\iSocket.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\nunit.framework.xml
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\bin\Debug\Rhino.Mocks.xml
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.exe
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Server\obj\Debug\Server.pdb

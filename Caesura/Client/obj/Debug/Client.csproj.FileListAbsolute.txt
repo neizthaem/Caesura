@@ -74,3 +74,25 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.csproj.GenerateResource.Cache
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\ja\Client.resources.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.exe
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.exe.config
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.exe
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\ja\Client.resources.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\EntityFramework.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\iSocket.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Server.exe
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\nunit.framework.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\iSocket.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Server.pdb
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\EntityFramework.xml
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.xml
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\nunit.framework.xml
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.ClientGUI.resources
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strings.resources
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strings.ja.resources
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\ja\Client.resources.dll
+C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.exe

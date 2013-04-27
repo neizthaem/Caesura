@@ -111,6 +111,11 @@ namespace CaesuraTest
                 var target = iSocket.aSocket.intToByte(i);
                 
                 Assert.AreEqual(iSocket.aSocket.byteToInt(target), i);
+
+                if (i % 1000 == 0)
+                {
+                    Console.WriteLine(i);
+                }
             }
         }
 
