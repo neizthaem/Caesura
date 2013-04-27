@@ -42,7 +42,7 @@ namespace Client
             // need to code 512 as static (max bytes that can be transfered at once
             String name = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
 
-            if ((name.Length > 9) && ("Exception".Equals(name.Substring(9,name.Length))))
+            if ((name.Length > 9) && ("Exception".Equals(name.Substring(0,9))))
             {
                 throw new FileNotFoundException(filename + " was not found");
             }
@@ -53,23 +53,27 @@ namespace Client
             }
 
             Int32 numTransfers = Convert.ToInt32(iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes)));
-            int counter = 100;
-            while (numTransfers > 0 && counter > 0)
+            while (numTransfers > 0)
             {
-                Int32 length = 0;
-                String temp = "0";
-                try
+                Int32 length = iSocket.aSocket.MAXPACKETSIZE;
+                String temp = iSocket.aSocket.MAXPACKETSIZE.ToString();
+
+                // Last transfer might not be the max size
+                if (numTransfers == 1)
                 {
-                    temp = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
-                    length = Convert.ToInt32(temp);
-                    counter = 100;
+                    try
+                    {
+                        temp = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
+                        length = Convert.ToInt32(temp);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("RequestFile :" + e.Message + temp);
+                        throw;
+                    }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine("RequestFile 000 :" + e.Message + temp);
-                    length = 0;
-                    counter--;
-                }
+                
+               
                 Byte[] bytes = sock.receive(length);
                 if (bytes != null)
                 {

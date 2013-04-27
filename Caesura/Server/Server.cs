@@ -20,7 +20,7 @@ namespace Server
         public static int defaultPort = 5502;
         public static string host = "caesura.csse.rose-hulman.edu";
 
-        public static int maxBytes = 512;
+        public static int maxBytes = iSocket.aSocket.MAXPACKETSIZE;
 
         // fields need to be public so test cases can get at them
         public Dictionary<String, iConnection> connections = new Dictionary<string, iConnection>();

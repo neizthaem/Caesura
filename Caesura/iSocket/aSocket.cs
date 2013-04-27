@@ -13,6 +13,8 @@ namespace iSocket
 
     public class aSocket : iSocket
     {
+        public static int MAXPACKETSIZE = 8192;
+
         // Must be public for test cases
         public Socket socket;
 
@@ -22,8 +24,10 @@ namespace iSocket
         {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             // Need to move max size to Sockets instead of Server
-            socket.ReceiveBufferSize = 512;
-            socket.SendBufferSize = 512;
+            socket.ReceiveBufferSize = MAXPACKETSIZE;
+            socket.SendBufferSize = MAXPACKETSIZE;
+
+            socket.NoDelay = true;
         }
 
         public aSocket(Socket sock)

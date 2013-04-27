@@ -92,19 +92,18 @@ namespace Server
 
         public void sendFile(string filename)
         {
-            int maxBytes = 512;
             int length = fileSize(filename);
             int transferLength;
             int sentLength = 0;
             // Send file name - don't send the extension for test purposes
             sock.send(iSocket.aSocket.stringToBytes(filename, Server.maxBytes));
             // Number of transfers
-            int transfers = (int)Math.Ceiling((double)((double)length / (double)maxBytes));
+            int transfers = (int)Math.Ceiling((double)((double)length / (double)Server.maxBytes));
             sock.send(iSocket.aSocket.stringToBytes(transfers.ToString(), Server.maxBytes));
             while (length > 0)
             {
                 // Length of a transfer
-                transferLength = Math.Min(maxBytes, length);
+                transferLength = Math.Min(Server.maxBytes, length);
                 sock.send(iSocket.aSocket.stringToBytes(transferLength.ToString(), Server.maxBytes));
                 // transfers
                 sock.send(readFile(filename, sentLength, transferLength));
