@@ -99,6 +99,21 @@ namespace CaesuraTest
 
         }
 
+        // Takes a year to run
+        [Test]
+        [Ignore]
+        public void TestASocketIntToBytesBytesToInt()
+        {
+            byte[] bytes = new Byte[4];
+
+            for (Int32 i = Int32.MinValue; i <= Int32.MaxValue; i++)
+            {
+                var target = iSocket.aSocket.intToByte(i);
+                
+                Assert.AreEqual(iSocket.aSocket.byteToInt(target), i);
+            }
+        }
+
         [Test]
         public void TestASocketBytesToStringManual()
         {

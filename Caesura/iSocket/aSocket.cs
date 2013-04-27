@@ -35,6 +35,22 @@ namespace iSocket
             socket = sock;
         }
 
+        public static Int32 byteToInt(byte[] byteValue)
+        {
+            if (BitConverter.IsLittleEndian)
+                Array.Reverse(byteValue);
+            return BitConverter.ToInt32(byteValue,0);
+        }
+
+        public static byte[] intToByte(Int32 intValue)
+        {
+            byte[] intBytes = BitConverter.GetBytes(intValue);
+            if (BitConverter.IsLittleEndian)
+                Array.Reverse(intBytes);
+            byte[] result = intBytes;
+
+            return result;
+        }
 
         public static byte[] stringToBytes(String message, int length)
         {

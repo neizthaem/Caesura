@@ -77,6 +77,8 @@ namespace CaesuraTest
             Assert.AreEqual(System.IO.File.ReadAllText(pathname), System.IO.File.ReadAllText("C:\\Caesura\\" + pathname));
         }
 
+
+
         [Test()]
         public void testLoginTransferHex()
         {
