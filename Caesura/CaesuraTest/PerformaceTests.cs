@@ -39,9 +39,9 @@ namespace CaesuraTest
         }
 
 
-#region DL performance
+        #region DL performance
 
-        #region 2013-04-27
+            #region 2013-04-27
 
         // Nodelay = true
         // Maxpacketsize = 8192
@@ -64,11 +64,24 @@ namespace CaesuraTest
         // Max time was 9980Milliseconds
         // Min time was 9299Milliseconds
 
+        // Verbose = false
+
+        // File size was713088
+        // Average time was 14222Milliseconds
+        // Max time was 14261Milliseconds
+        // Min time was 14215Milliseconds
+
+        // Lowered Server sleep to 1
+        // File size was713088
+        // Average time was 1470Milliseconds
+        // Max time was 1774Milliseconds
+        // Min time was 1417Milliseconds
+
         
 
-        #endregion
+            #endregion
 
-#endregion
+        #endregion
         [Test]
         public void testLoginTransferHex()
         {
