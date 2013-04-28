@@ -86,6 +86,7 @@ namespace CaesuraTest
             //serverThread.Start();
             //System.Threading.Thread.Sleep(100);
             client.connect();
+            System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
 
             var file = "testpic.jpg";
 
@@ -97,14 +98,18 @@ namespace CaesuraTest
             Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\"+file));
 
             Assert.True(client.login("Testuser", "Test"));
-            Assert.True(client.requestFile(file));
 
+            timer.Start();
+            Assert.True(client.requestFile(file));
+            timer.Stop(); 
             client.disconnect();
             //serverThread.Abort();
 
             Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\"+file));
             // Assert that the contents are correct
             Assert.AreEqual(System.IO.File.ReadAllBytes(file), System.IO.File.ReadAllBytes("C:\\Caesura\\"+file));
+
+            Console.WriteLine(String.Format("Test took {0} Seconds and transfered {1} Bytes / Millisecond",timer.ElapsedMilliseconds/1000,(new System.IO.FileInfo("C:\\Caesura\\"+file)).Length/timer.ElapsedMilliseconds));
 
 
         }

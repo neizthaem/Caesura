@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="LoginDownloadTest.cs" />
     <Compile Include="ObjectMother.cs" />
+    <Compile Include="PerformaceTests.cs" />
     <Compile Include="RemoteServerTests.cs" />
     <Compile Include="SearchTest.cs" />
     <Compile Include="TestASocket.cs" />
