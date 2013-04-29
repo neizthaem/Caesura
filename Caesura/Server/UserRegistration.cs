@@ -18,9 +18,6 @@ namespace Server
         public static void setDatabase(LINQDatabase toSet)
         {
 
-
-
-
             database = toSet;
         }
 

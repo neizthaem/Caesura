@@ -19,7 +19,7 @@ namespace CaesuraTest
 
         public Client.Client client = null;
         public Server.Server server = null;
-        
+
 
         public Thread serverThread = null;
 
@@ -40,13 +40,13 @@ namespace CaesuraTest
             //server.socket.close();
             server = null;
             client = null;
-            
+
         }
 
         [Test()]
         public void testLogin()
         {
-            
+
 
             serverThread.Start();
             System.Threading.Thread.Sleep(5000);
@@ -77,6 +77,32 @@ namespace CaesuraTest
             Assert.AreEqual(System.IO.File.ReadAllText(pathname), System.IO.File.ReadAllText("C:\\Caesura\\" + pathname));
         }
 
+        [Test]
+        public void testLoginTransferTwoTimes()
+        {
+            client.connect();
+
+            var file = "testpic.jpg";
+            client.login("Testuser", "Test");
+            try
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    removeFile(file);
+
+                    Assert.True(client.requestFile(file));
+
+                    assertFile(file);
+                }
+            }
+            finally
+            {
+                client.disconnect();
+            }
+
+
+        }
+
 
 
         [Test()]
@@ -91,25 +117,25 @@ namespace CaesuraTest
             var file = "testpic.jpg";
 
 
-            if (System.IO.File.Exists("C:\\Caesura\\"+file))
+            if (System.IO.File.Exists("C:\\Caesura\\" + file))
             {
-                System.IO.File.Delete("C:\\Caesura\\"+file);
+                System.IO.File.Delete("C:\\Caesura\\" + file);
             }
-            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\"+file));
+            Assert.IsFalse(System.IO.File.Exists("C:\\Caesura\\" + file));
 
             Assert.True(client.login("Testuser", "Test"));
 
             timer.Start();
             Assert.True(client.requestFile(file));
-            timer.Stop(); 
+            timer.Stop();
             client.disconnect();
             //serverThread.Abort();
 
-            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\"+file));
+            Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\" + file));
             // Assert that the contents are correct
-            Assert.AreEqual(System.IO.File.ReadAllBytes(file), System.IO.File.ReadAllBytes("C:\\Caesura\\"+file));
+            Assert.AreEqual(System.IO.File.ReadAllBytes(file), System.IO.File.ReadAllBytes("C:\\Caesura\\" + file));
 
-            Console.WriteLine(String.Format("Test took {0} Seconds and transfered {1} Bytes / Millisecond",timer.ElapsedMilliseconds/1000,(new System.IO.FileInfo("C:\\Caesura\\"+file)).Length/timer.ElapsedMilliseconds));
+            Console.WriteLine(String.Format("Test took {0} Seconds and transfered {1} Bytes / Millisecond", timer.ElapsedMilliseconds / 1000, (new System.IO.FileInfo("C:\\Caesura\\" + file)).Length / timer.ElapsedMilliseconds));
 
 
         }
@@ -117,7 +143,7 @@ namespace CaesuraTest
         [Test()]
         public void testLoginTransfer()
         {
-            
+
             serverThread.Start();
             System.Threading.Thread.Sleep(5000);
             client.connect();
@@ -193,7 +219,7 @@ namespace CaesuraTest
             addNew.Username = "WTFBRAH";
 
             Assert.True(UserRegistration.register(addNew));
-            
+
 
             client.disconnect();
             serverThread.Abort();
@@ -218,8 +244,8 @@ namespace CaesuraTest
         public void testGetUser()
         {
             LINQDatabase database = new LINQDatabase();
-            
-            
+
+
             Assert.AreEqual(database.getUser("Testuser").Username, "Testuser                 ");
 
         }

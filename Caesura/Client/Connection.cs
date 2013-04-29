@@ -37,9 +37,6 @@ namespace Client
         {
             sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename, Server.Server.maxBytes));
 
-
-
-            // need to code 512 as static (max bytes that can be transfered at once
             String name = iSocket.aSocket.bytesToMessage(sock.receive(Server.Server.maxBytes));
 
             if ((name.Length > 9) && ("Exception".Equals(name.Substring(0, 9))))
@@ -49,7 +46,7 @@ namespace Client
 
             if (name.Equals("Access Denied"))
             {
-                return false;
+                throw new InvalidFilePermissions(filename);
             }
 
             // Size of the file
