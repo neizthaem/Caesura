@@ -18,3 +18,8 @@ C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\iSocket\bin\Debug\iSock
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\iSocket\obj\Debug\iSocket.csprojResolveAssemblyReference.cache
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\iSocket\obj\Debug\iSocket.dll
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\iSocket\obj\Debug\iSocket.pdb
+C:\Users\Austin\git\Caesura\Caesura\iSocket\bin\Debug\iSocket.dll
+C:\Users\Austin\git\Caesura\Caesura\iSocket\bin\Debug\iSocket.pdb
+C:\Users\Austin\git\Caesura\Caesura\iSocket\obj\Debug\iSocket.csprojResolveAssemblyReference.cache
+C:\Users\Austin\git\Caesura\Caesura\iSocket\obj\Debug\iSocket.dll
+C:\Users\Austin\git\Caesura\Caesura\iSocket\obj\Debug\iSocket.pdb

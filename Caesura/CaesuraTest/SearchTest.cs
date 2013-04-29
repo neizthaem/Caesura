@@ -8,7 +8,7 @@ using System.Linq;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 
-namespace CaesuraSearchTest
+namespace CaesuraTest
 {
     public class SearchTest
     {

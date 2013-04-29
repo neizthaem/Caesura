@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LINQDatabaseTests.cs" />
     <Compile Include="LoginDownloadTest.cs" />
     <Compile Include="ObjectMother.cs" />
     <Compile Include="PerformaceTests.cs" />

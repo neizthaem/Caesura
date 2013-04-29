@@ -8,7 +8,7 @@ using Server;
 using System.Threading.Tasks;
 using Rhino.Mocks;
 
-namespace CaesuraSearchTest
+namespace CaesuraTest
 {
     public class ObjectMother
     {
@@ -29,7 +29,7 @@ namespace CaesuraSearchTest
 
         public static LINQDatabase EmptyDatabase()
         {
-            LINQDatabase db = new LINQDatabase();
+            LINQDatabase db = new LINQDatabase(true);
             ClearDatabase(db);
             return db;
         }
@@ -66,10 +66,10 @@ namespace CaesuraSearchTest
             db.SubmitChanges();
 
             // TagName Table
-            var tnrows = from row in db.Files
+            var tnrows = from row in db.TagNames
                         select row;
             foreach (var row in tnrows)
-                db.Files.DeleteOnSubmit(row);
+                db.TagNames.DeleteOnSubmit(row);
             db.SubmitChanges();
 
         }
@@ -98,7 +98,7 @@ namespace CaesuraSearchTest
 
         public static LINQDatabase PopulatedDatabase()
         {
-            LINQDatabase db = new LINQDatabase();
+            LINQDatabase db = new LINQDatabase(true);
             ClearDatabase(db);
 
             CaesFile music = new CaesFile();
@@ -116,6 +116,37 @@ namespace CaesuraSearchTest
             CaesFile video = new CaesFile();
             video.Path = videoFile;
             db.Files.InsertOnSubmit(video);
+
+            db.SubmitChanges();
+
+            TagNames tn1 = new TagNames();
+            tn1.TagName = "audio";
+
+            TagNames tn2 = new TagNames();
+            tn2.TagName = "mp3";
+
+            TagNames tn3 = new TagNames();
+            tn3.TagName = "wav";
+
+            TagNames tn4 = new TagNames();
+            tn4.TagName = "anime";
+
+            TagNames tn5 = new TagNames();
+            tn5.TagName = "video";
+
+            TagNames tn6 = new TagNames();
+            tn6.TagName = "mkv";
+
+            TagNames tn7 = new TagNames();
+            tn7.TagName = "avi";
+
+            db.TagNames.InsertOnSubmit(tn1);
+            db.TagNames.InsertOnSubmit(tn2);
+            db.TagNames.InsertOnSubmit(tn3);
+            db.TagNames.InsertOnSubmit(tn4);
+            db.TagNames.InsertOnSubmit(tn5);
+            db.TagNames.InsertOnSubmit(tn6);
+            db.TagNames.InsertOnSubmit(tn7);
 
             db.SubmitChanges();
 

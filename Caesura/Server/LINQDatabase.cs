@@ -18,10 +18,13 @@ namespace Server
         public Table<TagNames> TagNames;
 
         private const String LoginString = "Data Source=whale.cs.rose-hulman.edu;Initial Catalog=Caesura;User ID=stewarzt;Password=Chronotrigger20o";
+        private const String LoginStringTest = "Data Source=whale.cs.rose-hulman.edu;Initial Catalog=CaesuraTest;User ID=stewarzt;Password=Chronotrigger20o";
 
-            public LINQDatabase(): base(LoginString)
-            {
-            }
+            // This should be used for connections to the real database
+            public LINQDatabase(): base(LoginString) { }
+
+            // This is a dummy constructor to access the testing database
+            public LINQDatabase(Boolean testDatabase) : base(LoginStringTest) { }
 
             public User getUser(string username)
             {
@@ -48,41 +51,57 @@ namespace Server
             /**
              * Add a file to the CMS database
              * */
-            public static void addFile(CaesFile file)
+            public void addFile(CaesFile file)
             {
-                //TODO: Write test cases and implement
+                this.Files.InsertOnSubmit(file);
+                this.SubmitChanges();
             }
 
-            public static void addFile(String FilePath, String Name)
+            public void addFile(String FilePath, String Name)
             {
-                //TODO: Write test cases and implement
+                CaesFile file = new CaesFile();
+                file.Path = FilePath;
+                file.Name = Name;
+                addFile(file);
             }
 
             /**
              * Add a tag to the CMS database
              * */
-            public static void addTag(String TagName)
+            public void addTag(String TagName)
             {
-                //TODO: Write test cases and implement
+                TagNames tag = new TagNames();
+                tag.TagName = TagName;
+                addTag(tag);
             }
 
-            public static void addTag(TagNames tag)
+            public void addTag(TagNames tag)
             {
-                //TODO: Write test cases and implement
+                this.TagNames.InsertOnSubmit(tag);
+                this.SubmitChanges();
             }
 
             /**
              * Add a tags to a file
+             * NOTE: the file and TagName must already exist in the database
              * */
-            public static void addTagForFile(String FilePath, params String[] tags)
+            public void addTagForFile(String FilePath, params String[] tags)
             {
-                //TODO: Write test cases and implement
+                foreach (String tag in tags)
+                {
+                    Tag t = new Tag();
+                    t.FilePath = FilePath;
+                    t.TagName = tag;
+                    this.Tags.InsertOnSubmit(t);
+                }
+
+                this.SubmitChanges();
             }
 
-            // Insert tags for a file
-            public static void addTagForFile(CaesFile file, params String[] tags)
+            public void addTagForFile(CaesFile file, params String[] tags)
             {
-                //TODO: Write test cases and implement
+                addTagForFile(file.Path, tags);
             }
+
     }
 }
