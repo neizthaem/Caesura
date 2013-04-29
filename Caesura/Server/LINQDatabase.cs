@@ -26,21 +26,75 @@ namespace Server
             // This is a dummy constructor to access the testing database
             public LINQDatabase(Boolean testDatabase) : base(LoginStringTest) { }
 
+
+            /*
+             * USER METHODS
+             */
             public User getUser(string username)
             {
                 return (from t in this.Users
-                                   where t.Username == username
+                        where t.Username == username
                         select t).First();
-
             }
 
             public bool registerUser(User toRegister)
             {
                 this.Users.InsertOnSubmit(toRegister);
                 this.SubmitChanges();
+                return UserExists(toRegister);
+            }
+
+            public bool UserExists(User user)
+            {
                 return ((from t in this.Users
-                         where t == toRegister
+                         where t == user
                          select t).Count() > 0);
+            }
+
+            /*
+             * FILE METHODS
+             */
+
+            public bool FileExists(String path)
+            {
+                return ((from t in this.Files
+                         where t.Path == path
+                         select t).Count() > 0);
+            }
+
+            public bool FileExists(CaesFile file)
+            {
+                return FileExists(file.Path);
+            }
+
+            public void AddFile(CaesFile file)
+            {
+                this.Files.InsertOnSubmit(file);
+                this.SubmitChanges();
+            }
+
+            public void AddFile(String FilePath, String Name)
+            {
+                CaesFile file = new CaesFile();
+                file.Path = FilePath;
+                file.Name = Name;
+                AddFile(file);
+            }
+
+            /*
+             * TAG METHODS
+             */
+            public void AddTag(String TagName)
+            {
+                TagNames tag = new TagNames();
+                tag.TagName = TagName;
+                AddTag(tag);
+            }
+
+            public void AddTag(TagNames tag)
+            {
+                this.TagNames.InsertOnSubmit(tag);
+                this.SubmitChanges();
             }
 
             public List<String> getListOfAllTags()
@@ -48,44 +102,10 @@ namespace Server
                 return this.TagNames.Select(p => p.TagName).ToList<String>();
             }
 
-            /**
-             * Add a file to the CMS database
-             * */
-            public void addFile(CaesFile file)
-            {
-                this.Files.InsertOnSubmit(file);
-                this.SubmitChanges();
-            }
-
-            public void addFile(String FilePath, String Name)
-            {
-                CaesFile file = new CaesFile();
-                file.Path = FilePath;
-                file.Name = Name;
-                addFile(file);
-            }
-
-            /**
-             * Add a tag to the CMS database
-             * */
-            public void addTag(String TagName)
-            {
-                TagNames tag = new TagNames();
-                tag.TagName = TagName;
-                addTag(tag);
-            }
-
-            public void addTag(TagNames tag)
-            {
-                this.TagNames.InsertOnSubmit(tag);
-                this.SubmitChanges();
-            }
-
-            /**
-             * Add a tags to a file
-             * NOTE: the file and TagName must already exist in the database
-             * */
-            public void addTagForFile(String FilePath, params String[] tags)
+            /*
+             * FILE TAGGING METHODS
+             */
+            public void AddTagForFile(String FilePath, params String[] tags)
             {
                 foreach (String tag in tags)
                 {
@@ -98,9 +118,43 @@ namespace Server
                 this.SubmitChanges();
             }
 
-            public void addTagForFile(CaesFile file, params String[] tags)
+            public void AddTagForFile(CaesFile file, params String[] tags)
             {
-                addTagForFile(file.Path, tags);
+                AddTagForFile(file.Path, tags);
+            }
+
+
+            /*
+            * MAIL SENDING/RECEIVING METHODS
+            */
+            public void sendMail(User to, User from, String message)
+            {
+                if (!UserExists(to))
+                    throw new Exception("Invalid Recipient: " + to.Username);
+                if (!UserExists(from))
+                    throw new Exception("Invalid Sender: " + from.Username);
+
+                var mail = new Mail();
+                mail.To = to.Username;
+                mail.From = from.Username;
+                mail.Message = message;
+
+                this.PendingMail.InsertOnSubmit(mail);
+                this.SubmitChanges();
+            }
+
+            public List<Mail> checkMail(String recipient)
+            {
+                var messages = (from m in this.PendingMail
+                                where m.To == recipient
+                                select m);
+
+                return messages.ToList<Mail>();
+            }
+
+            public List<Mail> checkMail(User recipient)
+            {
+                return checkMail(recipient.Username);
             }
 
     }

@@ -12,7 +12,7 @@ namespace Server
     [Table(Name = "PendingMail")]
     public class Mail
     {
-        [Column(IsPrimaryKey = true)]
+        [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int ID;
         [Column]
         public string To;
@@ -20,5 +20,8 @@ namespace Server
         public string From;
         [Column]
         public string Message;
+
     }
+
+
 }
