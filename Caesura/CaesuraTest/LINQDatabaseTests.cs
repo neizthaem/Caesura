@@ -14,6 +14,19 @@ namespace CaesuraTest
     {
 
         [Test()]
+        public void TestFileDoesntExist()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+
+            CaesFile f = new CaesFile();
+            f.Path = "exists.txt";
+            f.Name = "I exist";
+
+            Assert.AreEqual(false, Search.database.FileExists(f));
+
+        }
+
+        [Test()]
         public void TestFileExists()
         {
             Search.database = ObjectMother.EmptyDatabase();
@@ -24,6 +37,32 @@ namespace CaesuraTest
             Search.database.AddFile(f);
 
             Assert.AreEqual(true, Search.database.FileExists(f));
+
+        }
+
+        [Test()]
+        public void TestTagDoesntExist()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+
+            TagNames tag = new TagNames();
+            tag.TagName = "audio";
+
+            Assert.AreEqual(false, Search.database.TagExists(tag));
+
+        }
+
+        [Test()]
+        public void TestTagExists()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+
+            TagNames tag = new TagNames();
+            tag.TagName = "audio";
+
+            Search.database.AddTag(tag);
+
+            Assert.AreEqual(true, Search.database.TagExists(tag));
 
         }
 
@@ -198,7 +237,7 @@ namespace CaesuraTest
 
             Search.database.sendMail(to, from, message);
 
-            var rec = Search.database.checkMail(to.Username).First();
+            var rec = Search.database.checkMail(to).First();
 
             Assert.AreEqual(message, rec.Message);
             Assert.AreEqual(to.Username, rec.To);

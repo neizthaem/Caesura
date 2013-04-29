@@ -84,6 +84,19 @@ namespace Server
             /*
              * TAG METHODS
              */
+
+            public bool TagExists(String tag)
+            {
+                return ((from t in this.TagNames
+                         where t.TagName == tag
+                         select t).Count() > 0);
+            }
+
+            public bool TagExists(TagNames tag)
+            {
+                return TagExists(tag.TagName);
+            }
+
             public void AddTag(String TagName)
             {
                 TagNames tag = new TagNames();
@@ -105,6 +118,7 @@ namespace Server
             /*
              * FILE TAGGING METHODS
              */
+
             public void AddTagForFile(String FilePath, params String[] tags)
             {
                 foreach (String tag in tags)
