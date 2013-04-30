@@ -75,11 +75,26 @@ namespace Client
             {
                 File.Create(filename).Close();
             }
+            var fileClosed = true;
             //Console.WriteLine(BitConverter.ToString(bytes));
-            using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Append)))
+            while (fileClosed)
             {
-                writer.BaseStream.Position = (long)writer.BaseStream.Length;
-                writer.Write(bytes);
+                try
+                {
+
+                    using (BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.Append)))
+                    {
+                        writer.BaseStream.Position = (long)writer.BaseStream.Length;
+                        writer.Write(bytes);
+                    }
+
+                    // Was able to write so set fileClosed to false
+                    fileClosed = false;
+                }
+                catch (IOException)
+                {
+                    // Do nothing
+                }
             }
 
 
