@@ -90,7 +90,7 @@ namespace CaesuraTest
             long min = long.MaxValue;
 
             long total = 0;
-            long tries = 10;
+            long tries = 100;
 
             long temp;
 
@@ -112,10 +112,12 @@ namespace CaesuraTest
                 total += temp;
             }
 
-            Console.WriteLine("File size was" + (new System.IO.FileInfo("C:\\Caesura\\" + filename)).Length.ToString());
-            Console.WriteLine("Average time was " + (total / tries).ToString() + "Milliseconds");
-            Console.WriteLine("Max time was " + max.ToString() + "Milliseconds");
-            Console.WriteLine("Min time was " + min.ToString() + "Milliseconds");
+            long tempLength = (new System.IO.FileInfo("C:\\Caesura\\" + filename)).Length;
+
+            Console.WriteLine("File size was" + tempLength);
+            Console.WriteLine("Average time was " + (total / tries).ToString() + "Milliseconds with a speed of " + tempLength / (total / tries) + "Bytes / Millisecond");
+            Console.WriteLine("Max time was " + max.ToString() + "Milliseconds" + "Milliseconds with a speed of " + tempLength / max + "Bytes / Millisecond");
+            Console.WriteLine("Min time was " + min.ToString() + "Milliseconds" + "Milliseconds with a speed of " + tempLength / min + "Bytes / Millisecond");
         }
 
         public long timeToDLWithoutLogin(String file, Client.Client client)
@@ -150,19 +152,19 @@ namespace CaesuraTest
             client.login(username, password);
 
             long temp = timeToDLWithoutLogin(file, client);
-            
+
             client.disconnect();
         }
 
         [Test]
         public void testLoginDownloadSimultaniousUsers()
         {
-            int users = 3;
+            int users = 2;
             long[] times = new long[users];
             Thread[] threads = new Thread[users];
 
-            var baseName = "PerformanceUser";
-            var password = "Performance";
+            var baseName = "TestUser";
+            var password = "Test";
 
             var file = "testpic.jpg";
 
@@ -174,11 +176,12 @@ namespace CaesuraTest
             for (int i = 0; i < users; i++)
             {
                 // Register a bunch of users
-                var temp1 = baseName + i.ToString();
+                //var temp1 = baseName + i.ToString();
+                var temp1 = baseName;
                 Server.User addNew = new Server.User();
                 addNew.PasswordHash = password;
                 addNew.Username = temp1;
-                Assert.True(Server.UserRegistration.register(addNew));
+               // Assert.True(Server.UserRegistration.register(addNew));
                 // Generate a bunch of threads
 
                 threads[i] = new Thread(new ThreadStart(delegate { testLoginDownloadSimultaniousUsersHelper(temp1, password, file, i, times); }));
@@ -192,7 +195,7 @@ namespace CaesuraTest
                 threads[i].Start();
 
                 // Put a slight delay
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
             }
 
             for (int i = 0; i < users; i++)

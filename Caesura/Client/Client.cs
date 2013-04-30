@@ -16,7 +16,7 @@ namespace Client
 
         public Client()
         {
-            Search.database = new LINQDatabase();
+            //Search.database = new LINQDatabase();
             connection = new Connection(this);
         }
 
