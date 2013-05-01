@@ -123,4 +123,7 @@
   <data name="Button2" xml:space="preserve">
     <value>ダウンロード</value>
   </data>
+  <data name="Button3" xml:space="preserve">
+    <value>ファイルの所有ゲット</value>
+  </data>
 </root>

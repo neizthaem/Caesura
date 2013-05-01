@@ -77,5 +77,14 @@ namespace Client {
                 return ResourceManager.GetString("Button2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Owned.
+        /// </summary>
+        internal static string Button3 {
+            get {
+                return ResourceManager.GetString("Button3", resourceCulture);
+            }
+        }
     }
 }

@@ -64,5 +64,12 @@ namespace Client
             return Search.getFilesWithTags(searcher);
             
         }
+
+        public List<string> getOwned()
+        {
+            //Implement here
+
+            return Search.database.GetListOfOwnedFiles("Testuser");
+        }
     }
 }

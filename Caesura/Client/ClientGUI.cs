@@ -68,16 +68,28 @@ namespace Client
             string file = listBox1.SelectedItem.ToString();
 
             FileDialog fdialog = new SaveFileDialog();
-            fdialog.ShowDialog();
-            
-
-            
-            client.requestFile(file, fdialog.FileName);
+            if (fdialog.ShowDialog() == DialogResult.OK)
+            {
+                client.requestFile(file, fdialog.FileName);
             }
+            else
+            {
+                
+            }
+    
+        }
 
         private void ClientGUI_FormClosed(object sender, FormClosedEventArgs e)
         {
             client.disconnect();
+        }
+
+
+        //Gets files owned
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var fileTemp = client.getOwned();
+            listBox1.DataSource = fileTemp;
         }
     }
 }

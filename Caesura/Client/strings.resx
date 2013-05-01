@@ -123,4 +123,7 @@
   <data name="Button2" xml:space="preserve">
     <value>Download</value>
   </data>
+  <data name="Button3" xml:space="preserve">
+    <value>Get Owned</value>
+  </data>
 </root>
