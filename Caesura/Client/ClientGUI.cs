@@ -71,6 +71,7 @@ namespace Client
             if (fdialog.ShowDialog() == DialogResult.OK)
             {
                 client.requestFile(file, fdialog.FileName);
+                Search.database.AddOwnership("Testuser", file);
             }
             else
             {

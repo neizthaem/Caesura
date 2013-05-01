@@ -174,6 +174,23 @@ namespace Server
             return owns.ToList<String>();
         }
 
+        public void AddOwnership(String username, String filePath)
+        {
+            try
+            {
+                var owner = new Owner();
+                owner.Username = username;
+                owner.FilePath = filePath;
+                this.Owns.InsertOnSubmit(owner);
+                this.SubmitChanges();
+
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+
         public List<String> GetListOfOwnedFiles(User user)
         {
             return GetListOfOwnedFiles(user.Username);
