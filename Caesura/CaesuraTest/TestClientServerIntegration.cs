@@ -55,7 +55,7 @@ namespace CaesuraTest
             Assert.IsFalse(File.Exists("C:\\Caesura\\generic.txt"));
             client.connect();
             // Request the file
-            client.requestFile("generic.txt");
+            //client.requestFile("generic.txt");
             client.disconnect();
             // Asert that the file exists
             Assert.IsTrue(File.Exists("C:\\Caesura\\generic.txt"));
@@ -79,7 +79,7 @@ namespace CaesuraTest
             Assert.IsFalse(File.Exists("513"));
             client.connect();
             // Request the file
-            client.requestFile("513.txt");
+            //client.requestFile("513.txt");
             client.disconnect();
             // Asert that the file exists
             Assert.IsTrue(File.Exists("513"));

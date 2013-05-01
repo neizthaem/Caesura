@@ -23,7 +23,7 @@ namespace CaesuraTest
             List<String> files = client.getFromTag(input);
             client.connect();
             client.login("Testuser", "Test");
-            client.requestFile(files.First());
+            //client.requestFile(files.First());
             client.disconnect();
             Assert.IsTrue(System.IO.File.Exists("C:\\Caesura\\" + files.First()));
         }
@@ -39,7 +39,7 @@ namespace CaesuraTest
             client.login("Testuser", "Test");
             try
             {
-                client.requestFile("failFile.txt");
+                //client.requestFile("failFile.txt");
             }
             finally
             {

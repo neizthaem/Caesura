@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Server;
+using Microsoft.Win32;
+
 
 namespace Client
 {
@@ -65,16 +67,13 @@ namespace Client
 
             string file = listBox1.SelectedItem.ToString();
 
-            if (System.IO.File.Exists("C:\\Caesura\\" + file))
-            {
-                System.IO.File.Delete("C:\\Caesura\\" + file);
+            FileDialog fdialog = new SaveFileDialog();
+            fdialog.ShowDialog();
+            
+
+            
+            client.requestFile(file, fdialog.FileName);
             }
-
-            client.requestFile(file);
-
-
-
-        }
 
         private void ClientGUI_FormClosed(object sender, FormClosedEventArgs e)
         {

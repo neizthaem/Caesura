@@ -8,7 +8,7 @@ namespace Client
 {
     public interface iClient
     {
-        Boolean requestFile(string filename);
+        Boolean requestFile(string filename, string filepath);
 
     }
 }

@@ -11,7 +11,7 @@ namespace Client
 
         Boolean login(string username, string password);
         // returns true if the file transfer begins
-        Boolean requestFile(String filename);
+        Boolean requestFile(String filename, string filepath);
 
         void connect();
 

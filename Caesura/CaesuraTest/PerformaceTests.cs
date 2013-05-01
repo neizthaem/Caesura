@@ -27,7 +27,7 @@ namespace CaesuraTest
             Assert.True(client.login("Testuser", "Test"));
 
             timer.Start();
-            Assert.True(client.requestFile(file));
+            //Assert.True(client.requestFile(file));
             timer.Stop();
             client.disconnect();
 

@@ -33,7 +33,7 @@ namespace Client
 
 
         //PUT IN A DESTINATION EVENTUALLY
-        public bool requestFile(string filename)
+        public bool requestFile(string filename, string filepath)
         {
             sock.send(iSocket.aSocket.stringToBytes("RequestFile " + filename, Server.Server.maxBytes));
 
@@ -58,14 +58,14 @@ namespace Client
             while (fileSize > iSocket.aSocket.MAXPACKETSIZE)
             {
                 byte[] bytes = sock.receive(iSocket.aSocket.MAXPACKETSIZE);
-                writeFile("C:\\Caesura\\" + name, bytes);
+                writeFile(filepath, bytes);
                 fileSize = fileSize - iSocket.aSocket.MAXPACKETSIZE;
 
             }
             if (fileSize > 0)
             {
                 byte[] bytes = sock.receive(fileSize);
-                writeFile("C:\\Caesura\\" + name, bytes);
+                writeFile(filepath, bytes);
             }
 
             return true;

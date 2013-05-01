@@ -26,10 +26,10 @@ namespace Client
         }
 
 
-        public bool requestFile(string filename)
+        public bool requestFile(string filename, string filepath)
         {
             if(loggedIn)
-                return connection.requestFile(filename);
+                return connection.requestFile(filename, filepath);
             return false;
         }
 
