@@ -131,7 +131,7 @@ namespace CaesuraTest
             Search.database.AddTag(tag);
 
             var tagActual = (from f in Search.database.TagNames
-                              select f).First();
+                             select f).First();
 
             Assert.AreEqual(tag.TagName, tagActual.TagName);
         }
@@ -189,7 +189,7 @@ namespace CaesuraTest
             Search.database.AddTagForFile("test.txt", "text");
 
             var actual = (from f in Search.database.Tags
-                             select f).First();
+                          select f).First();
 
             Assert.AreEqual("test.txt", actual.FilePath);
             Assert.AreEqual("text", actual.TagName);
@@ -235,9 +235,9 @@ namespace CaesuraTest
 
             String message = "hello toUser";
 
-            Search.database.sendMail(to, from, message);
+            Search.database.SendMail(to, from, message);
 
-            var rec = Search.database.checkMail(to).First();
+            var rec = Search.database.CheckMail(to).First();
 
             Assert.AreEqual(message, rec.Message);
             Assert.AreEqual(to.Username, rec.To);
@@ -263,7 +263,7 @@ namespace CaesuraTest
 
             String message = "hello toUser";
 
-            Search.database.sendMail(to, from, message);
+            Search.database.SendMail(to, from, message);
         }
 
         [Test()]
@@ -284,7 +284,7 @@ namespace CaesuraTest
 
             String message = "hello toUser";
 
-            Search.database.sendMail(to, from, message);
+            Search.database.SendMail(to, from, message);
         }
 
         [Test()]
@@ -306,10 +306,10 @@ namespace CaesuraTest
             String message = "hello toUser";
             String message2 = "hello toUser second";
 
-            Search.database.sendMail(to, from, message);
-            Search.database.sendMail(to, from, message2);
+            Search.database.SendMail(to, from, message);
+            Search.database.SendMail(to, from, message2);
 
-            var rec = Search.database.checkMail(to.Username);
+            var rec = Search.database.CheckMail(to.Username);
 
             Mail m1 = new Mail();
             m1.To = to.Username;

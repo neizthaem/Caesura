@@ -22,7 +22,8 @@ namespace CaesuraTest
         {
             MockRepository mocks = new MockRepository();
             IDatabase mockDatabase = mocks.Stub<IDatabase>();
-            mockDatabase.Tags = new List<Tag> {
+            mockDatabase.Tags = new List<Tag>
+            {
             }.AsQueryable<Tag>();
             return mockDatabase;
         }
@@ -39,14 +40,21 @@ namespace CaesuraTest
 
             // Pending Mail Table
             var mrows = from row in db.PendingMail
-                       select row;
+                        select row;
             foreach (var row in mrows)
                 db.PendingMail.DeleteOnSubmit(row);
             db.SubmitChanges();
 
+            // Owns Table
+            var orows = from row in db.Owns
+                        select row;
+            foreach (var row in orows)
+                db.Owns.DeleteOnSubmit(row);
+            db.SubmitChanges();
+
             // Users Table
             var urows = from row in db.Users
-                       select row;
+                        select row;
             foreach (var row in urows)
                 db.Users.DeleteOnSubmit(row);
             db.SubmitChanges();
@@ -67,7 +75,7 @@ namespace CaesuraTest
 
             // TagName Table
             var tnrows = from row in db.TagNames
-                        select row;
+                         select row;
             foreach (var row in tnrows)
                 db.TagNames.DeleteOnSubmit(row);
             db.SubmitChanges();
