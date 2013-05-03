@@ -185,8 +185,9 @@ namespace Server
                 this.SubmitChanges();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e.ToString());
             }
 
         }

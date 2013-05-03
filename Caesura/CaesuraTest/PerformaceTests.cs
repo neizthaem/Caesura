@@ -290,7 +290,7 @@ namespace CaesuraTest
         [Test]
         public void testSimultaniousLoginMetric()
         {
-            int users = 1000;
+            int users = 100;
             Client.Client[] clients = new Client.Client[users];
             int delay = 1;
 

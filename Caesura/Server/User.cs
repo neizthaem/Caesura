@@ -26,8 +26,11 @@ namespace Server
         {
         }
 
-
-
+        public User(String username, String password)
+        {
+            this.Username = username;
+            this.password = password;
+        }
 
         internal void setName(String p)
         {

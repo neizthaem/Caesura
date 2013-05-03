@@ -334,6 +334,120 @@ namespace CaesuraTest
         }
 
 
+        [Test()]
+        public void testFileOwnershipUnknownUser()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+
+            User u1 = new User("testuser1", "p");
+            User u2 = new User("testuser2", "p");
+
+            CaesFile f1 = new CaesFile("text.txt", "Text");
+            CaesFile f2 = new CaesFile("other.txt", "Other");
+            Search.database.AddFile(f1);
+            Search.database.AddFile(f2);
+
+            List<String> owned = Search.database.GetListOfOwnedFiles(u1);
+            List<String> owned2 = Search.database.GetListOfOwnedFiles(u2);
+
+            Assert.AreEqual(new List<String>(), owned);
+            Assert.AreEqual(new List<String>(), owned2);
+        }
+
+        [Test()]
+        public void testFileOwnershipNoFilesOwned()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+
+            User u1 = new User("testuser1", "p");
+            User u2 = new User("testuser2", "p");
+            Search.database.registerUser(u1);
+            Search.database.registerUser(u2);
+
+            CaesFile f1 = new CaesFile("text.txt", "Text");
+            CaesFile f2 = new CaesFile("other.txt", "Other");
+            Search.database.AddFile(f1);
+            Search.database.AddFile(f2);
+
+            List<String> owned = Search.database.GetListOfOwnedFiles(u1);
+            List<String> owned2 = Search.database.GetListOfOwnedFiles(u2);
+
+            Assert.AreEqual(new List<String>(), owned);
+            Assert.AreEqual(new List<String>(), owned2);
+        }
+
+
+        [Test()]
+        public void testAddFileOwnershipFunctionality()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+
+            User user = new User("username", "password");
+            Search.database.registerUser(user);
+
+            CaesFile file = new CaesFile("testfile.txt", "Test");
+            Search.database.AddFile(file);
+
+            Search.database.AddOwnership(user.Username, file.Path);
+
+            var owned = Search.database.GetListOfOwnedFiles(user).First();
+
+            Assert.AreEqual(file.Path, owned);
+
+        }
+
+        [Test()]
+        public void testCheckFileOwnershipFunctionality()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+
+            User user = new User("username", "password");
+            Search.database.registerUser(user);
+
+            CaesFile file = new CaesFile("testfile.txt", "Test");
+            Search.database.AddFile(file);
+
+            Search.database.AddOwnership(user.Username, file.Path);
+
+            var isOwned = Search.database.CheckIfOwnsFile(user.Username, file.Path);
+            var shouldNotBeOwned = Search.database.CheckIfOwnsFile(user.Username, "uadf.txt");
+
+            Assert.IsTrue(isOwned);
+            Assert.IsFalse(shouldNotBeOwned);
+
+        }
+
+        [Test()]
+        public void testFileOwnershipTwoUsersOneFileEach()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+
+            User u1 = new User("testuser1", "p");
+            User u2 = new User("testuser2", "p");
+            Search.database.registerUser(u1);
+            Search.database.registerUser(u2);
+
+            CaesFile f1 = new CaesFile("text.txt", "Text");
+            CaesFile f2 = new CaesFile("other.txt", "Other");
+            Search.database.AddFile(f1);
+            Search.database.AddFile(f2);
+
+            Search.database.AddOwnership(u1.Username, f1.Path);
+            Search.database.AddOwnership(u2.Username, f2.Path);
+
+            List<String> owned = Search.database.GetListOfOwnedFiles(u1);
+            List<String> owned2 = Search.database.GetListOfOwnedFiles(u2);
+
+            List<String> expected = new List<String>();
+            expected.Add(f1.Path);
+            List<String> expected2 = new List<String>();
+            expected2.Add(f2.Path);
+
+            Assert.AreEqual(expected, owned);
+            Assert.AreEqual(expected2, owned2);
+        }
+
+
 
     }
 }

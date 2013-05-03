@@ -16,6 +16,18 @@ namespace Server
         public string Path;
         [Column]
         public string Name;
+
+        public CaesFile()
+        {
+
+        }
+
+        public CaesFile(String path, String name)
+        {
+            this.Path = path;
+            this.Name = name;
+        }
+
     }
 
     [Table(Name = "PendingMail")]
@@ -39,6 +51,18 @@ namespace Server
         public String FilePath;
         [Column(IsPrimaryKey = true)]
         public String TagName;
+
+        public Tag()
+        {
+
+        }
+
+        public Tag(CaesFile file, TagNames tag)
+        {
+            this.FilePath = file.Path;
+            this.TagName = tag.TagName;
+        }
+
     }
 
     [Table(Name = "TagNames")]
@@ -46,6 +70,17 @@ namespace Server
     {
         [Column(IsPrimaryKey = true)]
         public String TagName;
+
+        public TagNames()
+        {
+
+        }
+
+        public TagNames(String tag)
+        {
+            this.TagName = tag;
+        }
+
     }
 
     [Table(Name = "Owns")]
