@@ -42,6 +42,22 @@ namespace Server
         [Column]
         public string Message;
 
+        public Mail()
+        {
+
+        }
+
+        public Mail(String toUsername, String fromUsername, String message)
+        {
+            this.To = toUsername;
+            this.From = fromUsername;
+            this.Message = message;
+        }
+
+        public Mail(User toUsername, User fromUsername, String message) : this(toUsername.Username, fromUsername.Username, message)
+        {
+        }
+
     }
 
     [Table(Name = "Tags")]

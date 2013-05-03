@@ -13,67 +13,47 @@ namespace CaesuraTest
     class LINQDatabaseTests
     {
 
+        [SetUp]
+        public void Init()
+        {
+            Search.database = ObjectMother.EmptyDatabase();
+        }
+
         [Test()]
         public void TestFileDoesntExist()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            CaesFile f = new CaesFile();
-            f.Path = "exists.txt";
-            f.Name = "I exist";
-
-            Assert.AreEqual(false, Search.database.FileExists(f));
-
+            CaesFile file = new CaesFile("exists.txt", "I exist");
+            Assert.False(Search.database.FileExists(file));
         }
 
         [Test()]
         public void TestFileExists()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            CaesFile f = new CaesFile();
-            f.Path = "exists.txt";
-            f.Name = "I exist";
-            Search.database.AddFile(f);
-
-            Assert.AreEqual(true, Search.database.FileExists(f));
-
+            CaesFile file = new CaesFile("exists.txt", "I exist");
+            Search.database.AddFile(file);
+            Assert.True(Search.database.FileExists(file));
         }
 
         [Test()]
         public void TestTagDoesntExist()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            TagNames tag = new TagNames();
-            tag.TagName = "audio";
-
-            Assert.AreEqual(false, Search.database.TagExists(tag));
-
+            TagNames tag = new TagNames("audio");
+            Assert.False(Search.database.TagExists(tag));
         }
 
         [Test()]
         public void TestTagExists()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            TagNames tag = new TagNames();
-            tag.TagName = "audio";
-
+            TagNames tag = new TagNames("audio");
             Search.database.AddTag(tag);
-
-            Assert.AreEqual(true, Search.database.TagExists(tag));
+            Assert.True(Search.database.TagExists(tag));
 
         }
 
         [Test()]
         public void TestRegisterAndGetUser()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            User user = new User();
-            user.Username = "山田";
-            user.PasswordHash = "saikyou";
+            User user = new User("山田", "saikyou");
             Search.database.registerUser(user);
 
             var actual = Search.database.getUser("山田");
@@ -81,18 +61,13 @@ namespace CaesuraTest
             Assert.AreEqual(user, actual);
             Assert.AreEqual(user.Username, actual.Username);
             Assert.AreEqual(user.PasswordHash, actual.PasswordHash);
-
         }
 
         [Test()]
         public void TestAddFileCaeFile()
         {
-            Search.database = ObjectMother.EmptyDatabase();
 
-            CaesFile file = new CaesFile();
-            file.Path = "test1File.txt";
-            file.Name = "Add File Test";
-
+            CaesFile file = new CaesFile("test1File.txt", "Add File Test");
             Search.database.AddFile(file);
 
             var fileActual = (from f in Search.database.Files
@@ -105,12 +80,7 @@ namespace CaesuraTest
         [Test()]
         public void TestAddFileCaeFileOther()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            CaesFile file = new CaesFile();
-            file.Path = "test1File.txt";
-            file.Name = "Add File Test";
-
+            CaesFile file = new CaesFile("test1File.txt", "Add File Test");
             Search.database.AddFile("test1File.txt", "Add File Test");
 
             var fileActual = (from f in Search.database.Files
@@ -123,11 +93,7 @@ namespace CaesuraTest
         [Test()]
         public void TestAddTagName()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            TagNames tag = new TagNames();
-            tag.TagName = "Test Tag";
-
+            TagNames tag = new TagNames("Test Tag");
             Search.database.AddTag(tag);
 
             var tagActual = (from f in Search.database.TagNames
@@ -139,12 +105,8 @@ namespace CaesuraTest
         [Test()]
         public void TestAddTagNameOther()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            TagNames tag = new TagNames();
-            tag.TagName = "Test Tag";
-
-            Search.database.AddTag("Test Tag");
+            TagNames tag = new TagNames("Test Tag");
+            Search.database.AddTag(tag);
 
             var tagActual = (from f in Search.database.TagNames
                              select f).First();
@@ -155,8 +117,6 @@ namespace CaesuraTest
         [Test()]
         public void TestGetListOfAllTags()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
             var expected = new List<string>();
             expected.Add("audio");
             expected.Add("video");
@@ -181,8 +141,6 @@ namespace CaesuraTest
         [Test()]
         public void TestAddTagEntryForFile()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
             Search.database.AddFile("test.txt", "Test File");
             Search.database.AddTag("text");
 
@@ -199,8 +157,6 @@ namespace CaesuraTest
         [Test()]
         public void TestAddTagEntryForFileOther()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
             CaesFile file = new CaesFile();
             file.Path = "test.txt";
             file.Name = "Test File";
@@ -220,15 +176,8 @@ namespace CaesuraTest
         [Test()]
         public void TestSendReceiveMailMessage()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            var from = new User();
-            from.Username = "fromUser";
-            from.PasswordHash = "fromUserpwd";
-
-            var to = new User();
-            to.Username = "toUser";
-            to.PasswordHash = "toUserpwd";
+            var from = new User("fromUser", "fromUserpwd");
+            var to = new User("toUser", "toUserpwd");
 
             Search.database.registerUser(from);
             Search.database.registerUser(to);
@@ -249,15 +198,8 @@ namespace CaesuraTest
         [ExpectedException(typeof(Exception), ExpectedMessage = "Invalid Recipient: toUser")]
         public void TestInvalidToUser()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            var from = new User();
-            from.Username = "fromUser";
-            from.PasswordHash = "fromUserpwd";
-
-            var to = new User();
-            to.Username = "toUser";
-            to.PasswordHash = "toUserpwd";
+            var from = new User("fromUser", "fromUserpwd");
+            var to = new User("toUser", "toUserpwd");
 
             Search.database.registerUser(from);
 
@@ -270,15 +212,8 @@ namespace CaesuraTest
         [ExpectedException(typeof(Exception), ExpectedMessage = "Invalid Sender: fromUser")]
         public void TestInvalidFromUser()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            var from = new User();
-            from.Username = "fromUser";
-            from.PasswordHash = "fromUserpwd";
-
-            var to = new User();
-            to.Username = "toUser";
-            to.PasswordHash = "toUserpwd";
+            var from = new User("fromUser", "fromUserpwd");
+            var to = new User("toUser", "toUserpwd");
 
             Search.database.registerUser(to);
 
@@ -290,15 +225,8 @@ namespace CaesuraTest
         [Test()]
         public void TestMultipleMessagesWithSameToFrom()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
-            var from = new User();
-            from.Username = "fromUser";
-            from.PasswordHash = "fromUserpwd";
-
-            var to = new User();
-            to.Username = "toUser";
-            to.PasswordHash = "toUserpwd";
+            var from = new User("fromUser", "fromUserpwd");
+            var to = new User("toUser", "toUserpwd");
 
             Search.database.registerUser(from);
             Search.database.registerUser(to);
@@ -311,15 +239,8 @@ namespace CaesuraTest
 
             var rec = Search.database.CheckMail(to.Username);
 
-            Mail m1 = new Mail();
-            m1.To = to.Username;
-            m1.From = from.Username;
-            m1.Message = message;
-
-            Mail m2 = new Mail();
-            m2.To = to.Username;
-            m2.From = from.Username;
-            m2.Message = message2;
+            Mail m1 = new Mail(to, from, message);
+            Mail m2 = new Mail(to, from, message2);
 
             var expected = new List<Mail>();
             expected.Add(m1);
@@ -337,8 +258,6 @@ namespace CaesuraTest
         [Test()]
         public void testFileOwnershipUnknownUser()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
             User u1 = new User("testuser1", "p");
             User u2 = new User("testuser2", "p");
 
@@ -357,8 +276,6 @@ namespace CaesuraTest
         [Test()]
         public void testFileOwnershipNoFilesOwned()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
             User u1 = new User("testuser1", "p");
             User u2 = new User("testuser2", "p");
             Search.database.registerUser(u1);
@@ -376,12 +293,10 @@ namespace CaesuraTest
             Assert.AreEqual(new List<String>(), owned2);
         }
 
-
+        #region File Ownership
         [Test()]
         public void testAddFileOwnershipFunctionality()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
             User user = new User("username", "password");
             Search.database.registerUser(user);
 
@@ -399,8 +314,6 @@ namespace CaesuraTest
         [Test()]
         public void testCheckFileOwnershipFunctionality()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
             User user = new User("username", "password");
             Search.database.registerUser(user);
 
@@ -420,8 +333,6 @@ namespace CaesuraTest
         [Test()]
         public void testFileOwnershipTwoUsersOneFileEach()
         {
-            Search.database = ObjectMother.EmptyDatabase();
-
             User u1 = new User("testuser1", "p");
             User u2 = new User("testuser2", "p");
             Search.database.registerUser(u1);
@@ -446,7 +357,7 @@ namespace CaesuraTest
             Assert.AreEqual(expected, owned);
             Assert.AreEqual(expected2, owned2);
         }
-
+        #endregion
 
 
     }
