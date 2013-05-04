@@ -118,3 +118,4 @@ C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.strings.ja.resources
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.csproj.GenerateResource.Cache
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\ja\Client.resources.dll
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.exe
+C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.ClientUI.resources

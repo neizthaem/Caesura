@@ -18,7 +18,7 @@ namespace Client
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
             //Thread.CurrentThread.
             Application.EnableVisualStyles();
-            Application.Run(new ClientGUI());
+            Application.Run(new ClientUI());
 
 
         }
