@@ -117,13 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Button1" xml:space="preserve">
-    <value>Get Files</value>
+  <data name="About" xml:space="preserve">
+    <value>About Caesura</value>
   </data>
-  <data name="Button2" xml:space="preserve">
+  <data name="Download" xml:space="preserve">
     <value>Download</value>
   </data>
-  <data name="Button3" xml:space="preserve">
-    <value>Get Owned</value>
+  <data name="Exit" xml:space="preserve">
+    <value>EXIT</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>FILE</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>HELP</value>
+  </data>
+  <data name="Inbox" xml:space="preserve">
+    <value>Inbox</value>
+  </data>
+  <data name="InboxButton" xml:space="preserve">
+    <value>Open Inbox</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>MESSAGES</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchLocation" xml:space="preserve">
+    <value>Search Locations</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="TagButton" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="TagSearch" xml:space="preserve">
+    <value>Tag Search</value>
   </data>
 </root>

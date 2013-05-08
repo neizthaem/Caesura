@@ -90,7 +90,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -141,15 +141,16 @@
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.changePasswordToolStripMenuItem.Text = "ENGLISH";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // jAPANESEToolStripMenuItem
             // 
             this.jAPANESEToolStripMenuItem.Name = "jAPANESEToolStripMenuItem";
-            this.jAPANESEToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.jAPANESEToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.jAPANESEToolStripMenuItem.Text = "日本語";
+            this.jAPANESEToolStripMenuItem.Click += new System.EventHandler(this.jAPANESEToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -177,7 +178,7 @@
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(85, 23);
             this.downloadButton.TabIndex = 8;
-            this.downloadButton.Text = "Download";
+            this.downloadButton.Text = global::Client.strings.Download;
             this.downloadButton.UseVisualStyleBackColor = true;
             this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
@@ -221,7 +222,7 @@
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(74, 23);
             this.searchButton.TabIndex = 4;
-            this.searchButton.Text = "Search";
+            this.searchButton.Text = global::Client.strings.Search;
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 

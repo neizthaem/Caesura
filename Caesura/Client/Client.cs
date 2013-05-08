@@ -37,6 +37,7 @@ namespace Client
         {
             
             loggedIn = connection.login(username, password);
+            this.username = username;
             return loggedIn;
         }
 
@@ -71,5 +72,7 @@ namespace Client
 
             return Search.database.GetListOfOwnedFiles("Testuser");
         }
+
+        public string username { get; set; }
     }
 }

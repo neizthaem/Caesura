@@ -61,29 +61,119 @@ namespace Client {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get Files.
+        ///   Looks up a localized string similar to About Caesura.
         /// </summary>
-        internal static string Button1 {
+        internal static string About {
             get {
-                return ResourceManager.GetString("Button1", resourceCulture);
+                return ResourceManager.GetString("About", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Download.
         /// </summary>
-        internal static string Button2 {
+        internal static string Download {
             get {
-                return ResourceManager.GetString("Button2", resourceCulture);
+                return ResourceManager.GetString("Download", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get Owned.
+        ///   Looks up a localized string similar to EXIT.
         /// </summary>
-        internal static string Button3 {
+        internal static string Exit {
             get {
-                return ResourceManager.GetString("Button3", resourceCulture);
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FILE.
+        /// </summary>
+        internal static string File {
+            get {
+                return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HELP.
+        /// </summary>
+        internal static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inbox.
+        /// </summary>
+        internal static string Inbox {
+            get {
+                return ResourceManager.GetString("Inbox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Inbox.
+        /// </summary>
+        internal static string InboxButton {
+            get {
+                return ResourceManager.GetString("InboxButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MESSAGES.
+        /// </summary>
+        internal static string Messages {
+            get {
+                return ResourceManager.GetString("Messages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        internal static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Locations.
+        /// </summary>
+        internal static string SearchLocation {
+            get {
+                return ResourceManager.GetString("SearchLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        internal static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tags.
+        /// </summary>
+        internal static string TagButton {
+            get {
+                return ResourceManager.GetString("TagButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag Search.
+        /// </summary>
+        internal static string TagSearch {
+            get {
+                return ResourceManager.GetString("TagSearch", resourceCulture);
             }
         }
     }

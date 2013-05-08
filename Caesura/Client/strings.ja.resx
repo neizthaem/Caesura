@@ -117,13 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Button1" xml:space="preserve">
-    <value>ファイルを取得</value>
+  <data name="About" xml:space="preserve">
+    <value>約 CAESURA</value>
   </data>
-  <data name="Button2" xml:space="preserve">
+  <data name="Download" xml:space="preserve">
     <value>ダウンロード</value>
   </data>
-  <data name="Button3" xml:space="preserve">
-    <value>ファイルの所有ゲット</value>
+  <data name="Exit" xml:space="preserve">
+    <value>やめる</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>ファイル</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>手助け</value>
+  </data>
+  <data name="Inbox" xml:space="preserve">
+    <value>受信トレイ</value>
+  </data>
+  <data name="InboxButton" xml:space="preserve">
+    <value>オープン受信トレイ</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>メッセージ</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>ファイルを取得</value>
+  </data>
+  <data name="SearchLocation" xml:space="preserve">
+    <value>検索場所</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>送る</value>
+  </data>
+  <data name="TagButton" xml:space="preserve">
+    <value>付箋</value>
+  </data>
+  <data name="TagSearch" xml:space="preserve">
+    <value>付箋検索</value>
   </data>
 </root>

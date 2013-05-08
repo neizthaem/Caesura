@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Server;
 using System.Threading;
+using System.Globalization;
 
 namespace Client
 {
@@ -20,6 +21,7 @@ namespace Client
         public ClientUI()
         {
             InitializeComponent();
+            refreshText();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -133,13 +135,14 @@ namespace Client
             if (fdialog.ShowDialog() == DialogResult.OK)
             {
                 client.requestFile(file, fdialog.FileName);
-                Search.database.AddOwnership("Testuser", file);
+                Search.database.AddOwnership(client.username, file);
             }
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+            this.refreshText();
         }
 
         private void locationsList_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,6 +177,30 @@ namespace Client
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void jAPANESEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ja-JP");
+            this.refreshText();
+        }
+
+
+        private void refreshText()
+        {
+            this.downloadButton.Text = strings.Download;
+            this.searchButton.Text = strings.Search;
+            this.label1.Text = strings.TagSearch;
+            this.tagsButton.Text = strings.TagButton;
+            this.label2.Text = strings.SearchLocation;
+            this.inboxButton.Text = strings.InboxButton;
+            this.fileToolStripMenuItem.Text = strings.File;
+            this.hELPToolStripMenuItem.Text = strings.Help;
+            this.mESSAGEToolStripMenuItem.Text = strings.Messages;
+            this.exitToolStripMenuItem.Text = strings.Exit;
+            this.aboutToolStripMenuItem.Text = strings.About;
+            this.inboxToolStripMenuItem.Text = strings.Inbox;
+            this.sendToolStripMenuItem.Text = strings.Send;
         }
     }
 }
