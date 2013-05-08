@@ -34,13 +34,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mESSAGEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jAPANESEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.downloadButton = new System.Windows.Forms.Button();
             this.messagesLabel = new System.Windows.Forms.Label();
@@ -69,9 +70,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.mESSAGEToolStripMenuItem,
-            this.hELPToolStripMenuItem});
+            this.hELPToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(540, 24);
@@ -89,22 +90,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changePasswordToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(76, 20);
-            this.toolStripMenuItem1.Text = "ACCOUNT";
-            // 
-            // changePasswordToolStripMenuItem
-            // 
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // mESSAGEToolStripMenuItem
             // 
@@ -140,6 +128,28 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About Caesura";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePasswordToolStripMenuItem,
+            this.jAPANESEToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(80, 20);
+            this.toolStripMenuItem1.Text = "LANGUAGE";
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.changePasswordToolStripMenuItem.Text = "ENGLISH";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // jAPANESEToolStripMenuItem
+            // 
+            this.jAPANESEToolStripMenuItem.Name = "jAPANESEToolStripMenuItem";
+            this.jAPANESEToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.jAPANESEToolStripMenuItem.Text = "日本語";
             // 
             // panel1
             // 
@@ -202,6 +212,7 @@
             this.tagsButton.TabIndex = 5;
             this.tagsButton.Text = "Tags";
             this.tagsButton.UseVisualStyleBackColor = true;
+            this.tagsButton.Click += new System.EventHandler(this.tagsButton_Click);
             // 
             // searchButton
             // 
@@ -219,7 +230,6 @@
             this.locationsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locationsList.FormattingEnabled = true;
             this.locationsList.Items.AddRange(new object[] {
-            "Local",
             "Owned",
             "Server"});
             this.locationsList.Location = new System.Drawing.Point(9, 96);
@@ -227,6 +237,8 @@
             this.locationsList.Size = new System.Drawing.Size(150, 52);
             this.locationsList.Sorted = true;
             this.locationsList.TabIndex = 3;
+            this.locationsList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.locationsList_ItemCheck);
+            this.locationsList.SelectedIndexChanged += new System.EventHandler(this.locationsList_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -275,6 +287,7 @@
             this.viewer.Size = new System.Drawing.Size(357, 316);
             this.viewer.TabIndex = 3;
             this.viewer.UseCompatibleStateImageBehavior = false;
+            this.viewer.SelectedIndexChanged += new System.EventHandler(this.viewer_SelectedIndexChanged);
             // 
             // ClientUI
             // 
@@ -325,5 +338,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.Button downloadButton;
+        private System.Windows.Forms.ToolStripMenuItem jAPANESEToolStripMenuItem;
     }
 }

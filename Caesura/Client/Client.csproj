@@ -62,11 +62,17 @@
       <DependentUpon>ClientUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
-    <Compile Include="ClientGUI.cs">
+    <Compile Include="Tags.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientGUI.Designer.cs">
-      <DependentUpon>ClientGUI.cs</DependentUpon>
+    <Compile Include="Tags.Designer.cs">
+      <DependentUpon>Tags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="iClient.cs" />
     <Compile Include="iConnection.cs" />
@@ -98,11 +104,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ClientGUI.resx">
-      <DependentUpon>ClientGUI.cs</DependentUpon>
+    <EmbeddedResource Include="Tags.resx">
+      <DependentUpon>Tags.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientUI.resx">
       <DependentUpon>ClientUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="strings.ja.resx">
       <Generator>ResXFileCodeGenerator</Generator>

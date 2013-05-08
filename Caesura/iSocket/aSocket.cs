@@ -28,6 +28,8 @@ namespace iSocket
             socket.SendBufferSize = MAXPACKETSIZE;
 
             socket.NoDelay = true;
+            socket.ReceiveTimeout = 1000;
+            socket.SendTimeout = 1000;
         }
 
         public aSocket(Socket sock)

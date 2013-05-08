@@ -12,7 +12,7 @@ namespace Client
     {
         // Needs to be public for test cases
         public iConnection connection;
-        private bool loggedIn;
+        public bool loggedIn = false;
 
         public Client()
         {
