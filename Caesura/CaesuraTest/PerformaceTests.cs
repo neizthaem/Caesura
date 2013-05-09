@@ -154,7 +154,7 @@ namespace CaesuraTest
 
             // Login all the clients
             var username = "Testuser";
-            var password = "Test";
+            var password = "test";
             for (int i = 0; i < users; i++)
             {
                 clients[i] = new Client.Client();
@@ -305,7 +305,7 @@ namespace CaesuraTest
             // Create the threads
             System.Threading.Thread[] threads = new System.Threading.Thread[users];
             var tempName = "Testuser";
-            var tempPassword = "Test";
+            var tempPassword = "test";
 
             for (int i = 0; i < users; i++)
             {

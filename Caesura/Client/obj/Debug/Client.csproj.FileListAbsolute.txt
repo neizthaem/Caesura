@@ -67,7 +67,6 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\Client
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\ja\Client.resources.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\EntityFramework.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\bin\Debug\EntityFramework.xml
-C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.ClientGUI.resources
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strings.resources
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.strings.ja.resources
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.csproj.GenerateResource.Cache
@@ -122,3 +121,6 @@ C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.Login
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.Tags.resources
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.Tags.resources
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.Login.resources
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.Tags.resources
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.ClientUI.resources
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.Login.resources
