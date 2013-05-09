@@ -24,6 +24,33 @@ namespace Server
         }
 
         // Get Files that have ALL of the tags in the list
+        public static List<string> getFilesWithTagsOwnedBy(String username, params String[] tags)
+        {
+            if (database == null || username == null || tags.Length == 0)
+                return new List<String>();
+
+            IQueryable<Tag> table = database.Tags;
+            IQueryable<Owner> owns = database.Owns;
+            IQueryable<String> lastQuery = null;
+            IQueryable<String> temp = null;
+            foreach (String tag in tags)
+            {
+                temp = table.Where(p => p.TagName.Equals(tag)).Select(p => p.FilePath);
+                if (lastQuery != null)
+                    temp = lastQuery.Join(temp, a => a, b => b, (a, b) => a);
+                lastQuery = temp;
+            }
+
+            owns = owns.Where(p => p.Username.Equals(username));
+            var ret = temp.Join(owns,
+                                file => file,
+                                owned => owned.FilePath,
+                                (file, owned) => file);
+
+            return ret.ToList<String>();
+        }
+
+        // Get Files that have ALL of the tags in the list
         public static List<string> getFilesWithTags(params String[] tags)
         {
             if (database == null || tags.Length == 0)

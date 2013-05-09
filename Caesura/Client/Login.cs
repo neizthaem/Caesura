@@ -12,6 +12,12 @@ namespace Client
 {
     public partial class Login : Form
     {
+
+        /*
+         * TODO: Exiting needs to be fixed the current method is really bad
+         * it prevents a graceful exit via using the "X" exit (top-right of window)
+         * */
+
         public bool quit;
         public string pass;
         public string username;
@@ -32,6 +38,21 @@ namespace Client
             this.username = textBox1.Text;
             this.pass = textBox2.Text;
             this.Close();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.username = textBox1.Text;
+                this.pass = textBox2.Text;
+                this.Close();
+            }
         }
     }
 }

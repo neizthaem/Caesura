@@ -111,7 +111,6 @@ C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\EntityFramework.xml
 C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.xml
 C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\nunit.framework.xml
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
-C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.ClientGUI.resources
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.strings.resources
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.strings.ja.resources
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.csproj.GenerateResource.Cache
@@ -121,3 +120,5 @@ C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.ClientUI.resources
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.ClientUI.resources
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.Login.resources
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.Tags.resources
+C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.Tags.resources
+C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.Login.resources

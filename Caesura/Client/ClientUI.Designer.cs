@@ -141,14 +141,14 @@
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.changePasswordToolStripMenuItem.Text = "ENGLISH";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // jAPANESEToolStripMenuItem
             // 
             this.jAPANESEToolStripMenuItem.Name = "jAPANESEToolStripMenuItem";
-            this.jAPANESEToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.jAPANESEToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.jAPANESEToolStripMenuItem.Text = "日本語";
             this.jAPANESEToolStripMenuItem.Click += new System.EventHandler(this.jAPANESEToolStripMenuItem_Click);
             // 
@@ -228,6 +228,7 @@
             // 
             // locationsList
             // 
+            this.locationsList.CheckOnClick = true;
             this.locationsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locationsList.FormattingEnabled = true;
             this.locationsList.Items.AddRange(new object[] {
@@ -239,7 +240,6 @@
             this.locationsList.Sorted = true;
             this.locationsList.TabIndex = 3;
             this.locationsList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.locationsList_ItemCheck);
-            this.locationsList.SelectedIndexChanged += new System.EventHandler(this.locationsList_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -288,7 +288,6 @@
             this.viewer.Size = new System.Drawing.Size(357, 316);
             this.viewer.TabIndex = 3;
             this.viewer.UseCompatibleStateImageBehavior = false;
-            this.viewer.SelectedIndexChanged += new System.EventHandler(this.viewer_SelectedIndexChanged);
             // 
             // ClientUI
             // 

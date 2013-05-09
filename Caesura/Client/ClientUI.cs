@@ -20,8 +20,8 @@ namespace Client
 
         public ClientUI()
         {
-            InitializeComponent();
-            refreshText();
+            this.InitializeComponent();
+            this.refreshText();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -32,49 +32,46 @@ namespace Client
 
         private void ClientUI_Load(object sender, EventArgs e)
         {
-            //client = new Client();
-            loginWin();
+            while (loginWin() == false) { };
+            locationsList.SetItemCheckState(1, CheckState.Checked);
         }
 
-        private void loginWin()
+        private bool loginWin()
         {
             Login login = new Login();
             login.ShowDialog();
-            if (!(login.quit))
-            {
 
-                try
-                {
-                    client = new Client();
-                    client.connect();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Server is not running");
-                    this.Close();
-
-                }
-
-
-                client.login(login.username, login.pass);
-
-                if (!(client.loggedIn))
-                {
-                    MessageBox.Show("Bad username/password");
-                    Thread.Sleep(2000);
-                    loginWin();
-                }
-                else
-                {
-                    this.connect = true;
-                }
-
-            }
-            else
+            if (login.quit)
             {
                 this.Close();
+                return true;
             }
+
+            try
+            {
+                client = new Client();
+                client.connect();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not make a connection to server");
+                return false;
+            }
+
+            client.login(login.username, login.pass);
+
+            if (client.loggedIn)
+                this.connect = true;
+            else
+            {
+                MessageBox.Show("You entered an incorrect username or password. Please Try Again.");
+                return false;
+            }
+
+            return true;
+
         }
+        
         private void ClientUI_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this.connect)
@@ -91,37 +88,46 @@ namespace Client
 
         private void updateItems()
         {
+            // Empty the current items
             viewer.Items.Clear();
+            
+            // Parse the tags to be used
+            var tags = searchBox.Text.Split(' ').ToList();
+            while (tags.Remove(String.Empty)) { };
 
-
+            // Determine the search location(s) / Method
+            var source = 0;
+            if (locationsList.CheckedIndices.Contains(0))
+                source = 0;
             if (locationsList.CheckedIndices.Contains(1))
+                source = 1;
+
+            // Apply the respective search procedure and collect results
+            var matches = new List<String>();
+            switch (source)
             {
-                var tags = searchBox.Text.Split(' ').ToList<String>();
-                var matches = client.getFromTag(tags);
-
-                foreach (String f in matches)
-                {
-                    var newItem = new ListViewItem(f);
-                    newItem.ImageIndex = 0;
-                    viewer.Items.Add(newItem);
-                }
+                case 0: // Owned Files Source
+                    if (searchBox.Text == "")
+                        matches = client.getOwned();
+                    else
+                        matches = Search.getFilesWithTagsOwnedBy(client.username, tags.ToArray());
+                    break;
+                case 1: // Server Files
+                    matches = client.getFromTag(tags);
+                    break;
+                default:
+                    Console.WriteLine("Unhandled source case statement assuming case 1");
+                    break;
             }
-            else
+
+            // Create the view items and add them
+            foreach (String f in matches)
             {
-                if (locationsList.CheckedIndices.Contains(0))
-                {
-                    List<String> temp = client.getOwned();
-
-                    foreach (String f in temp)
-                    {
-                        var newItem = new ListViewItem(f);
-                        newItem.ImageIndex = 0;
-                        viewer.Items.Add(newItem);
-                    }
-
-
-                }
+                var newItem = new ListViewItem(f);
+                newItem.ImageIndex = 0;
+                viewer.Items.Add(newItem);
             }
+
         }
 
         private void downloadButton_Click(object sender, EventArgs e)
@@ -144,17 +150,6 @@ namespace Client
             Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
             this.refreshText();
         }
-
-        private void locationsList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void viewer_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void locationsList_ItemCheck(object sender, ItemCheckEventArgs e)
         {
