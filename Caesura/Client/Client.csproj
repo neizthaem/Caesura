@@ -98,10 +98,6 @@
       <Project>{e432d848-953c-411b-915b-bf7c763a0965}</Project>
       <Name>iSocket</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Server\Server.csproj">
-      <Project>{076cebc5-38cc-4189-b6fe-5cda3280e2b2}</Project>
-      <Name>Server</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Tags.resx">

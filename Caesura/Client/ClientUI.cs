@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Server;
 using System.Threading;
 using System.Globalization;
 
@@ -110,7 +109,7 @@ namespace Client
                     if (searchBox.Text == "")
                         matches = client.getOwned();
                     else
-                        matches = Search.getFilesWithTagsOwnedBy(client.username, tags.ToArray());
+                        matches = client.getFilesWithTagsOwnedBy(client.username, tags.ToArray());
                     break;
                 case 1: // Server Files
                     matches = client.getFromTag(tags);
@@ -141,7 +140,7 @@ namespace Client
             if (fdialog.ShowDialog() == DialogResult.OK)
             {
                 client.requestFile(file, fdialog.FileName);
-                Search.database.AddOwnership(client.username, file);
+                client.AddOwnership(client.username, file);
             }
         }
 
@@ -165,7 +164,7 @@ namespace Client
 
         private void tagsButton_Click(object sender, EventArgs e)
         {
-            Tags temp = new Tags();
+            Tags temp = new Tags(client);
             temp.ShowDialog();
         }
 

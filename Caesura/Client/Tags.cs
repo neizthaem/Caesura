@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Server;
 using Microsoft.Win32;
 
 
@@ -18,14 +17,14 @@ namespace Client
         private Client client;
 
 
-        public Tags()
+        public Tags(Client client)
         {
-            client = new Client();
+            this.client = client;
             InitializeComponent();
 
             //Add in all tags
             var items = listBox1.Items;
-            List<String> temp = Search.database.getListOfAllTags();
+            List<String> temp = client.getListOfAllTags();
 
             foreach (String x in temp)
             {

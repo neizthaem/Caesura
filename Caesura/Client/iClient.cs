@@ -10,5 +10,7 @@ namespace Client
     {
         Boolean requestFile(string filename, string filepath);
 
+        List<string> getOwnFilesWithTags(string username, string[] tags);
+
     }
 }

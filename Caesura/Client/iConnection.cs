@@ -17,6 +17,16 @@ namespace Client
 
         void disconnect();
 
-        
+        List<string> GetListOfOwnedFiles(string p);
+
+        bool register(string user, string pass);
+
+        List<string> getFilesWithTags(List<string> tags);
+
+        List<String> getListOfAllTags();
+
+        List<String> getOwnFilesWithTags(string[] tags);
+
+        bool addOwndership(string username, string file);
     }
 }

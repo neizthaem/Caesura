@@ -142,6 +142,37 @@ namespace CaesuraTest
          */
         #endregion
 
+        #region 2013-05-10
+        /* Users = 100
+         * Maybe 4 bad pictures
+         * From now on unless specified the server was restarted
+            The filesize was 713088 bytes
+            The max dl time was 12987 with a rate of 54.9078309078309 bytes/millisecond
+            The min dl time was  6346 with a rate of 112.368105893476 bytes/millisecond
+            The mean dl time was 10470.58 with a rate of 68.1039636772748 bytes/millisecond
+            The std dl time was 6987.70165075756 millisecond    
+        */
+
+        /* Users = 100
+         * One bad picture
+            The filesize was 713088 bytes
+            The max dl time was 9741 with a rate of 73.204804434863 bytes/millisecond
+            The min dl time was  7035 with a rate of 101.36289978678 bytes/millisecond
+            The mean dl time was 8204.13 with a rate of 86.9181741391226 bytes/millisecond
+            The std dl time was 6219.19426533695 millisecond
+         */
+
+        /* Users = 1000
+         * The server threw a bunch of exceptions, still doesn't like 1K users
+            The filesize was 0 bytes
+            The max dl time was 26801 with a rate of 0 bytes/millisecond
+            The min dl time was  0 with a rate of NaN bytes/millisecond
+            The mean dl time was 32.02 with a rate of 0 bytes/millisecond
+            The std dl time was 27040.7126681234 millisecond
+         */
+
+        #endregion
+
         #endregion
         [Test]
         public void testSimultaniousDownloadMetric()
@@ -154,7 +185,7 @@ namespace CaesuraTest
 
             // Login all the clients
             var username = "Testuser";
-            var password = "test";
+            var password = "Test";
             for (int i = 0; i < users; i++)
             {
                 clients[i] = new Client.Client();
@@ -287,12 +318,35 @@ namespace CaesuraTest
          */
         #endregion
 
+        #region 2013-05-10
+        /* Users = 100
+         * Delay = 1
+         * The server threw many exceptions
+            The max login time was 0 millisecond
+            The min login time was  0millisecond
+            The mean login time was 0 millisecond
+            The std login time was 0 millisecond
+         */
+
+        /*Users = 100, delay = 10 also caused exceptions
+         */
+
+        /* Users = 100
+         * delay = 100
+            The max login time was 378 millisecond
+            The min login time was  5millisecond
+            The mean login time was 14.58 millisecond
+            The std login time was 433.848314506349 millisecond
+         */
+
+        #endregion
+
         [Test]
         public void testSimultaniousLoginMetric()
         {
             int users = 100;
             Client.Client[] clients = new Client.Client[users];
-            int delay = 1;
+            int delay = 100;
 
             times = new long[users];
             // Generate the clients & connect them
@@ -305,7 +359,7 @@ namespace CaesuraTest
             // Create the threads
             System.Threading.Thread[] threads = new System.Threading.Thread[users];
             var tempName = "Testuser";
-            var tempPassword = "test";
+            var tempPassword = "Test";
 
             for (int i = 0; i < users; i++)
             {

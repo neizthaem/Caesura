@@ -47,26 +47,26 @@ namespace CaesuraTest
         {
             using (mocks.Record())
             {
-                mockSocket.connect(Server.Server.host, Server.Server.defaultPort);
+                mockSocket.connect(iSocket.constants.host, iSocket.constants.defaultPort);
                 LastCall.On(mockSocket).Repeat.Once();
                 // Caesura
-                mockSocket.send(iSocket.aSocket.stringToBytes("Caesura" + "\0", Server.Server.maxBytes));
+                mockSocket.send(iSocket.aSocket.stringToBytes("Caesura" + "\0", iSocket.constants.MAXPACKETSIZE));
                 LastCall.On(mockSocket).Repeat.Once();
                 // Major
-                mockSocket.send(iSocket.aSocket.stringToBytes(Server.Server.MajorNumber, Server.Server.maxBytes));
+                mockSocket.send(iSocket.aSocket.stringToBytes(iSocket.constants.MajorNumber, iSocket.constants.MAXPACKETSIZE));
                 LastCall.On(mockSocket).Repeat.Once();
                 // Minor
-                mockSocket.send(iSocket.aSocket.stringToBytes(Server.Server.MinorNumber, Server.Server.maxBytes));
+                mockSocket.send(iSocket.aSocket.stringToBytes(iSocket.constants.MinorNumber, iSocket.constants.MAXPACKETSIZE));
                 LastCall.On(mockSocket).Repeat.Once();
                 // Username
-                mockSocket.send(iSocket.aSocket.stringToBytes("TestUser" + "\0", Server.Server.maxBytes));
+                mockSocket.send(iSocket.aSocket.stringToBytes("TestUser" + "\0", iSocket.constants.MAXPACKETSIZE));
                 LastCall.On(mockSocket).Repeat.Once();
                 // Password
-                mockSocket.send(iSocket.aSocket.stringToBytes("TestPass" + "\0", Server.Server.maxBytes));
+                mockSocket.send(iSocket.aSocket.stringToBytes("TestPass" + "\0", iSocket.constants.MAXPACKETSIZE));
                 LastCall.On(mockSocket).Repeat.Once();
 
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("True", Server.Server.maxBytes));
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("True", iSocket.constants.MAXPACKETSIZE));
             }
 
             Assert.True(connection.login("TestUser", "TestPass"));
@@ -78,17 +78,17 @@ namespace CaesuraTest
         {
             using (mocks.Record())
             {
-                mockSocket.send(iSocket.aSocket.stringToBytes("RequestFile TestClientRequestFileSuccess", Server.Server.maxBytes));
+                mockSocket.send(iSocket.aSocket.stringToBytes("RequestFile TestClientRequestFileSuccess", iSocket.constants.MAXPACKETSIZE));
                 LastCall.On(mockSocket).Repeat.Once();
                 // File Name
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("TestClientRequestFileSuccess", Server.Server.maxBytes)).Repeat.Once();
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("TestClientRequestFileSuccess", iSocket.constants.MAXPACKETSIZE)).Repeat.Once();
                 // Number of transfers (1)
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("1", Server.Server.maxBytes)).Repeat.Once();
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("1", iSocket.constants.MAXPACKETSIZE)).Repeat.Once();
                 // Length of a transfer
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("24", Server.Server.maxBytes)).Repeat.Once();
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("24", iSocket.constants.MAXPACKETSIZE)).Repeat.Once();
                 // Transfer
                 mockSocket.receive(24);
                 LastCall.Return(iSocket.aSocket.stringToBytes("This here is a text file")).Repeat.Once();
@@ -104,11 +104,11 @@ namespace CaesuraTest
         {
             using (mocks.Record())
             {
-                mockSocket.send(iSocket.aSocket.stringToBytes("RequestFile TestClientRequestFileSuccess", Server.Server.maxBytes));
+                mockSocket.send(iSocket.aSocket.stringToBytes("RequestFile TestClientRequestFileSuccess", iSocket.constants.MAXPACKETSIZE));
                 LastCall.On(mockSocket).Repeat.Once();
                 // File Name
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("Access Denied", Server.Server.maxBytes)).Repeat.Once();
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("Access Denied", iSocket.constants.MAXPACKETSIZE)).Repeat.Once();
             }
 
            // Assert.IsFalse(connection.requestFile("TestClientRequestFileSuccess"));

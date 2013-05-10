@@ -78,17 +78,17 @@ namespace CaesuraTest
                 mockSocket.send(iSocket.aSocket.stringToBytes("RequestFile generic.txt"));
 
                 // File Name
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("generic.txt", Server.Server.maxBytes)).Repeat.Once();
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("generic.txt", iSocket.constants.MAXPACKETSIZE)).Repeat.Once();
                 // Number of transfers (1)
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("1", Server.Server.maxBytes)).Repeat.Once();
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("1", iSocket.constants.MAXPACKETSIZE)).Repeat.Once();
                 // Length of a transfer
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("18", Server.Server.maxBytes)).Repeat.Once();
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("18", iSocket.constants.MAXPACKETSIZE)).Repeat.Once();
                 // Transfer
-                mockSocket.receive(Server.Server.maxBytes);
-                LastCall.Return(iSocket.aSocket.stringToBytes("This here is a text file", Server.Server.maxBytes)).Repeat.Once();
+                mockSocket.receive(iSocket.constants.MAXPACKETSIZE);
+                LastCall.Return(iSocket.aSocket.stringToBytes("This here is a text file", iSocket.constants.MAXPACKETSIZE)).Repeat.Once();
             }
 
             //Assert.IsTrue(client.requestFile("generic.txt"));

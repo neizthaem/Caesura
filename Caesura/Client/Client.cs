@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data.Linq;
 using System.Text;
-using Server;
 using System.Threading.Tasks;
 
 namespace Client
@@ -16,7 +15,6 @@ namespace Client
 
         public Client()
         {
-            Search.database = new LINQDatabase();
             connection = new Connection(this);
         }
 
@@ -62,7 +60,7 @@ namespace Client
 
 
             
-            return Search.getFilesWithTags(searcher);
+            return connection.getFilesWithTags(searcher.ToList());
             
         }
 
@@ -70,9 +68,39 @@ namespace Client
         {
             //Implement here
 
-            return Search.database.GetListOfOwnedFiles("Testuser");
+            return connection.GetListOfOwnedFiles("Testuser");
         }
 
         public string username { get; set; }
+
+        public List<string> getListOfAllTags()
+        {
+            return connection.getListOfAllTags();
+        }
+
+        public List<string> getOwnFilesWithTags(string username, string[] tags)
+        {
+            return connection.getOwnFilesWithTags(tags);
+        }
+
+        public bool AddOwnership(string username, string file)
+        {
+            return connection.addOwndership(username, file);
+        }
+
+        public bool register(string user, string pass)
+        {
+            return connection.register(user, pass);
+        }
+
+        public List<String> getFilesWithTag(List<string> tags)
+        {
+            return connection.getFilesWithTags(tags);
+        }
+
+        internal List<string> getFilesWithTagsOwnedBy(string username, string[] tags)
+        {
+            return connection.getOwnFilesWithTags(tags);
+        }
     }
 }

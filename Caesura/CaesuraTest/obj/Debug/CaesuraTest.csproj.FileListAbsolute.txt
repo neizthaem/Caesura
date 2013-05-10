@@ -77,10 +77,8 @@ C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\C
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.dll
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.dll
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Rhino.Mocks.dll
-C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.exe
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.pdb
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.pdb
-C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.pdb
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.xml
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Rhino.Mocks.xml
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\ja\Client.resources.dll
