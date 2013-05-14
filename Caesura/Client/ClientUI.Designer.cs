@@ -275,6 +275,11 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "unknown_file.png");
+            this.imageList1.Images.SetKeyName(1, "text_file.png");
+            this.imageList1.Images.SetKeyName(2, "jpeg_file.png");
+            this.imageList1.Images.SetKeyName(3, "png_file.png");
+            this.imageList1.Images.SetKeyName(4, "mp3_file.png");
+            this.imageList1.Images.SetKeyName(5, "video_file.png");
             // 
             // viewer
             // 

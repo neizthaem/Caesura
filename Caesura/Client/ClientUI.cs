@@ -123,7 +123,37 @@ namespace Client
             foreach (String f in matches)
             {
                 var newItem = new ListViewItem(f);
-                newItem.ImageIndex = 0;
+                String ext = null;
+                if (f.Length > 4) { ext = f.Substring(f.Length - 3); }
+
+                switch (ext)
+                {
+                    case "txt":
+                        newItem.ImageIndex = 1;
+                        break;
+                    case "jpg":
+                        newItem.ImageIndex = 2;
+                        break;
+                    case "png":
+                        newItem.ImageIndex = 3;
+                        break;
+                    case "mp3":
+                        newItem.ImageIndex = 4;
+                        break;
+                    case "mkv":
+                        newItem.ImageIndex = 5;
+                        break;
+                    case "mov":
+                        newItem.ImageIndex = 5;
+                        break;
+                    case "avi":
+                        newItem.ImageIndex = 5;
+                        break;
+                    default:
+                        newItem.ImageIndex = 0;
+                        break;
+                }
+
                 viewer.Items.Add(newItem);
             }
 

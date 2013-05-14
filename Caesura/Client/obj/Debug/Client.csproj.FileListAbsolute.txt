@@ -94,14 +94,8 @@ C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\Client.pdb
 C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\ja\Client.resources.dll
 C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\EntityFramework.dll
 C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\iSocket.dll
-C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\Server.exe
-C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.dll
-C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\nunit.framework.dll
 C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\iSocket.pdb
-C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\Server.pdb
 C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\EntityFramework.xml
-C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\Rhino.Mocks.xml
-C:\Users\Austin\git\Caesura\Caesura\Client\bin\Debug\nunit.framework.xml
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.strings.resources
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.strings.ja.resources
