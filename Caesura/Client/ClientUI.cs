@@ -238,5 +238,11 @@ namespace Client
             this.sendToolStripMenuItem.Text = strings.Send;
             this.toolStripMenuItem1.Text = strings.Language;
         }
+
+        private void inboxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageUI message = new MessageUI(client);
+            message.ShowDialog();
+        }
     }
 }

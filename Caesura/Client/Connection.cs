@@ -338,5 +338,73 @@ namespace Client
             bool forDebugger = "True".Equals(recv);
             return forDebugger;
         }
+         public List<Mail> checkMail()
+        {
+            //sock.send(iSocket.aSocket.stringToBytes(iSocket.constants.Requests.OwnedFiles.ToString() + ' ', iSocket.constants.MAXPACKETSIZE));
+            sock.send(iSocket.aSocket.stringToBytes("checkmail" + ' ', iSocket.constants.MAXPACKETSIZE));
+
+            // First thing back has number of transfers
+            var firstRecv = sock.receive(iSocket.constants.MAXPACKETSIZE);
+
+            // Need to split it based upond ' '
+            var splitRecv = iSocket.aSocket.bytesToMessage(firstRecv).Split(' ');
+            // First split is transfers
+
+            long numberOfMail = long.Parse(splitRecv[0]);
+
+            // If there is no mail return null
+            if (numberOfMail == 0)
+            {
+                return null;
+            }
+            // Next is the username
+            string sender = splitRecv[1];
+
+            // After that is the id
+            int id = int.Parse(splitRecv[2]);
+
+            // and finally message
+
+            string message = mergeSplit(3, splitRecv);
+
+            Mail newMail = new Mail(sender, message, id);
+            List<Mail> returnValue = new List<Mail>();
+            returnValue.Add(newMail);
+
+
+            // Then sequential transfers
+            while (returnValue.Count < numberOfMail)
+            {
+                // Listen for a new transfer
+                var recv = sock.receive(iSocket.constants.MAXPACKETSIZE);
+
+                splitRecv = iSocket.aSocket.bytesToMessage(recv).Split(' ');
+                
+                // First split is the username
+                sender = splitRecv[0];
+                // next split is the message
+                id = int.Parse(splitRecv[1]);
+                // finally id
+                message = mergeSplit(2, splitRecv);
+
+                newMail = new Mail(sender, message, id);
+                returnValue.Add(newMail);
+
+
+            }
+
+            return returnValue;
+        }
+
+         private string mergeSplit(int startIndex, string[] splitRecv)
+         {
+             String ret = "";
+             for (int i = startIndex; i < splitRecv.Length; i++)
+             {
+                 ret += splitRecv[i];
+             }
+             return ret;
+         }
     }
+
 }

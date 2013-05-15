@@ -30,5 +30,6 @@ namespace Client
         bool addOwndership(string username, string file);
 
         bool sendMessage(string toUser, string message);
+        List<Mail> checkMail();
     }
 }

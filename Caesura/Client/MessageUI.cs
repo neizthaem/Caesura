@@ -12,14 +12,20 @@ namespace Client
 {
     public partial class MessageUI : Form
     {
-        public MessageUI()
+        public Client client;
+        public MessageUI(Client client)
         {
             InitializeComponent();
+            this.client = client;
         }
 
         private void rEFRESHToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // client.checkMail
+            var temp = client.checkMail();
+            foreach (Mail m in temp)
+            {
+                addMailItem(m.id, m.username, m.message);
+            }
         }
 
         private void addMailItem(int id, String from, String message)

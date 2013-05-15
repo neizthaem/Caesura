@@ -28,9 +28,9 @@ namespace Client
             return connection.sendMessage(toUser, message);
         }
 
-        public object checkMail()
+        public List<Mail> checkMail()
         {
-            throw new NotImplementedException();
+            return connection.checkMail();
         }
 
 

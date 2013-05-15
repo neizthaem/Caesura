@@ -106,13 +106,14 @@
             // inboxToolStripMenuItem
             // 
             this.inboxToolStripMenuItem.Name = "inboxToolStripMenuItem";
-            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.inboxToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.inboxToolStripMenuItem.Text = "Inbox";
+            this.inboxToolStripMenuItem.Click += new System.EventHandler(this.inboxToolStripMenuItem_Click);
             // 
             // sendToolStripMenuItem
             // 
             this.sendToolStripMenuItem.Name = "sendToolStripMenuItem";
-            this.sendToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.sendToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sendToolStripMenuItem.Text = "Send";
             // 
             // hELPToolStripMenuItem
