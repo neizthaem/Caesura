@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using System.Globalization;
 
 namespace Client
 {
@@ -24,7 +26,10 @@ namespace Client
         public Login()
         {
             this.quit = false;
+            
             InitializeComponent();
+            this.comboBox1.SelectedIndex = 0;
+            this.Refresh();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -53,6 +58,29 @@ namespace Client
                 this.pass = textBox2.Text;
                 this.Close();
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 1)
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("ja-JP");
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+            }
+            this.refreshText();
+        }
+
+        private void refreshText()
+        {
+            this.label1.Text = strings.Username;
+            this.label2.Text = strings.Password;
+            this.button1.Text = strings.Login;
+            this.button2.Text = strings.Quit;
+            this.Text = strings.Title;
+            
         }
     }
 }

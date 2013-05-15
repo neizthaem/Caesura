@@ -225,6 +225,7 @@ namespace Client
             this.aboutToolStripMenuItem.Text = strings.About;
             this.inboxToolStripMenuItem.Text = strings.Inbox;
             this.sendToolStripMenuItem.Text = strings.Send;
+            this.toolStripMenuItem1.Text = strings.Language;
         }
     }
 }

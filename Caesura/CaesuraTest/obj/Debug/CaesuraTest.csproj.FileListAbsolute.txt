@@ -33,7 +33,6 @@ C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.dll
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\iSocket.pdb
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.pdb
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\nunit.framework.xml
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Rhino.Mocks.xml
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.csprojResolveAssemblyReference.cache
@@ -66,7 +65,6 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\C
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\obj\Debug\CaesuraTest.pdb
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.exe
-C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Server.exe
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.exe
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\ja\Client.resources.dll
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\CaesuraTest\bin\Debug\Client.exe

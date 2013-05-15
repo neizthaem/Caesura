@@ -138,8 +138,20 @@
   <data name="InboxButton" xml:space="preserve">
     <value>Open Inbox</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="Messages" xml:space="preserve">
     <value>MESSAGES</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quit</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
@@ -155,5 +167,11 @@
   </data>
   <data name="TagSearch" xml:space="preserve">
     <value>Tag Search</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Login Screen</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>
