@@ -28,5 +28,7 @@ namespace Client
         List<String> getOwnFilesWithTags(string[] tags);
 
         bool addOwndership(string username, string file);
+
+        bool sendMessage(string toUser, string message);
     }
 }
