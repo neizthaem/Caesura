@@ -30,12 +30,13 @@ namespace Client
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.state = 1;
+            
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.state = 1;
             this.username = textBox1.Text;
             this.pass = textBox2.Text;
             this.Close();
@@ -75,8 +76,17 @@ namespace Client
             this.label2.Text = strings.Password;
             this.button1.Text = strings.Login;
             this.button2.Text = strings.Quit;
+            this.button3.Text = strings.Register;
             this.Text = strings.Title;
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.state = 2;
+            this.username = textBox1.Text;
+            this.pass = textBox2.Text;
+            this.Close();
         }
     }
 }

@@ -153,6 +153,9 @@
   <data name="Quit" xml:space="preserve">
     <value>Quit</value>
   </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>

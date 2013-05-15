@@ -46,11 +46,16 @@ namespace Client
                 this.Close();
                 return true;
             }
+            
 
             try
             {
                 client = new Client();
                 client.connect();
+                if (login.state == 2)
+                {
+                    client.register(login.username, login.pass);
+                }
             }
             catch (Exception)
             {

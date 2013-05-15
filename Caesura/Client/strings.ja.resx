@@ -153,6 +153,9 @@
   <data name="Quit" xml:space="preserve">
     <value>出る</value>
   </data>
+  <data name="Register" xml:space="preserve">
+    <value>登録</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>ファイルを取得</value>
   </data>
