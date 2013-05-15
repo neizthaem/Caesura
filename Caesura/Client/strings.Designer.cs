@@ -70,6 +70,15 @@ namespace Client {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User is already Registered..
+        /// </summary>
+        internal static string alreadyRegistered {
+            get {
+                return ResourceManager.GetString("alreadyRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download.
         /// </summary>
         internal static string Download {
@@ -120,6 +129,15 @@ namespace Client {
         internal static string InboxButton {
             get {
                 return ResourceManager.GetString("InboxButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You entered an incorrect username or password. Please Try Again..
+        /// </summary>
+        internal static string incorrect {
+            get {
+                return ResourceManager.GetString("incorrect", resourceCulture);
             }
         }
         
@@ -201,6 +219,15 @@ namespace Client {
         internal static string Send {
             get {
                 return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not make a connection to server.
+        /// </summary>
+        internal static string serverTimeout {
+            get {
+                return ResourceManager.GetString("serverTimeout", resourceCulture);
             }
         }
         

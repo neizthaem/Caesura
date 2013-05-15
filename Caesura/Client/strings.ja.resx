@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>約 CAESURA</value>
   </data>
+  <data name="alreadyRegistered" xml:space="preserve">
+    <value>ユーザーは、既に登録されています。</value>
+  </data>
   <data name="Download" xml:space="preserve">
     <value>ダウンロード</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="InboxButton" xml:space="preserve">
     <value>オープン受信トレイ</value>
+  </data>
+  <data name="incorrect" xml:space="preserve">
+    <value>あなたは不正なユーザ名またはパスワードを入力しました。もう一度試してください。</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>語</value>
@@ -164,6 +170,9 @@
   </data>
   <data name="Send" xml:space="preserve">
     <value>送る</value>
+  </data>
+  <data name="serverTimeout" xml:space="preserve">
+    <value>サーバーへの接続を行いませんでした</value>
   </data>
   <data name="TagButton" xml:space="preserve">
     <value>付箋</value>

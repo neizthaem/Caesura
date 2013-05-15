@@ -54,12 +54,17 @@ namespace Client
                 client.connect();
                 if (login.state == 2)
                 {
-                    client.register(login.username, login.pass);
+                    if (!(client.register(login.username, login.pass)))
+                    {
+                        MessageBox.Show(strings.alreadyRegistered);
+                        return false;
+                    }
+
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Could not make a connection to server");
+                MessageBox.Show(strings.serverTimeout);
                 return false;
             }
 
@@ -69,7 +74,7 @@ namespace Client
                 this.connect = true;
             else
             {
-                MessageBox.Show("You entered an incorrect username or password. Please Try Again.");
+                MessageBox.Show(strings.incorrect);
                 return false;
             }
 

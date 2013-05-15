@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>About Caesura</value>
   </data>
+  <data name="alreadyRegistered" xml:space="preserve">
+    <value>User is already Registered.</value>
+  </data>
   <data name="Download" xml:space="preserve">
     <value>Download</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="InboxButton" xml:space="preserve">
     <value>Open Inbox</value>
+  </data>
+  <data name="incorrect" xml:space="preserve">
+    <value>You entered an incorrect username or password. Please Try Again.</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
@@ -164,6 +170,9 @@
   </data>
   <data name="Send" xml:space="preserve">
     <value>Send</value>
+  </data>
+  <data name="serverTimeout" xml:space="preserve">
+    <value>Could not make a connection to server</value>
   </data>
   <data name="TagButton" xml:space="preserve">
     <value>Tags</value>
