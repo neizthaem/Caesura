@@ -108,3 +108,4 @@ C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.Tags.resources
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.ClientUI.resources
 C:\Users\Carterj3-Tower\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.Login.resources
+C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.MessageUI.resources

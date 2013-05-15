@@ -62,6 +62,12 @@
       <DependentUpon>ClientUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
+    <Compile Include="MessageUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageUI.Designer.cs">
+      <DependentUpon>MessageUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tags.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MessageUI.resx">
+      <DependentUpon>MessageUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tags.resx">
       <DependentUpon>Tags.cs</DependentUpon>
     </EmbeddedResource>
