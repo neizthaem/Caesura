@@ -33,6 +33,7 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.ID});
             this.listView1.Location = new System.Drawing.Point(12, 27);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(370, 223);
@@ -70,11 +72,15 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "From";
+            this.columnHeader1.Text = "ID";
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Message";
+            this.columnHeader2.Text = "From";
+            // 
+            // ID
+            // 
+            this.ID.Text = "Message";
             // 
             // MessageUI
             // 
@@ -101,5 +107,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader ID;
     }
 }

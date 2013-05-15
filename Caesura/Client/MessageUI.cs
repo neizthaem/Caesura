@@ -22,10 +22,11 @@ namespace Client
             // client.checkMail
         }
 
-        private void addMailItem(String from, String message)
+        private void addMailItem(int id, String from, String message)
         {
             ListViewItem i = new ListViewItem();
-            i.Text = from;
+            i.Text = id.ToString();
+            i.SubItems.Add(from);
             i.SubItems.Add(message);
             listView1.Items.Add(i);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -33,7 +34,8 @@ namespace Client
 
         private void MessageUI_Load(object sender, EventArgs e)
         {
-            addMailItem("Neizthaem", "Jeff is Bad");
+            //addMailItem(0, "Neizthaem", "Jeff is Bad");
+            //addMailItem(1, "Neizthaem", "lolololol");
         }
     }
 }
