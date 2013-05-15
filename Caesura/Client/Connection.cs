@@ -31,6 +31,18 @@ namespace Client
             return forDebugger;
         }
 
+        public bool sendMessage(string toUser, string message)
+        {
+            // If packet size becomes smaller than messages this will need to change
+            sock.send(iSocket.aSocket.stringToBytes("message" + ' ' + toUser + ' ' + message));
+
+            String recv = iSocket.aSocket.bytesToMessage(sock.receive(iSocket.constants.MAXPACKETSIZE));
+
+            bool forDebugger = "True".Equals(recv);
+            return forDebugger;
+        }
+
+
         public bool requestFile(string filename, string filepath)
         {
             // sock.send(iSocket.aSocket.stringToBytes(iSocket.constants.Requests.RequestFile + ' ' + filename, iSocket.constants.MAXPACKETSIZE));

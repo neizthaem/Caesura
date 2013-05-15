@@ -32,6 +32,7 @@ namespace Client
         private void ClientUI_Load(object sender, EventArgs e)
         {
             while (loginWin() == false) { };
+            this.refreshText();
             locationsList.SetItemCheckState(1, CheckState.Checked);
         }
 
@@ -40,7 +41,7 @@ namespace Client
             Login login = new Login();
             login.ShowDialog();
 
-            if (login.quit)
+            if (login.state == 0)
             {
                 this.Close();
                 return true;

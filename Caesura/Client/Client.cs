@@ -23,6 +23,17 @@ namespace Client
             connection.connect();
         }
 
+        public bool sendMessage(string toUser, string message)
+        {
+            return connection.sendMessage(toUser, message);
+        }
+
+        public object checkMail()
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         public bool requestFile(string filename, string filepath)
         {

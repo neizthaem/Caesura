@@ -15,17 +15,13 @@ namespace Client
     public partial class Login : Form
     {
 
-        /*
-         * TODO: Exiting needs to be fixed the current method is really bad
-         * it prevents a graceful exit via using the "X" exit (top-right of window)
-         * */
 
-        public bool quit;
+        public int state;
         public string pass;
         public string username;
         public Login()
         {
-            this.quit = false;
+            this.state = 0;
             
             InitializeComponent();
             this.comboBox1.SelectedIndex = 0;
@@ -34,7 +30,7 @@ namespace Client
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.quit = true;
+            this.state = 1;
             this.Close();
         }
 
