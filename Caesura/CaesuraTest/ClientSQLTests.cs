@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Client;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -138,5 +139,54 @@ namespace CaesuraTest
         }
 
 
+
+
+        [Test]
+        public void mailTestEqual()
+        {
+            List<Mail> answers = new List<Mail>();
+            answers.Add(new Mail("Testuser", "This", 1));
+            answers.Add(new Mail("Testuser", "This is a message", 2));
+
+            List<Mail> answers2 = new List<Mail>();
+            answers2.Add(new Mail("Testuser", "This", 1));
+            answers2.Add(new Mail("Testuser", "This is a message", 2));
+
+            foreach (Mail m in answers2)
+            {
+                Assert.IsTrue(answers.Contains(m));
+            }
+        }
+
+        [Test]
+        public void sqlcheckMail()
+        {
+            sqlLogin();
+            List<Mail> answers = new List<Mail>();
+            answers.Add(new Mail("Testuser", "This", 1));
+            answers.Add(new Mail("Testuser", "This is a message", 2));
+
+            var results = client.checkMail();
+
+            foreach (Mail m in results)
+            {
+                Console.WriteLine(m.ToString());
+            }
+
+            foreach (Mail m in answers)
+            {
+                Assert.IsTrue(results.Contains(m));
+            }
+
+        }
+
+        //Smoke
+        [Test]
+        public void sqlCheckMailNoMail()
+        {
+            client.login("Zarakava", "buttman");
+            var results = client.checkMail();
+            // Its null, used locals to check
+        }
     }
 }

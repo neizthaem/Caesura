@@ -399,11 +399,13 @@ namespace Client
          private string mergeSplit(int startIndex, string[] splitRecv)
          {
              String ret = "";
+
+
              for (int i = startIndex; i < splitRecv.Length; i++)
              {
-                 ret += splitRecv[i];
+                 ret += splitRecv[i] + ' ';
              }
-             return ret;
+             return ret.Trim();
          }
     }
 
