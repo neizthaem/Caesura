@@ -244,5 +244,11 @@ namespace Client
             MessageUI message = new MessageUI(client);
             message.ShowDialog();
         }
+
+        private void sendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendForm message = new SendForm(client);
+            message.ShowDialog();
+        }
     }
 }

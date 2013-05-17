@@ -115,6 +115,7 @@
             this.sendToolStripMenuItem.Name = "sendToolStripMenuItem";
             this.sendToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sendToolStripMenuItem.Text = "Send";
+            this.sendToolStripMenuItem.Click += new System.EventHandler(this.sendToolStripMenuItem_Click);
             // 
             // hELPToolStripMenuItem
             // 
