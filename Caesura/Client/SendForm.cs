@@ -25,8 +25,15 @@ namespace Client
         {
             String to = textBox1.Text;
             String message = textBox2.Text;
-            client.sendMessage(to, message);
-            MessageBox.Show("Message sent");
+            if (client.sendMessage(to, message))
+            {
+                MessageBox.Show("Message sent");
+            }
+            else
+            {
+                MessageBox.Show("Message was not sent");
+            }
+            
             this.Close();
         }
     }

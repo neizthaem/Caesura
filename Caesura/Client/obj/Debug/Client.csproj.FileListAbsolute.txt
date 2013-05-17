@@ -106,3 +106,4 @@ C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.MessageUI.resources
 C:\Users\stewarzt\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.MessageUI.resources
 C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.MessageUI.resources
 C:\Users\Austin\git\Caesura\Caesura\Client\obj\Debug\Client.SendForm.resources
+C:\Users\Jeffrey Carter\Documents\GitHub\Caesura\Caesura\Client\obj\Debug\Client.SendForm.resources

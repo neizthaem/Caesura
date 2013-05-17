@@ -22,10 +22,14 @@ namespace Client
         private void rEFRESHToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var temp = client.checkMail();
-            foreach (Mail m in temp)
+            if (temp != null)
             {
-                addMailItem(m.id, m.username, m.message);
+                foreach (Mail m in temp)
+                {
+                    addMailItem(m.id, m.username, m.message);
+                }
             }
+           
         }
 
         private void addMailItem(int id, String from, String message)

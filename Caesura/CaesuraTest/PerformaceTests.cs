@@ -173,6 +173,18 @@ namespace CaesuraTest
 
         #endregion
 
+        #region 2013-05-17
+
+        /*
+         * users =100
+         *The filesize was 713088 bytes
+The max dl time was 10002 with a rate of 71.2945410917816 bytes/millisecond
+The min dl time was  6236 with a rate of 114.350224502886 bytes/millisecond
+The mean dl time was 9194.79 with a rate of 77.553484092622 bytes/millisecond
+The std dl time was 11598.08417757 millisecond
+
+         */
+        #endregion
         #endregion
         [Test]
         public void testSimultaniousDownloadMetric()
@@ -341,6 +353,15 @@ namespace CaesuraTest
 
         #endregion
 
+        #region 2013-5-17
+
+        /* users = 100
+         *The max login time was 329 millisecond
+The min login time was  4millisecond
+The mean login time was 20.7 millisecond
+The std login time was 358.043293471613 millisecond
+         */
+        #endregion
         [Test]
         public void testSimultaniousLoginMetric()
         {
