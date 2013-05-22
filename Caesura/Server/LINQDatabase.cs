@@ -174,7 +174,7 @@ namespace Server
             return owns.ToList<String>();
         }
 
-        public void AddOwnership(String username, String filePath)
+        public bool AddOwnership(String username, String filePath)
         {
             try
             {
@@ -183,12 +183,18 @@ namespace Server
                 owner.FilePath = filePath;
                 this.Owns.InsertOnSubmit(owner);
                 this.SubmitChanges();
+                return true;
 
             }
-            catch (Exception e)
+            catch (System.Data.SqlClient.SqlException )
             {
-                Console.WriteLine(e.ToString());
+                return true;
             }
+            catch(Exception )
+            {
+                return false;
+            }
+
 
         }
 

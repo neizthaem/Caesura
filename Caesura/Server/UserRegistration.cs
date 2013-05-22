@@ -22,7 +22,6 @@ namespace Server
 
         public static bool register(User toRegister)
         {
-            
             return database.registerUser(toRegister);
         }
 
@@ -40,7 +39,7 @@ namespace Server
                 return checker.PasswordHash.Trim().Equals(password);
             }
             return false;
-            
+
         }
     }
 }

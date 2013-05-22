@@ -54,6 +54,7 @@ namespace iSocket
             return result;
         }
 
+
         public static byte[] stringToBytes(String message, int length)
         {
             byte[] ret = new byte[length];

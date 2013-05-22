@@ -30,6 +30,7 @@ namespace Server
         {
             this.Username = username;
             this.password = password;
+            this.PasswordHash = password;
         }
 
         internal void setName(String p)

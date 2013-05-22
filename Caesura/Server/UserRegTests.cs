@@ -8,7 +8,7 @@ using Rhino.Mocks;
 using Server;
 
 namespace Server
-{ 
+{
     [TestFixture()]
     class UserRegTests
     {
@@ -101,8 +101,8 @@ namespace Server
                 // The mock will return "Whale Rider" when the call is made with 24
                 //mockDatabase.registerUser(zarakavaUse);
                 //LastCall.Return(true);
-               // mockDatabase.registerUser(null);
-               // LastCall.Return(false);
+                // mockDatabase.registerUser(null);
+                // LastCall.Return(false);
             }
 
             UserRegistration.setDatabase(mockDatabase);
@@ -123,7 +123,7 @@ namespace Server
             using (mocks.Record())
             {
 
-                
+
                 mockDatabase.getUser("Zarakava");
                 LastCall.Return(zarakavaUse);
                 mockDatabase.getUser("NULLMAN");
@@ -132,7 +132,7 @@ namespace Server
 
             UserRegistration.setDatabase(mockDatabase);
             Assert.IsTrue(UserRegistration.login("Zarakava", "Testing"));
-            
+
             Assert.IsFalse(UserRegistration.login("Zarakava", "NotTesting"));
             Assert.IsFalse(UserRegistration.login("NULLMAN", "NotTesting"));
         }

@@ -54,7 +54,8 @@ namespace Server
             this.Message = message;
         }
 
-        public Mail(User toUsername, User fromUsername, String message) : this(toUsername.Username, fromUsername.Username, message)
+        public Mail(User toUsername, User fromUsername, String message)
+            : this(toUsername.Username, fromUsername.Username, message)
         {
         }
 
